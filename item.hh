@@ -22,7 +22,7 @@ private:
     
     // --- VARIABLES DE POSICIÓ I GRÀFICS ---
     pro2::Pt pos_;
-    static const std::vector<std::vector<std::vector<int>>> sprites_;
+    static const std::vector<std::vector<int>> ball_;
 
     // --- FUNCIONS PRIVADES ---
     const std::vector<std::vector<int>>& get_current_sprite_() const;

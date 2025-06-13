@@ -5,8 +5,8 @@
 
 using namespace std;
 
-const int WIDTH = 625, HEIGHT = 335;
-const int ZOOM = 2;
+const int WIDTH = 550, HEIGHT = 330;
+const int ZOOM = 4;
 const int FPS = 48;
 
 int main() {

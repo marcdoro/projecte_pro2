@@ -7,6 +7,8 @@
 #include "platform.hh"
 #include "window.hh"
 #include "enemy.hh"
+#include "magazine.hh"
+#include "projectile.hh"
 
 class Jiren {
 private:
@@ -15,14 +17,14 @@ private:
     int jump_key_, left_key_, right_key_, down_key_;
     int current_animation_frame_ = 0;
     int animation_frame_= 0;
-    static const int walking_speed_ = 10;
-    static const int fire_animation_speed_ = 5;
+    static const int walking_speed_ = 7;
+    static const int fire_animation_speed_ = 3;
 
-    bool is_firing_ = false;
     bool grounded_ = false;
     bool looking_left_ = false;
     bool is_dead_ = false; 
     bool GOD_MODE_ = false;
+    bool is_firing_ = false;
     bool fire_flag_ = false;
     
     // --- VARIABLES DE POSICIÓ I FÍSICA ---
@@ -32,8 +34,7 @@ private:
     pro2::Pt accel_ = {0, 0};
 
     // --- VARIABLES DE JOC I GRÀFICS---
-    std::queue<bool> ammo_;
-    
+    Magazine magazine_;
     static const std::vector<std::vector<int>> jiren_default_;
     static const std::vector<std::vector<int>> walk_1_;
     static const std::vector<std::vector<int>> walk_2_;
@@ -53,6 +54,7 @@ private:
 	// --- FUNCIONS PRIVADES ---
 	void default_physics_();
     void god_mode_physics_();
+    void fire();
 
 public:
     // --- CONSTRUCTOR ---
@@ -60,26 +62,28 @@ public:
     
     // --- GETTERS ---
     pro2::Pt pos() const {return pos_;}
-    pro2::Pt get_projectile_pos() const {return {pos_.x, pos_.y - 17};}
+    pro2::Pt shoot_pos() const {return {pos_.x, pos_.y - 17};}
     pro2::Rect get_rect() const;
     pro2::Rect get_last_rect() const;
     bool is_grounded() const {return grounded_;}
     bool is_dead() const {return is_dead_;}
     bool is_looking_left() const {return looking_left_;}
-    int ammo_count() const {return ammo_.size();}
+    Magazine& get_magazine() {return magazine_;}
+    
 
     // --- SETTERS ---
     void set_y(int y) {pos_.y = y;}
     void revive() {is_dead_ = false;}
     void set_grounded(bool grounded) {grounded_ = grounded; if (grounded_) speed_.y = 0;}
     void toggle_grounded() {set_grounded(!grounded_);}
-    void add_ammo(int n);
+    void reload() {magazine_.reload(5);}
     
     // --- LÒGICA PRINCIPAL ---
-    bool fire();
     void jump();
     void update(pro2::Window& window, const std::set<Platform*>& nearby_platforms, const std::set<Enemy*>& nearby_enemies);
     void paint(pro2::Window& window) const;
+    void update_projectiles();
+    void paint_projectiles(pro2::Window& window) const;
 };
 
 #endif

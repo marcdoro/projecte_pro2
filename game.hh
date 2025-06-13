@@ -32,7 +32,6 @@ private:
     static std::list<Platform> platforms_;
     std::list<Item> items_;
     std::list<Enemy> enemies_;
-    std::list<Projectile> projectiles_;
 
 
     // OPTIMITZACIÓ ESPACIAL

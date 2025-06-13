@@ -14,7 +14,7 @@ private:
 
     // --- CAPA 1 -> PLANETES ---
     static const std::vector<std::vector<int>> planets_;
-    static constexpr float planet_factor = 0.05;
+    static constexpr float planet_factor = 0.1;
     static const std::vector<std::vector<std::vector<int>>> stars_sprites_;
 
     std::list<std::pair<pro2::Pt, int>> random_positions_;

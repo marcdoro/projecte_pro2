@@ -526,10 +526,9 @@ const vector<vector<int>> Jiren::fire_2_ = {
 
 // --- CONSTRUCTOR ---
 Jiren::Jiren(pro2::Pt pos, int jump_key, int left_key, int right_key, int down_key) 
-    : initial_pos_(pos), pos_(pos), last_pos_(pos), 
+    : initial_pos_(pos), pos_(pos), last_pos_(pos), magazine_(5),
     jump_key_(jump_key), left_key_(left_key), right_key_(right_key), down_key_(down_key)
 {   
-    add_ammo(199);
     walk_frames_.push_back(&walk_1_);
     walk_frames_.push_back(&walk_2_);
     walk_frames_.push_back(&walk_3_);
@@ -567,6 +566,20 @@ void Jiren::god_mode_physics_() {
     speed_.y = 0;
 }
 
+
+void Jiren::fire() {
+    if (magazine_.can_fire()) {
+        magazine_.shoot();
+
+        Projectile new_proj(shoot_pos(), is_looking_left());
+        magazine_.spawn_projectile(new_proj);
+        
+        is_firing_ = true;
+        animation_frame_ = 0;
+        current_animation_frame_ = 0;
+    }
+}
+
 // --- GETTERS ---
 pro2::Rect Jiren::get_rect() const {
     int height = jiren_default_.size();
@@ -586,26 +599,7 @@ pro2::Rect Jiren::get_last_rect() const {
             last_pos_.x + (width - 1) / 2, last_pos_.y };                 
 }
 
-// --- SETTERS ---
-void Jiren::add_ammo(int n) {
-    for (int i = 0; i < n; i++) {ammo_.push(true);}
-}
-
 // --- LÒGICA PRINCIPAL ---
-bool Jiren::fire() {
-    if (fire_flag_) {
-        fire_flag_ = false;
-        if (!ammo_.empty()) {
-            is_firing_ = true;
-            animation_frame_ = 0;
-            current_animation_frame_ = 0;
-            ammo_.pop();
-            return true;
-        }
-    }
-    return false;
-}
-
 void Jiren::jump() {
     if (grounded_) {
         accel_.y = -7;
@@ -616,9 +610,8 @@ void Jiren::jump() {
 
 void Jiren::update(pro2::Window& window, const std::set<Platform*>& nearby_platforms, const std::set<Enemy*>& nearby_enemies) {
     last_pos_ = pos_;
-    fire_flag_ = false;
 
-    if (window.was_key_pressed(pro2::Keys::F)) {fire_flag_ = true;}
+    if (window.was_key_pressed(pro2::Keys::F)) {fire();}
 
     if (window.was_key_pressed(pro2::Keys::G)) { 
         GOD_MODE_ = true;
@@ -712,8 +705,6 @@ void Jiren::update(pro2::Window& window, const std::set<Platform*>& nearby_platf
         
     }
 
-
-
     pro2::Rect current_rect = get_rect();
     pro2::Rect last_rect = get_last_rect();   
 
@@ -788,4 +779,15 @@ void Jiren::paint(pro2::Window& window) const {
     paint_sprite(window, top_left, current_sprite, looking_left_);
 }
 
+void Jiren::update_projectiles() {
+    for (Projectile& p : magazine_) {
+        p.update();
+    }
+    magazine_.remove_inactive();
+}
 
+void Jiren::paint_projectiles(pro2::Window& window) const {
+    for (const Projectile& p : magazine_) {
+        p.paint(window);
+    }
+}

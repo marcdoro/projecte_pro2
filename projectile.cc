@@ -49,5 +49,4 @@ void Projectile::paint(pro2::Window& window) const {
 void Projectile::update() {
     if (!is_active_) return;
     pos_.x += speed_.x;
-    // Animació
 }

@@ -2,8 +2,11 @@
 #include "utils.hh"
 using namespace std;
 
+// left_, right_, top_, bottom_;
 // PLATAFORMES DEL NIVELL ---
 std::list<Platform> Game::platforms_{
+    Platform(-200, 560, 300, 400),
+    Platform(90, 110, 230, 250),
     Platform(160, 390, 200, 220),
     Platform(430, 660, 200, 220),
     Platform(700, 910, 180, 200),
@@ -100,7 +103,7 @@ void Game::items_management(std::set<Item*>& visible_items, const pro2::Rect& ji
             item_pointer->update();
             pro2::Rect item_rect = item_pointer->get_rect();
             if (collision(jiren_rect, item_rect)) {
-                jiren_.add_ammo(5);
+                jiren_.reload();
                 aux++;
                 item_pointer->collected_set_true();
                 finder_items_.remove(item_pointer);
@@ -141,13 +144,10 @@ void Game::update_objects(pro2::Window& window) {
 
 
     jiren_.update(window, visible_platforms_, visible_enemies_);
+    jiren_.update_projectiles();
     if (jiren_.is_dead()) {
         respawn_collected_items();
         jiren_.revive();
-    }
-
-    if (jiren_.fire()) {
-        projectiles_.push_back(Projectile(jiren_.get_projectile_pos(), jiren_.is_looking_left()));
     }
 
     for (auto& e : enemies_) {
@@ -155,32 +155,27 @@ void Game::update_objects(pro2::Window& window) {
         finder_enemies_.update(&e);
     }
 
-    for (auto& p : projectiles_) {
-        p.update();
+    for (Projectile& p : jiren_.get_magazine()) {
         pro2::Rect p_rect = p.get_rect();
-        if (p_rect.right < window_rect.left - 200 or p_rect.left > window_rect.right + 200) {
-            p.deactivate();
-        }
-    }
-
-    for (auto& p : projectiles_) {
-        if (!p.is_active()) continue;
-        for (auto& e : enemies_) {
-            if (!e.is_alive()) continue;
-            if (collision(p.get_rect(), e.get_rect())) {
+        if (p.is_active()) {
+            if (p_rect.left < window_rect.left - 50 or p_rect.left > window_rect.right + 50) {
                 p.deactivate();
-                e.kill();
-                break;
+                continue;
+            }
+            for (auto& e : enemies_) {
+                if (e.is_alive() and collision(p.get_rect(), e.get_rect())) {
+                    p.deactivate(); 
+                    e.kill();      
+                    break;
+                }                
             }
         }
     }
 
-    projectiles_.remove_if([](const Projectile& p) {return !p.is_active();});
-
     items_management(visible_items_, jiren_rect);
 
     frame_counter_++;
-    hud_.update(items_collected_, get_seconds(), jiren_.ammo_count());
+    hud_.update(items_collected_, get_seconds(), jiren_.get_magazine().size());
 }
 
 void Game::update_camera(pro2::Window& window) {
@@ -224,7 +219,7 @@ void Game::paint(pro2::Window& window) {
     for (Platform* p : visible_platforms_) {p->paint(window);}
     for (Item* i : visible_items_) {i->paint(window);}
     for (Enemy* e : visible_enemies_) {e->paint(window);}
-    for (const auto& p : projectiles_) {p.paint(window);}
+    jiren_.paint_projectiles(window);
 
     hud_.paint(window);
     jiren_.paint(window);    
