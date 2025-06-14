@@ -1,6 +1,7 @@
 #ifndef GAME_HH
 #define GAME_HH
 
+#include <memory>
 #include <iostream>
 #include <list>
 #include <set>
@@ -28,7 +29,7 @@ private:
     Hud hud_;
     Background background_;
     Menu menu_;
-    static std::list<Platform> platforms_;
+    std::list<std::unique_ptr<Platform>> platforms_;
     std::list<Item> items_;
     std::list<Enemy> enemies_;
 

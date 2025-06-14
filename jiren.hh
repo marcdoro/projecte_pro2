@@ -30,6 +30,7 @@ private:
     pro2::Pt pos_, last_pos_;
     pro2::Pt speed_ = {0, 0};
     pro2::Pt accel_ = {0, 0};
+    Platform* on_platform = nullptr;
 
     // --- VARIABLES DE JOC I GRÀFICS---
     Magazine magazine_;
@@ -71,8 +72,8 @@ public:
     // --- SETTERS ---
     void set_y(int y) {pos_.y = y;}
     void revive() {is_dead_ = false;}
-    void set_grounded(bool grounded) {grounded_ = grounded; if (grounded_) speed_.y = 0;}
-    void toggle_grounded() {set_grounded(!grounded_);}
+    void set_grounded(bool grounded, Platform* p); 
+    void toggle_grounded() {grounded_ = !grounded_;}
     void reload() {magazine_.reload(5);}
     
     // --- LÒGICA PRINCIPAL ---

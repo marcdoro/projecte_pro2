@@ -568,6 +568,15 @@ pro2::Rect Jiren::get_last_rect() const {
             last_pos_.x + (width - 1) / 2, last_pos_.y };                 
 }
 
+void Jiren::set_grounded(bool grounded, Platform* p) {
+    grounded_ = grounded;
+    if (grounded) {
+        speed_.y = 0;
+        on_platform = p;
+    } 
+    else {on_platform = nullptr;}
+}
+
 // --- LÒGICA PRINCIPAL ---
 void Jiren::jump() {
     if (grounded_) {
@@ -591,6 +600,7 @@ void Jiren::update(pro2::Window& window, const std::set<Platform*>& nearby_platf
             grounded_ = false;    
             current_animation_frame_ = 0;
             animation_frame_ = 0;
+            on_platform = nullptr;
         }
     }
 
@@ -604,6 +614,12 @@ void Jiren::update(pro2::Window& window, const std::set<Platform*>& nearby_platf
     }
     if (speed_.x != 0) {
         looking_left_ = speed_.x < 0;
+    }
+
+    int platform_dx = 0;
+    if (grounded_ && on_platform != nullptr && on_platform->type() == PlatformType::MOVING) {
+        pro2::Pt platform_speed = on_platform->get_increment();
+        platform_dx = platform_speed.x;
     }
 
     if (GOD_MODE_) {
@@ -648,6 +664,8 @@ void Jiren::update(pro2::Window& window, const std::set<Platform*>& nearby_platf
         }
 
         default_physics_();
+        
+        pos_.x += platform_dx;
 
         pro2::Rect jiren_rect_for_enemy_collision = get_rect(); 
         for (Enemy* enemy_ptr : nearby_enemies) {
@@ -663,7 +681,8 @@ void Jiren::update(pro2::Window& window, const std::set<Platform*>& nearby_platf
             speed_ = {0,0};
             accel_ = {0,0};
             accel_time_ = 0;
-            grounded_ = false; 
+            grounded_ = false;
+            on_platform = nullptr;
             current_animation_frame_ = 0;
             animation_frame_ = 0;
 
@@ -671,7 +690,6 @@ void Jiren::update(pro2::Window& window, const std::set<Platform*>& nearby_platf
             int camera_new_topleft_y = initial_pos_.y - window.height() / 2;      
             window.set_camera_topleft({camera_new_topleft_x, camera_new_topleft_y});
         }
-        
     }
 
     pro2::Rect current_rect = get_rect();
@@ -679,13 +697,8 @@ void Jiren::update(pro2::Window& window, const std::set<Platform*>& nearby_platf
 
     int dx = pos_.x - last_pos_.x;
     int dy = pos_.y - last_pos_.y;
-
-    int jiren_height = jiren_default_.size(); 
-    int jiren_width = jiren_default_[0].size();
-    int sobra_esquerra = jiren_width / 2;
-    int sobra_dreta = (jiren_width - 1) / 2;
     
-    if (!GOD_MODE_) {set_grounded(false);}
+    if (!GOD_MODE_) {set_grounded(false, nullptr);}
 
     for (Platform* platform_ptr : nearby_platforms) {
         if (dy > 0) { 
@@ -694,37 +707,39 @@ void Jiren::update(pro2::Window& window, const std::set<Platform*>& nearby_platf
                     pos_.y = platform_ptr->top() -1;
                     speed_.y = 0; 
                 } else {
-                    set_grounded(true);
+                    set_grounded(true, platform_ptr);
                     set_y(platform_ptr->top());
                     accel_time_ = 0;
+                    
+                    if (platform_ptr->type() == PlatformType::FALLING) {
+                        platform_ptr->trigger();
+                    }
                 }
                 current_rect = get_rect(); 
             }
         } 
-
         else if (dy < 0) { 
             if (platform_ptr->has_crossed_floor_upwards(last_rect, current_rect)) {
                 if (GOD_MODE_) {
-                    pos_.y = platform_ptr->bot() + jiren_height + 1;
+                    pos_.y = platform_ptr->bot() + get_rect().bottom - get_rect().top + 1;
                     speed_.y = 0; 
                 } else {
                     speed_.y = 0; 
                     accel_time_ = 0; 
                 }
-                speed_.y = 0;
                 current_rect = get_rect(); 
             }
         }
 
         if (dx > 0) { 
             if (platform_ptr->is_hit_from_left_(last_rect, current_rect)) {
-                pos_.x = platform_ptr->left() - 1 - sobra_dreta; 
+                pos_.x = platform_ptr->left() - (get_rect().right - pos_.x); 
                 speed_.x = 0;
             }
         } 
         else if (dx < 0) { 
             if (platform_ptr->is_hit_from_right_(last_rect, current_rect)) {
-                pos_.x = platform_ptr->right() + 1 + sobra_esquerra; 
+                pos_.x = platform_ptr->right() + (pos_.x - get_rect().left);
                 speed_.x = 0;
             }
         }
