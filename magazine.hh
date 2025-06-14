@@ -2,10 +2,9 @@
 #define MAGAZINE_HH
 
 #include "projectile.hh" 
-#include <vector>       
 
 // Els items enllaçats representen PROJECTILS QUE JA HAN SPAWNEJAT AL JOC.
-// per això mètodes com reload només afecten al p.i current_ammo_
+// per això mètodes com reload només afecten, en aquest cas, al p.i current_ammo_
 class Magazine {
 private:
     struct Item {  

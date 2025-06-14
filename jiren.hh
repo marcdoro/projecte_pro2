@@ -3,7 +3,6 @@
 
 #include <vector>
 #include <set>
-#include <queue>
 #include "platform.hh"
 #include "window.hh"
 #include "enemy.hh"
@@ -17,7 +16,7 @@ private:
     int jump_key_, left_key_, right_key_, down_key_;
     int current_animation_frame_ = 0;
     int animation_frame_= 0;
-    static const int walking_speed_ = 7;
+    static const int walking_speed_ = 10;
     static const int fire_animation_speed_ = 3;
 
     bool grounded_ = false;

@@ -1,5 +1,7 @@
 #include "game.hh"
+#include "menu.hh"
 #include "utils.hh"
+#include "window.hh"
 using namespace std;
 
 // left_, right_, top_, bottom_;
@@ -61,8 +63,8 @@ std::list<Platform> Game::platforms_{
 
 // CONSTRUCTOR
 Game::Game(int width, int height, int fps)
-    : jiren_({width / 2, 150}, pro2::Keys::W, pro2::Keys::A, pro2::Keys::D, pro2::Keys::S),
-    background_(100, width, height), items_collected_(0), finished_(false), paused_(false), fps_(fps), frame_counter_(0),
+    : jiren_({width / 2, 150}, pro2::Keys::W, pro2::Keys::A, pro2::Keys::D, pro2::Keys::S),background_(100, width, height), 
+    items_collected_(0), finished_(false), paused_(false), fps_(fps), frame_counter_(0), menu_(),
     items_ { 
         Item({240, 200}), Item({370, 200}), Item({410, 200}), 
         Item({530, 160}), Item({710, 160}), Item({1030, 140}),
@@ -206,6 +208,12 @@ void Game::update_camera(pro2::Window& window) {
 // --- LÒGICA PRINCIPAL
 void Game::update(pro2::Window& window) {
     process_keys(window);
+    if (menu_.active()) {
+        if (window.is_key_down(pro2::Keys::Return)) {
+            menu_.switch_active();
+        }
+        return;
+    }
     if (!paused_) {
         update_objects(window);
         update_camera(window);
@@ -213,7 +221,13 @@ void Game::update(pro2::Window& window) {
 }
 
 void Game::paint(pro2::Window& window) {
+    if (menu_.active()) {
+        menu_.paint(window);
+        return;
+    }
+
     background_.paint(window);
+    
     pro2::Rect window_rect = window.camera_rect();
     
     for (Platform* p : visible_platforms_) {p->paint(window);}
@@ -222,7 +236,9 @@ void Game::paint(pro2::Window& window) {
     jiren_.paint_projectiles(window);
 
     hud_.paint(window);
-    jiren_.paint(window);    
+    jiren_.paint(window);       
+    
+
 }
 
 

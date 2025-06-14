@@ -10,10 +10,9 @@
 #include "item.hh"
 #include "enemy.hh"
 #include "finder.hh"
-#include "magazine.hh"
 #include "hud.hh"
-#include "projectile.hh"
 #include "background.hh"
+#include "menu.hh"
 
 class Game {
 private:
@@ -29,6 +28,7 @@ private:
     Jiren jiren_;
     Hud hud_;
     Background background_;
+    Menu menu_;
     static std::list<Platform> platforms_;
     std::list<Item> items_;
     std::list<Enemy> enemies_;
