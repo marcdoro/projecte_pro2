@@ -528,13 +528,13 @@ void Jiren::default_physics_() {
     pos_.y += speed_.y;
 }
 
+
 void Jiren::god_mode_physics_() {
     pos_.x += speed_.x;
     pos_.y += speed_.y;
     speed_.x = 0;
     speed_.y = 0;
 }
-
 
 void Jiren::fire() {
     if (magazine_.can_fire()) {
@@ -591,106 +591,73 @@ void Jiren::update(pro2::Window& window, const std::set<Platform*>& nearby_platf
 
     if (window.was_key_pressed(pro2::Keys::F)) {fire();}
 
-    if (window.was_key_pressed(pro2::Keys::G)) { 
-        GOD_MODE_ = true;
-        if (GOD_MODE_) { 
-            speed_ = {0, 0};      
-            accel_ = {0, 0};     
-            accel_time_ = 0;      
-            grounded_ = false;    
-            current_animation_frame_ = 0;
+    speed_.x = 0; 
+    if (window.is_key_down(left_key_)) {speed_.x = -3; } 
+    else if (window.is_key_down(right_key_)) {speed_.x = 3;}
+    if (speed_.x != 0) {looking_left_ = speed_.x < 0;}
+
+    int platform_dx = 0; int platform_dy = 0;
+    if (grounded_ and on_platform != nullptr and on_platform->type() != PlatformType::STATIC) {
+        pro2::Pt platform_increment = on_platform->get_increment();
+        platform_dx = platform_increment.x;
+        platform_dy = platform_increment.y;
+    }
+
+    if (window.is_key_down(jump_key_)) {jump();}
+
+    bool is_moving_horizontally = (speed_.x != 0);
+    if (is_firing_) {
+        animation_frame_++;
+        if (animation_frame_ >= fire_animation_speed_) {
             animation_frame_ = 0;
-            on_platform = nullptr;
+            current_animation_frame_++;
+            if (current_animation_frame_ >= fire_frames_.size()) {
+                is_firing_ = false; 
+                current_animation_frame_ = 0; 
+            }
         }
     }
-
-    if (window.was_key_pressed(pro2::Keys::N)) {GOD_MODE_ = false;}
-
-    speed_.x = 0; 
-    if (window.is_key_down(left_key_)) {
-        speed_.x = -3; 
-    } else if (window.is_key_down(right_key_)) {
-        speed_.x = 3;
-    }
-    if (speed_.x != 0) {
-        looking_left_ = speed_.x < 0;
-    }
-
-    int platform_dx = 0;
-    if (grounded_ && on_platform != nullptr && on_platform->type() == PlatformType::MOVING) {
-        pro2::Pt platform_speed = on_platform->get_increment();
-        platform_dx = platform_speed.x;
-    }
-
-    if (GOD_MODE_) {
-        speed_.y = 0; 
-        if (window.is_key_down(jump_key_)) {speed_.y = -3;
-        } 
-        else if (window.is_key_down(down_key_)) {speed_.y = 3;}
-        
-        god_mode_physics_(); 
-        
-        is_dead_ = false;  
-        grounded_ = false;
+    else if (is_moving_horizontally and grounded_) {
         animation_frame_++;
-        if (animation_frame_ >= 14) { 
+        if (animation_frame_ >= walking_speed_) { 
             animation_frame_ = 0;
-            current_animation_frame_ = (current_animation_frame_ + 1) % god_frames_.size();
+            current_animation_frame_ = (current_animation_frame_ + 1) % walk_frames_.size();
         }
     } 
     else {
-        if (window.is_key_down(jump_key_)) {jump();}
-        bool is_moving_horizontally = (speed_.x != 0);
-        if (is_firing_) {
-            animation_frame_++;
-            if (animation_frame_ >= fire_animation_speed_) {
-                animation_frame_ = 0;
-                current_animation_frame_++;
-                if (current_animation_frame_ >= fire_frames_.size()) {
-                    is_firing_ = false; 
-                    current_animation_frame_ = 0; 
-                }
-            }
-        }
-        else if (is_moving_horizontally and grounded_) {
-            animation_frame_++;
-            if (animation_frame_ >= walking_speed_) { 
-                animation_frame_ = 0;
-                current_animation_frame_ = (current_animation_frame_ + 1) % walk_frames_.size();
-            }
-        } else {
-            current_animation_frame_ = 0; 
-            animation_frame_ = 0;
-        }
+        current_animation_frame_ = 0; 
+        animation_frame_ = 0;
+    }
 
-        default_physics_();
-        
-        pos_.x += platform_dx;
+    default_physics_();
+    
+    pos_.x += platform_dx;
+    pos_.y += platform_dy;
 
-        pro2::Rect jiren_rect_for_enemy_collision = get_rect(); 
-        for (Enemy* enemy_ptr : nearby_enemies) {
-            if (enemy_ptr->is_alive() and collision(enemy_ptr->get_rect(), jiren_rect_for_enemy_collision)) {
-                is_dead_ = true;
-                break; 
-            }
-        }
-        if (pos_.y > 600) {is_dead_ = true;}
-
-        if (is_dead_) { 
-            pos_ = initial_pos_;
-            speed_ = {0,0};
-            accel_ = {0,0};
-            accel_time_ = 0;
-            grounded_ = false;
-            on_platform = nullptr;
-            current_animation_frame_ = 0;
-            animation_frame_ = 0;
-
-            int camera_new_topleft_x = initial_pos_.x - window.width() / 2;
-            int camera_new_topleft_y = initial_pos_.y - window.height() / 2;      
-            window.set_camera_topleft({camera_new_topleft_x, camera_new_topleft_y});
+    pro2::Rect jiren_rect = get_rect(); 
+    for (Enemy* enemy_ptr : nearby_enemies) {
+        if (enemy_ptr->is_alive() and collision(enemy_ptr->get_rect(), jiren_rect)) {
+            is_dead_ = true;
+            break; 
         }
     }
+    //if (pos_.y > 600) {is_dead_ = true;}
+
+    if (is_dead_) { 
+        pos_ = initial_pos_;
+        speed_ = {0,0};
+        accel_ = {0,0};
+        accel_time_ = 0;
+        grounded_ = false;
+        on_platform = nullptr;
+        current_animation_frame_ = 0;
+        animation_frame_ = 0;
+
+        int camera_new_topleft_x = initial_pos_.x - window.width() / 2;
+        int camera_new_topleft_y = initial_pos_.y - window.height() / 2;      
+        window.set_camera_topleft({camera_new_topleft_x, camera_new_topleft_y});
+    }
+
 
     pro2::Rect current_rect = get_rect();
     pro2::Rect last_rect = get_last_rect();   
@@ -698,36 +665,23 @@ void Jiren::update(pro2::Window& window, const std::set<Platform*>& nearby_platf
     int dx = pos_.x - last_pos_.x;
     int dy = pos_.y - last_pos_.y;
     
-    if (!GOD_MODE_) {set_grounded(false, nullptr);}
+    set_grounded(false, nullptr);
 
     for (Platform* platform_ptr : nearby_platforms) {
         if (dy > 0) { 
-            if (platform_ptr->has_crossed_floor_downwards(last_rect, current_rect)) {
-                if (GOD_MODE_) {
-                    pos_.y = platform_ptr->top() -1;
-                    speed_.y = 0; 
-                } else {
-                    set_grounded(true, platform_ptr);
-                    set_y(platform_ptr->top());
-                    accel_time_ = 0;
-                    
-                    if (platform_ptr->type() == PlatformType::FALLING) {
-                        platform_ptr->trigger();
-                    }
-                }
-                current_rect = get_rect(); 
+            if (platform_ptr->has_crossed_floor_downwards(last_rect, current_rect)) {  
+                if (platform_ptr->type() == PlatformType::FALLING) {platform_ptr->trigger();}             
+                set_grounded(true, platform_ptr);
+                set_y(platform_ptr->top());
+                accel_time_ = 0;
+                
+
             }
         } 
         else if (dy < 0) { 
             if (platform_ptr->has_crossed_floor_upwards(last_rect, current_rect)) {
-                if (GOD_MODE_) {
-                    pos_.y = platform_ptr->bot() + get_rect().bottom - get_rect().top + 1;
-                    speed_.y = 0; 
-                } else {
-                    speed_.y = 0; 
-                    accel_time_ = 0; 
-                }
-                current_rect = get_rect(); 
+                speed_.y = 0; 
+                accel_time_ = 0; 
             }
         }
 
@@ -749,8 +703,8 @@ void Jiren::update(pro2::Window& window, const std::set<Platform*>& nearby_platf
 void Jiren::paint(pro2::Window& window) const {
     const vector<vector<int>>* sprite_to_draw;
     bool is_moving_horizontally = (speed_.x != 0);
-    if (GOD_MODE_) {sprite_to_draw = god_frames_[current_animation_frame_];}
-    else if (is_firing_) {sprite_to_draw = fire_frames_[current_animation_frame_];}
+    //if (GOD_MODE_) {sprite_to_draw = god_frames_[current_animation_frame_];}
+    if (is_firing_) {sprite_to_draw = fire_frames_[current_animation_frame_];}
     else if (!grounded_) {sprite_to_draw =  &jiren_jump_;}
     else if (is_moving_horizontally and grounded_) {sprite_to_draw = walk_frames_[current_animation_frame_];}
     else {sprite_to_draw = &jiren_default_;}

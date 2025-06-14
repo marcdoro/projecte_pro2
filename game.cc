@@ -14,27 +14,25 @@ Game::Game(int width, int height, int fps)
         Item({530, 160}), Item({710, 160}), Item({1030, 140}),
     }
 {       
-    platforms_.clear(); 
-    platforms_.push_back(make_unique<StaticPlatform>(-200, 560, 380, 400));
-    platforms_.push_back(make_unique<StaticPlatform>(90, 110, 230, 250));
-    platforms_.push_back(make_unique<StaticPlatform>(160, 390, 200, 220));
-    platforms_.push_back(make_unique<FallingPlatform>(430, 660, 200, 220));
-    platforms_.push_back(make_unique<MovingPlatform>(700, 850, 180, 200, MovingPlatform::Axis::X, 700, 1000, 2));
-    platforms_.push_back(make_unique<FallingPlatform>(1000, 1100, 220, 240));
-    platforms_.push_back(make_unique<MovingPlatform>(1150, 1250, 300, 320, MovingPlatform::Axis::Y, 200, 350, 1));
+    platforms_.clear();
+    platforms_.push_back(std::make_unique<StaticPlatform>(100, 700, 360, 400));
+    platforms_.push_back(std::make_unique<MovingPlatform>(100, 200, 300, 320, MovingPlatform::Axis::Y, 0, 500, 1));
+    platforms_.push_back(std::make_unique<MovingPlatform>(350, 500, 330, 350, MovingPlatform::Axis::X, 350, 550, 1));
+    platforms_.push_back(std::make_unique<FallingPlatform>(650, 800, 330, 350));
+    platforms_.push_back(std::make_unique<MovingPlatform>(880, 1030, 300, 320, MovingPlatform::Axis::Y, 220, 320, 1));
+    platforms_.push_back(std::make_unique<StaticPlatform>(1100, 1300, 200, 220));
 
-    print_collected_items();
+    items_ = {
+        Item({425, 290}), 
+        Item({725, 290}), 
+        Item({1200, 160}) 
+    };
 
-    bool first_platform = true;
+    enemies_.clear();
+
     for (const auto& p : platforms_) { 
         finder_platforms_.add(p.get()); 
         pro2::Rect platform_rect = p->get_rect();
-        if (!first_platform) {
-            if (p->type() != PlatformType::FALLING && rand() % 100 < 70 and (platform_rect.right - platform_rect.left) >= 50) {
-                enemies_.push_back(Enemy(platform_rect, 1));
-            }
-        }
-        first_platform = false;
     }
 
     for (Item& i : items_) {finder_items_.add(&i);}
@@ -99,7 +97,11 @@ void Game::update_objects(pro2::Window& window) {
     visible_enemies_ = finder_enemies_.query(window_rect);
     visible_items_ = finder_items_.query(window_rect);
 
-
+    for (auto& p : platforms_) {
+        p->update();
+        p->update_last_rect();
+        finder_platforms_.update(p.get());
+}
     jiren_.update(window, visible_platforms_, visible_enemies_);
     jiren_.update_projectiles();
     if (jiren_.is_dead()) {
@@ -111,8 +113,6 @@ void Game::update_objects(pro2::Window& window) {
         e.update();
         finder_enemies_.update(&e);
     }
-
-    for (auto& p : platforms_) {p.get()->update();}
 
     for (Projectile& p : jiren_.get_magazine()) {
         pro2::Rect p_rect = p.get_rect();

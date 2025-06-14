@@ -121,6 +121,7 @@ FallingPlatform::FallingPlatform(int left, int right, int top, int bottom)
     : Platform(left, right, top, bottom, PlatformType::FALLING) {}
 
 void FallingPlatform::update() {
+    last_rect_ = get_rect();
     if (falling_) {
         top_ += speed_;
         bottom_ += speed_;
@@ -135,6 +136,7 @@ MovingPlatform::MovingPlatform(int left, int right, int top, int bottom, Axis ax
     : Platform(left, right, top, bottom, PlatformType::MOVING), axis_(axis), min_(min), max_(max), speed_(speed) {}
 
 void MovingPlatform::update() {
+    last_rect_ = get_rect();
     if (axis_ == Axis::X) {
         left_ += speed_;
         right_ += speed_;

@@ -81,6 +81,7 @@ private:
 
 public:
     MovingPlatform(int left, int right, int top, int bottom, Axis axis, int min, int max, int speed);
+    MovingPlatform::Axis axis() const {return axis_;}
     virtual void update() override;
     virtual const std::vector<std::vector<int>>& get_texture() const override;
 };
