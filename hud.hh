@@ -10,9 +10,7 @@ private:
     int number_index_;
     int secs_;
     int ammo_;
-    pro2::Pt pos_;
     static const std::vector<std::vector<std::vector<int>>> numbers_;
-    std::vector<std::vector<int>> current_number;
 
 public:
     // --- CONSTRUCTOR ---

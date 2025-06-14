@@ -9,7 +9,6 @@ class Projectile {
 private:
     // --- VARIABLES D'ANIMACIÓ I ESTAT ---
     int sprite_num_ = 0;
-    static const int frame_target_ = 8;
     bool is_active_ = true;
     bool looking_left_;
 

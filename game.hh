@@ -17,7 +17,6 @@
 class Game {
 private:
     // --- VARIABLES D'ESTAT ---
-    static const int clock_;
     const int fps_;
     int frame_counter_;
     int items_collected_;
@@ -61,10 +60,6 @@ public:
     
     // --- GETTER ---
     bool is_finished() const {return finished_;}
-
-private:
-    // --- COLOR FONS ---
-    static constexpr int sky_blue = 0x11219c;
 };
 
 #endif

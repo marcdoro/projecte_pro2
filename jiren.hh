@@ -24,7 +24,6 @@ private:
     bool is_dead_ = false; 
     bool GOD_MODE_ = false;
     bool is_firing_ = false;
-    bool fire_flag_ = false;
     
     // --- VARIABLES DE POSICIÓ I FÍSICA ---
     const pro2::Pt initial_pos_;
@@ -40,7 +39,6 @@ private:
     static const std::vector<std::vector<int>> walk_3_;
     static const std::vector<std::vector<int>> walk_4_;
     static const std::vector<std::vector<int>> jiren_jump_;
-    static const std::vector<std::vector<int>> jiren_land_;
     static const std::vector<std::vector<int>> god_1_;
     static const std::vector<std::vector<int>> god_2_;
     static const std::vector<std::vector<int>> god_3_;

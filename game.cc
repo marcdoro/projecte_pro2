@@ -209,11 +209,27 @@ void Game::update_camera(pro2::Window& window) {
 void Game::update(pro2::Window& window) {
     process_keys(window);
     if (menu_.active()) {
-        if (window.is_key_down(pro2::Keys::Return)) {
-            menu_.switch_active();
+        if (!window.is_key_down(pro2::Keys::Up) and !window.is_key_down(pro2::Keys::Down)) {
+            menu_.unlock_menu();
+        }
+        if (menu_.unlocked()) {
+            if (window.is_key_down(pro2::Keys::Up) or window.is_key_down(pro2::Keys::Down)) {
+                menu_.toggle_option();
+                menu_.lock_menu();
+            }
+        }
+        if (window.was_key_pressed(pro2::Keys::Return)) {
+            Menu::MenuOptions selected = menu_.selected_option();
+            if (selected == Menu::PLAY) {
+                menu_.switch_active();
+            } 
+            else if (selected == Menu::QUIT) {
+                finished_ = true;
+            }
         }
         return;
     }
+
     if (!paused_) {
         update_objects(window);
         update_camera(window);
