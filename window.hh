@@ -248,7 +248,7 @@ class Window {
      *
      * @returns Un entero que corresponde al contador de fotogramas mostrados desde que la ventana
      * se creó.
-     * 
+     *
      */
     int frame_count() const {
         return frame_count_;
@@ -276,7 +276,7 @@ class Window {
      * más típicas, incluyendo flechas, return, esc, tab, etc.
      *
      * @returns `true` cuando la tecla `code` estaba presionada al empezar el fotograma actual.
-     * 
+     *
      */
     bool is_key_down(int code) const {
         return code >= 0 && code < 128 && fenster_.keys[code];
@@ -300,7 +300,7 @@ class Window {
      * más típicas, incluyendo flechas, return, esc, tab, etc.
      *
      * @returns `true` cuando la tecla `code` estaba presionada al empezar el fotograma actual.
-     * 
+     *
      */
     bool was_key_pressed(int code) const {
         return code >= 0 && code < 128 && !last_keys_[code] && fenster_.keys[code];
@@ -317,7 +317,7 @@ class Window {
      * @param key La tecla de la que se quiere consultar el estado.
      *
      * @returns `true` si el estado de la tecla era "presionado" al entrar al fotograma actual.
-     * 
+     *
      */
     bool is_modkey_down(ModKey key) const {
         return fenster_.mod & uint8_t(key);
@@ -330,7 +330,7 @@ class Window {
      * para saber cómo opera.
      *
      * @returns `true` si el botón del ratón quedó clicado al final del fotograma actual.
-     * 
+     *
      */
     bool is_mouse_down() const {
         return bool(fenster_.mouse);

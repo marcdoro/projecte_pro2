@@ -1,5 +1,7 @@
 #include "jiren.hh"
+#include "spike.hh"
 #include "utils.hh"
+
 using namespace std;
 
 // --- SPRITES ---
@@ -271,150 +273,6 @@ const vector<vector<int>> Jiren::jiren_jump_ = {
     {_,_,_,_,_,_,_,_,_,_,_,_,_,b,e,a,b,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_},
     {_,_,_,_,_,_,_,_,_,_,_,_,_,_,b,b,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_},
 };
-const vector<vector<int>> Jiren::god_1_ = {
-    {_,_,_,_,_,_,_,_,_,_,_,_,k,k,k,k,k,k,_,_,_,_,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,_,_,_,k,k,b,b,b,b,b,b,k,_,_,_,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,_,_,k,b,b,c,d,d,d,c,b,b,k,_,_,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,_,k,b,c,c,d,d,d,d,d,d,d,b,k,_,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,k,b,c,c,c,d,d,d,d,d,d,d,c,b,k,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,k,b,c,c,c,d,d,d,d,d,d,d,d,b,k,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,k,b,c,c,c,c,d,d,d,d,d,d,d,d,d,b,k,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,k,b,c,c,c,c,d,d,d,d,d,d,d,d,d,b,k,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,k,b,e,e,c,c,d,d,d,d,d,d,d,d,d,b,k,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,k,b,c,d,c,c,c,d,d,d,c,d,d,d,d,b,k,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,k,b,b,e,d,c,e,b,b,d,d,e,d,d,c,b,k,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,k,b,b,e,d,c,e,b,b,a,d,c,d,d,b,k,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,k,b,d,c,c,c,e,b,b,c,d,d,d,b,k,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,_,k,b,b,c,c,c,d,d,d,d,d,c,b,k,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,k,b,b,b,e,c,c,d,d,d,d,d,b,k,_,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,k,b,j,g,j,f,e,c,c,d,d,c,b,b,b,k,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,k,b,j,j,g,g,e,f,e,e,b,b,b,f,j,b,k,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,k,b,j,i,g,g,g,e,f,f,f,e,e,f,j,b,k,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,k,b,i,i,g,g,i,g,g,f,f,e,e,f,j,g,b,k,_,_,_,k,k,_,_,_,_},
-    {_,k,k,k,b,i,j,g,g,j,j,i,i,g,f,e,f,e,g,i,j,b,k,_,k,b,b,k,k,_,_},
-    {k,b,b,b,b,c,j,j,j,b,i,j,g,g,g,f,f,g,i,j,i,j,b,k,b,a,b,b,k,_,_},
-    {k,b,e,a,b,a,b,c,j,b,_,b,i,j,j,i,i,f,i,j,i,i,g,g,b,b,b,c,e,b,k},
-    {k,b,a,a,a,b,b,c,b,k,k,k,b,g,i,j,j,i,j,j,g,g,j,b,c,b,a,a,c,b,k},
-    {k,b,c,a,c,c,b,c,b,k,_,_,k,b,g,i,i,i,i,i,b,j,b,c,b,c,a,a,e,b,k},
-    {k,b,c,e,e,b,b,k,_,_,_,k,b,g,g,g,i,i,g,b,b,b,c,b,e,c,e,b,k,_,_},
-    {_,k,b,b,b,k,k,_,_,_,k,b,h,h,j,j,g,i,j,b,k,k,b,b,b,b,b,k,_,_,_},
-    {_,_,k,k,k,_,_,_,_,_,k,b,h,h,h,h,g,g,h,b,k,_,k,k,k,k,k,_,_,_,_},
-    {_,_,_,_,_,_,_,_,_,_,k,b,h,h,h,h,f,h,h,b,k,_,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,_,_,k,b,h,h,f,f,h,f,h,h,b,k,_,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,_,_,k,b,h,f,e,e,f,b,h,f,b,k,_,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,_,_,k,b,f,e,e,e,e,b,h,f,f,b,k,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,_,_,k,b,f,e,e,e,e,b,h,f,f,b,k,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,_,k,b,h,h,e,e,e,e,b,h,f,f,b,k,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,_,k,b,h,h,f,e,e,f,b,h,h,f,b,k,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,_,k,b,h,h,h,f,f,b,h,h,h,h,b,k,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,k,b,f,h,h,h,h,h,b,h,h,h,f,b,k,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,k,b,f,f,h,h,h,h,b,h,h,f,f,b,k,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,k,b,f,f,f,f,f,b,b,h,f,f,h,b,k,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,k,b,f,e,e,e,e,b,b,b,h,h,h,b,k,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,k,b,b,b,e,e,b,b,b,b,b,b,b,k,_,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,k,b,c,c,b,b,b,b,b,c,c,a,b,k,_,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,k,b,c,a,a,a,b,_,b,c,a,a,b,k,_,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,k,b,c,a,a,a,b,k,k,h,c,c,b,k,_,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,k,b,c,a,a,h,k,_,_,k,h,h,k,_,_,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,_,k,h,c,c,h,k,_,_,_,k,k,_,_,_,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,_,_,k,k,k,k,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_},
-};
-const vector<vector<int>> Jiren::god_2_ = {
-    {_,_,_,_,_,_,_,_,_,_,l,l,k,k,k,k,k,k,l,l,_,_,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,_,l,l,k,k,b,b,b,b,b,b,k,l,l,_,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,l,l,k,b,b,c,d,d,d,c,b,b,k,l,l,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,l,l,k,b,c,c,d,d,d,d,d,d,d,b,k,l,l,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,l,l,k,b,c,c,c,d,d,d,d,d,d,d,c,b,k,l,l,_,_,_,_,_,_,_},
-    {_,_,_,_,_,l,l,k,b,c,c,c,d,d,d,d,d,d,d,d,b,k,l,l,_,_,_,_,_,_,_},
-    {_,_,_,_,l,l,k,b,c,c,c,c,d,d,d,d,d,d,d,d,d,b,k,l,l,_,_,_,_,_,_},
-    {_,_,_,_,l,l,k,b,c,c,c,c,d,d,d,d,d,d,d,d,d,b,k,l,l,_,_,_,_,_,_},
-    {_,_,_,_,l,l,k,b,e,e,c,c,d,d,d,d,d,d,d,d,d,b,k,l,l,_,_,_,_,_,_},
-    {_,_,_,_,l,l,k,b,c,d,c,c,c,d,d,d,c,d,d,d,d,b,k,l,l,_,_,_,_,_,_},
-    {_,_,_,_,l,l,k,b,b,e,d,c,e,b,b,d,d,e,d,d,c,b,k,l,l,_,_,_,_,_,_},
-    {_,_,_,_,l,l,k,b,b,e,d,c,e,b,b,a,d,c,d,d,b,k,l,l,_,_,_,_,_,_,_},
-    {_,_,_,_,_,l,l,k,b,d,c,c,c,e,b,b,c,d,d,d,b,k,l,l,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,l,l,k,b,b,c,c,c,d,d,d,d,d,c,b,k,l,l,_,_,_,_,_,_,_},
-    {_,_,_,_,_,l,l,k,b,b,b,e,c,c,d,d,d,d,d,b,k,l,l,_,_,_,_,_,_,_,_},
-    {_,_,_,_,l,l,k,b,j,g,j,f,e,c,c,d,d,c,b,b,b,k,l,l,_,_,_,_,_,_,_},
-    {_,_,_,l,l,k,b,j,j,g,g,e,f,e,e,b,b,b,f,j,b,k,l,_,_,_,_,_,_,_,_},
-    {_,_,_,l,l,k,b,j,i,g,g,g,e,f,f,f,e,e,f,j,b,k,l,l,l,l,l,l,_,_,_},
-    {l,l,l,l,k,b,i,i,g,g,i,g,g,f,f,e,e,f,j,g,b,k,l,l,l,k,k,l,l,_,_},
-    {l,k,k,k,b,i,j,g,g,j,j,i,i,g,f,e,f,e,g,i,j,b,k,_,k,b,b,k,k,l,_},
-    {k,b,b,b,b,c,j,j,j,b,i,j,g,g,g,f,f,g,i,j,i,j,b,k,b,a,b,b,k,l,l},
-    {k,b,e,a,b,a,b,c,j,b,_,b,i,j,j,i,i,f,i,j,i,i,g,g,b,b,b,c,e,b,k},
-    {k,b,a,a,a,b,b,c,b,k,k,k,b,g,i,j,j,i,j,j,g,g,j,b,c,b,a,a,c,b,k},
-    {k,b,c,a,c,c,b,c,b,k,l,l,k,b,g,i,i,i,i,i,b,j,b,c,b,c,a,a,e,b,k},
-    {k,b,c,e,e,b,b,k,l,l,l,k,b,g,g,g,i,i,g,b,b,b,c,b,e,c,e,b,k,l,l},
-    {k,k,b,b,b,k,k,l,l,l,k,b,h,h,j,j,g,i,j,b,k,k,b,b,b,b,b,k,l,l,_},
-    {l,l,k,k,k,l,l,l,l,l,k,b,h,h,h,h,g,g,h,b,k,l,k,k,k,k,k,l,l,_,_},
-    {_,l,l,l,l,l,l,l,l,k,b,h,h,f,f,h,f,h,h,b,k,l,l,l,l,l,l,l,l,_,_},
-    {_,_,_,_,_,_,_,l,l,k,b,h,f,e,e,f,b,h,f,b,k,l,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,l,l,k,b,f,e,e,e,e,b,h,f,f,b,k,l,l,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,l,l,k,b,f,e,e,e,e,b,h,f,f,b,k,l,l,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,l,l,k,b,h,h,e,e,e,e,b,h,f,f,b,k,l,l,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,l,l,k,b,h,h,f,e,e,f,b,h,h,f,b,k,l,l,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,l,l,k,b,h,h,h,f,f,b,h,h,h,h,b,k,l,l,_,_,_,_,_,_,_},
-    {_,_,_,_,_,l,l,k,b,f,h,h,h,h,h,b,h,h,h,f,b,k,l,l,_,_,_,_,_,_,_},
-    {_,_,_,_,_,l,l,k,b,f,f,h,h,h,h,b,h,h,f,f,b,k,l,l,_,_,_,_,_,_,_},
-    {_,_,_,_,_,l,l,k,b,f,f,f,f,f,b,b,h,f,f,h,b,k,l,l,_,_,_,_,_,_,_},
-    {_,_,_,_,_,l,l,k,b,f,e,e,e,e,b,b,b,h,h,h,b,k,l,l,_,_,_,_,_,_,_},
-    {_,_,_,_,_,l,l,k,b,b,b,e,e,b,b,b,b,b,b,b,k,l,l,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,l,l,k,b,c,c,b,b,b,b,b,c,c,a,b,k,l,l,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,l,l,k,b,c,a,a,a,b,_,b,c,a,a,b,k,l,l,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,l,l,k,b,c,a,a,a,b,k,k,h,c,c,b,k,l,l,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,l,l,k,b,c,a,a,h,k,l,l,k,h,h,k,l,l,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,l,l,k,h,c,c,h,k,l,l,l,k,k,l,l,_,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,l,l,k,k,k,k,l,l,l,l,l,l,_,_,_,_,_,_,_,_,_,_,_,_},
-};
-const vector<vector<int>> Jiren::god_3_ = {
-    {_,_,_,_,_,_,_,_,_,_,m,m,m,m,m,m,m,m,m,m,m,_,_,_,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,_,m,m,l,l,k,k,k,k,k,k,l,l,m,m,_,_,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,m,m,l,l,k,k,b,b,b,b,b,b,k,l,l,m,m,_,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,m,m,l,l,k,b,b,c,d,d,d,c,b,b,k,l,l,m,m,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,m,m,l,l,k,b,c,c,d,d,d,d,d,d,d,b,k,l,l,m,m,_,_,_,_,_,_,_,_},
-    {_,_,_,m,m,l,l,k,b,c,c,c,d,d,d,d,d,d,d,c,b,k,l,l,m,m,_,_,_,_,_,_,_},
-    {_,_,_,m,m,l,l,k,b,c,c,c,d,d,d,d,d,d,d,d,b,k,l,l,m,m,_,_,_,_,_,_,_},
-    {_,_,m,m,l,l,k,b,c,c,c,c,d,d,d,d,d,d,d,d,d,b,k,l,l,m,m,_,_,_,_,_,_},
-    {_,_,m,m,l,l,k,b,c,c,c,c,d,d,d,d,d,d,d,d,d,b,k,l,l,m,m,_,_,_,_,_,_},
-    {_,_,m,m,l,l,k,b,e,e,c,c,d,d,d,d,d,d,d,d,d,b,k,l,l,m,m,_,_,_,_,_,_},
-    {_,_,m,m,l,l,k,b,c,d,c,c,c,d,d,d,c,d,d,d,d,b,k,l,l,m,m,_,_,_,_,_,_},
-    {_,_,m,m,l,l,k,b,b,e,d,c,e,b,b,d,d,e,d,d,c,b,k,l,l,m,m,_,_,_,_,_,_},
-    {_,_,m,m,l,l,k,b,b,e,d,c,e,b,b,a,d,c,d,d,b,k,l,l,m,m,_,_,_,_,_,_,_},
-    {_,_,_,m,m,l,l,k,b,d,c,c,c,e,b,b,c,d,d,d,b,k,l,l,m,m,_,_,_,_,_,_,_},
-    {_,_,_,_,m,m,l,l,k,b,b,c,c,c,d,d,d,d,d,c,b,k,l,l,m,m,_,_,_,_,_,_,_},
-    {_,_,_,m,m,l,l,k,b,b,b,e,c,c,d,d,d,d,d,b,k,l,l,m,m,_,_,_,_,_,_,_,_},
-    {_,_,m,m,l,l,k,b,j,g,j,f,e,c,c,d,d,c,b,b,b,k,l,l,m,m,_,_,_,_,_,_,_},
-    {_,m,m,l,l,k,b,j,j,g,g,e,f,e,e,b,b,b,f,j,b,k,l,m,m,m,m,m,m,_,_,_,_},
-    {m,m,m,l,l,k,b,j,i,g,g,g,e,f,f,f,e,e,f,j,b,k,l,l,l,l,l,l,m,m,_,_,_},
-    {m,m,l,l,l,l,k,b,i,i,g,g,i,g,g,f,f,e,e,f,j,g,b,k,l,l,l,k,k,l,l,m,m},
-    {m,k,k,k,k,b,i,j,g,g,j,j,i,i,g,f,e,f,e,g,i,j,b,k,_,k,b,b,k,k,l,m,m},
-    {m,k,b,b,b,b,c,j,j,j,b,i,j,g,g,g,f,f,g,i,j,i,j,b,k,b,a,b,b,k,l,l,m},
-    {m,k,b,e,a,b,a,b,c,j,b,_,b,i,j,j,i,i,f,i,j,i,i,g,g,b,b,b,c,e,b,k,m},
-    {m,k,b,a,a,a,b,b,c,b,k,k,k,b,g,i,j,j,i,j,j,g,g,j,b,c,b,a,a,c,b,k,m},
-    {m,k,b,c,a,c,c,b,c,b,k,l,l,k,b,g,i,i,i,i,i,b,j,b,c,b,c,a,a,e,b,k,m},
-    {m,k,b,c,e,e,b,b,k,l,l,l,k,b,g,g,g,i,i,g,b,b,b,c,b,e,c,e,b,k,l,l,m},
-    {m,k,k,b,b,b,k,k,l,l,l,k,b,h,h,j,j,g,i,j,b,k,k,b,b,b,b,b,k,l,l,m,m},
-    {m,l,l,k,k,k,l,l,l,l,l,k,b,h,h,h,h,g,g,h,b,k,l,k,k,k,k,k,l,l,m,m,_},
-    {m,m,l,l,l,l,l,l,l,l,k,b,h,h,f,f,h,f,h,h,b,k,l,l,l,l,l,l,l,l,m,m,_},
-    {m,m,m,m,m,m,m,l,l,k,b,h,f,e,e,f,b,h,f,b,k,l,m,m,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,m,m,l,l,k,b,f,e,e,e,e,b,h,f,f,b,k,l,l,m,m,_,_,_,_,_,_,_},
-    {_,_,_,_,_,m,m,l,l,k,b,f,e,e,e,e,b,h,f,f,b,k,l,l,m,m,_,_,_,_,_,_,_},
-    {_,_,_,_,m,m,l,l,k,b,h,h,e,e,e,e,b,h,f,f,b,k,l,l,m,m,_,_,_,_,_,_,_},
-    {_,_,_,_,m,m,l,l,k,b,h,h,f,e,e,f,b,h,h,f,b,k,l,l,m,m,_,_,_,_,_,_,_},
-    {_,_,_,_,m,m,l,l,k,b,h,h,h,f,f,b,h,h,h,h,b,k,l,l,m,m,_,_,_,_,_,_,_},
-    {_,_,_,m,m,l,l,k,b,f,h,h,h,h,h,b,h,h,h,f,b,k,l,l,m,m,_,_,_,_,_,_,_},
-    {_,_,_,m,m,l,l,k,b,f,f,h,h,h,h,b,h,h,f,f,b,k,l,l,m,m,_,_,_,_,_,_,_},
-    {_,_,_,m,m,l,l,k,b,f,f,f,f,f,b,b,h,f,f,h,b,k,l,l,m,m,_,_,_,_,_,_,_},
-    {_,_,_,m,m,l,l,k,b,f,e,e,e,e,b,b,b,h,h,h,b,k,l,l,m,m,_,_,_,_,_,_,_},
-    {_,_,_,m,m,l,l,k,b,b,b,e,e,b,b,b,b,b,b,b,k,l,l,m,m,_,_,_,_,_,_,_,_},
-    {_,_,_,m,m,l,l,k,b,c,c,b,b,b,b,b,c,c,a,b,k,l,l,m,m,_,_,_,_,_,_,_,_},
-    {_,_,_,m,m,l,l,k,b,c,a,a,a,b,k,b,c,a,a,b,k,l,l,m,m,_,_,_,_,_,_,_,_},
-    {_,_,_,m,m,l,l,k,b,c,a,a,a,b,k,k,h,c,c,b,k,l,l,m,m,_,_,_,_,_,_,_,_},
-    {_,_,_,_,m,m,l,l,k,b,c,a,a,h,k,l,l,k,h,h,k,l,l,m,m,_,_,_,_,_,_,_,_},
-    {_,_,_,_,m,m,l,l,k,h,c,c,h,k,l,l,l,k,k,l,l,m,m,_,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,m,m,l,l,k,k,k,k,l,l,l,l,l,l,m,m,_,_,_,_,_,_,_,_,_,_,_,_},
-    {_,_,_,_,_,_,_,m,m,m,m,m,m,m,m,m,m,m,m,m,m,_,_,_,_,_,_,_,_,_,_,_,_},
-};
 const vector<vector<int>> Jiren::fire_1_ = {
     {_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,b,b,b,b,b,b,_,_,_,_,_,_,_,_,_,_,_,_,_},
     {_,_,_,_,_,_,_,_,_,_,_,_,_,b,b,c,e,e,d,d,e,b,b,_,_,_,_,_,_,_,_,_,_,_},
@@ -494,21 +352,278 @@ const vector<vector<int>> Jiren::fire_2_ = {
 // --- IMPLEMENTACIONS ---
 
 // --- CONSTRUCTOR ---
-Jiren::Jiren(pro2::Pt pos, int jump_key, int left_key, int right_key, int down_key) 
-    : initial_pos_(pos), pos_(pos), last_pos_(pos), magazine_(5),
-    jump_key_(jump_key), left_key_(left_key), right_key_(right_key), down_key_(down_key)
-{   
+Jiren::Jiren(pro2::Pt pos, int jump_key, int left_key, int right_key, int down_key)
+    : initial_pos_(pos),
+      pos_(pos),
+      last_pos_(pos),
+      magazine_(3),
+      current_animation_frame_(0),
+      jump_key_(jump_key),
+      left_key_(left_key),
+      right_key_(right_key),
+      down_key_(down_key),
+      animation_frame_(0) {
     walk_frames_.push_back(&walk_1_);
     walk_frames_.push_back(&walk_2_);
     walk_frames_.push_back(&walk_3_);
     walk_frames_.push_back(&walk_4_);
 
-    god_frames_.push_back(&god_1_);
-    god_frames_.push_back(&god_2_);
-    god_frames_.push_back(&god_3_);
-
     fire_frames_.push_back(&fire_1_);
     fire_frames_.push_back(&fire_2_);
+}
+
+// --- GETTERS ---
+pro2::Pt Jiren::pos() const {
+    return pos_;
+}
+
+pro2::Pt Jiren::shoot_pos() const {
+    return {pos_.x, pos_.y - 17};
+}
+
+pro2::Rect Jiren::get_rect() const {
+    int height = jiren_default_.size();
+    int width = jiren_default_[0].size();
+    int half_width = width / 2;
+    return {pos_.x - half_width, pos_.y - (height - 1), pos_.x + (width - 1) / 2, pos_.y};
+}
+
+pro2::Rect Jiren::get_last_rect() const {
+    int height = jiren_default_.size();
+    int width = jiren_default_[0].size();
+    int half_width = width / 2;
+    return {last_pos_.x - half_width, last_pos_.y - (height - 1), last_pos_.x + (width - 1) / 2,
+            last_pos_.y};
+}
+
+bool Jiren::is_grounded() const {
+    return grounded_;
+}
+
+bool Jiren::is_dead() const {
+    return is_dead_;
+}
+
+bool Jiren::is_looking_left() const {
+    return looking_left_;
+}
+
+Magazine& Jiren::get_magazine() {
+    return magazine_;
+}
+
+// --- SETTERS ---
+void Jiren::set_y(int y) {
+    pos_.y = y;
+}
+
+void Jiren::revive() {
+    is_dead_ = false;
+    magazine_.empty_mag();
+}
+
+void Jiren::set_grounded(bool grounded, Platform *p) {
+    grounded_ = grounded;
+    if (grounded) {
+        speed_.y = 0;
+        on_platform = p;
+    } else {
+        on_platform = nullptr;
+    }
+}
+
+void Jiren::toggle_grounded() {
+    grounded_ = !grounded_;
+}
+
+void Jiren::reload() {
+    magazine_.reload(5);
+}
+
+// --- MÈTODES PÚBLICS ---
+void Jiren::jump() {
+    if (grounded_) {
+        accel_.y = -7;
+        grounded_ = false;
+        accel_time_ = 2;
+    }
+}
+
+void Jiren::update(pro2::Window&               window,
+                   const std::set<Platform *>& nearby_platforms,
+                   const std::set<Enemy *>&    nearby_enemies,
+                   const std::set<Spike *>&    nearby_spikes) {
+    last_pos_ = pos_;
+
+    if (window.was_key_pressed(pro2::Keys::F)) {
+        fire();
+    }
+
+    speed_.x = 0;
+    if (window.is_key_down(left_key_)) {
+        speed_.x = -3;
+    } else if (window.is_key_down(right_key_)) {
+        speed_.x = 3;
+    }
+
+    if (speed_.x != 0) {
+        looking_left_ = speed_.x < 0;
+    }
+
+    if (window.is_key_down(jump_key_)) {
+        jump();
+    }
+
+    bool is_moving_horizontally = (speed_.x != 0);
+    if (is_firing_) {
+        animation_frame_++;
+        if (animation_frame_ >= fire_animation_speed_) {
+            animation_frame_ = 0;
+            current_animation_frame_++;
+            if (current_animation_frame_ >= fire_frames_.size()) {
+                is_firing_ = false;
+                current_animation_frame_ = 0;
+            }
+        }
+    } else if (is_moving_horizontally and grounded_) {
+        animation_frame_++;
+        if (animation_frame_ >= walking_speed_) {
+            animation_frame_ = 0;
+            current_animation_frame_ = (current_animation_frame_ + 1) % walk_frames_.size();
+        }
+    } else {
+        current_animation_frame_ = 0;
+        animation_frame_ = 0;
+    }
+
+    default_physics_();
+    set_grounded(false, nullptr);
+
+    pro2::Rect current_rect = get_rect();
+    pro2::Rect last_rect = get_last_rect();
+    int        dx = pos_.x - last_pos_.x;
+    int        dy = pos_.y - last_pos_.y;
+
+    for (Platform *p : nearby_platforms) {
+        if (dy > 0) {
+            if (p->has_crossed_floor_downwards(last_rect, current_rect)) {
+                if (p->type() == PlatformType::FALLING) {
+                    p->trigger();
+                }
+                set_grounded(true, p);
+                set_y(p->top());
+                accel_time_ = 0;
+                speed_.y = 0;
+            }
+        } else if (dy < 0) {
+            if (p->has_crossed_floor_upwards(last_rect, current_rect)) {
+                speed_.y = 0;
+                accel_time_ = 0;
+            }
+        }
+        if (dx > 0) {
+            if (p->is_hit_from_left_(last_rect, current_rect)) {
+                pos_.x = p->left() - (get_rect().right - pos_.x);
+                speed_.x = 0;
+            }
+        } else if (dx < 0) {
+            if (p->is_hit_from_right_(last_rect, current_rect)) {
+                pos_.x = p->right() + (pos_.x - get_rect().left);
+                speed_.x = 0;
+            }
+        }
+        if (!grounded_ and p->type() != PlatformType::STATIC) {
+            pro2::Rect r = get_rect();
+            bool       horizontally_aligned = r.right > p->left() and r.left < p->right();
+            bool       vertically_aligned = abs(r.bottom - p->top()) <= 15;
+            if (horizontally_aligned and vertically_aligned and speed_.y >= -2) {
+                set_grounded(true, p);
+                set_y(p->top());
+                accel_time_ = 0;
+                speed_.y = 0;
+            }
+        }
+    }
+
+    if (grounded_ and on_platform != nullptr and on_platform->type() != PlatformType::STATIC) {
+        pro2::Pt platform_increment = on_platform->get_increment();
+        pos_.x += platform_increment.x;
+        pos_.y += platform_increment.y;
+        pro2::Rect r = get_rect();
+        int        exces = r.bottom - on_platform->top();
+        if (exces != 0) {
+            pos_.y -= exces;
+        }
+    }
+
+    for (Enemy *enemy_ptr : nearby_enemies) {
+        if (enemy_ptr->is_alive() and collision(enemy_ptr->get_rect(), current_rect)) {
+            is_dead_ = true;
+            break;
+        }
+    }
+
+    if (!is_dead_) {
+        for (Spike *spike_ptr : nearby_spikes) {
+            if (collision(spike_ptr->get_rect(), current_rect)) {
+                is_dead_ = true;
+                break;
+            }
+        }
+    }
+
+    if (pos_.y > 1500) {
+        is_dead_ = true;
+    }
+
+    if (is_dead_) {
+        pos_ = initial_pos_;
+        speed_ = {0, 0};
+        accel_ = {0, 0};
+        accel_time_ = 0;
+        grounded_ = false;
+        on_platform = nullptr;
+        current_animation_frame_ = 0;
+        animation_frame_ = 0;
+        int camera_new_topleft_x = initial_pos_.x - window.width() / 2;
+        int camera_new_topleft_y = initial_pos_.y - window.height() / 2;
+        window.set_camera_topleft({camera_new_topleft_x, camera_new_topleft_y});
+    }
+}
+
+void Jiren::paint(pro2::Window& window) const {
+    const vector<vector<int>> *sprite_to_draw;
+    bool                       is_moving_horizontally = (speed_.x != 0);
+
+    if (is_firing_) {
+        sprite_to_draw = fire_frames_[current_animation_frame_];
+
+    } else if (!grounded_) {
+        sprite_to_draw = &jiren_jump_;
+    } else if (is_moving_horizontally and grounded_) {
+        sprite_to_draw = walk_frames_[current_animation_frame_];
+    } else {
+        sprite_to_draw = &jiren_default_;
+    }
+
+    const auto& current_sprite = *sprite_to_draw;
+    int         jiren_height = current_sprite.size();
+    int         jiren_width = current_sprite[0].size();
+    pro2::Pt    top_left = {pos_.x - (jiren_width / 2), pos_.y - jiren_height + 1};
+    paint_sprite(window, top_left, current_sprite, looking_left_);
+}
+
+void Jiren::update_projectiles() {
+    for (Projectile& p : magazine_) {
+        p.update();
+    }
+    magazine_.remove_inactive();
+}
+
+void Jiren::paint_projectiles(pro2::Window& window) const {
+    for (const Projectile& p : magazine_) {
+        p.paint(window);
+    }
 }
 
 // --- FUNCIONS PRIVADES ---
@@ -528,7 +643,6 @@ void Jiren::default_physics_() {
     pos_.y += speed_.y;
 }
 
-
 void Jiren::god_mode_physics_() {
     pos_.x += speed_.x;
     pos_.y += speed_.y;
@@ -539,193 +653,10 @@ void Jiren::god_mode_physics_() {
 void Jiren::fire() {
     if (magazine_.can_fire()) {
         magazine_.shoot();
-
         Projectile new_proj(shoot_pos(), is_looking_left());
         magazine_.spawn_projectile(new_proj);
-        
         is_firing_ = true;
         animation_frame_ = 0;
         current_animation_frame_ = 0;
-    }
-}
-
-// --- GETTERS ---
-pro2::Rect Jiren::get_rect() const {
-    int height = jiren_default_.size();
-    int width = jiren_default_[0].size();
-
-    int half_width = width / 2;
-    return {pos_.x - half_width, pos_.y - (height - 1),     
-            pos_.x + (width - 1) / 2, pos_.y };                 
-}
-
-pro2::Rect Jiren::get_last_rect() const {
-    int height = jiren_default_.size();
-    int width = jiren_default_[0].size();
-    
-    int half_width = width / 2;
-    return {last_pos_.x - half_width, last_pos_.y - (height - 1),     
-            last_pos_.x + (width - 1) / 2, last_pos_.y };                 
-}
-
-void Jiren::set_grounded(bool grounded, Platform* p) {
-    grounded_ = grounded;
-    if (grounded) {
-        speed_.y = 0;
-        on_platform = p;
-    } 
-    else {on_platform = nullptr;}
-}
-
-// --- LÒGICA PRINCIPAL ---
-void Jiren::jump() {
-    if (grounded_) {
-        accel_.y = -7;
-        grounded_ = false;
-        accel_time_ = 2;
-    }
-}
-
-void Jiren::update(pro2::Window& window, const std::set<Platform*>& nearby_platforms, const std::set<Enemy*>& nearby_enemies) {
-    last_pos_ = pos_;
-
-    if (window.was_key_pressed(pro2::Keys::F)) {fire();}
-
-    speed_.x = 0; 
-    if (window.is_key_down(left_key_)) {speed_.x = -3; } 
-    else if (window.is_key_down(right_key_)) {speed_.x = 3;}
-    if (speed_.x != 0) {looking_left_ = speed_.x < 0;}
-
-    int platform_dx = 0; int platform_dy = 0;
-    if (grounded_ and on_platform != nullptr and on_platform->type() != PlatformType::STATIC) {
-        pro2::Pt platform_increment = on_platform->get_increment();
-        platform_dx = platform_increment.x;
-        platform_dy = platform_increment.y;
-    }
-
-    if (window.is_key_down(jump_key_)) {jump();}
-
-    bool is_moving_horizontally = (speed_.x != 0);
-    if (is_firing_) {
-        animation_frame_++;
-        if (animation_frame_ >= fire_animation_speed_) {
-            animation_frame_ = 0;
-            current_animation_frame_++;
-            if (current_animation_frame_ >= fire_frames_.size()) {
-                is_firing_ = false; 
-                current_animation_frame_ = 0; 
-            }
-        }
-    }
-    else if (is_moving_horizontally and grounded_) {
-        animation_frame_++;
-        if (animation_frame_ >= walking_speed_) { 
-            animation_frame_ = 0;
-            current_animation_frame_ = (current_animation_frame_ + 1) % walk_frames_.size();
-        }
-    } 
-    else {
-        current_animation_frame_ = 0; 
-        animation_frame_ = 0;
-    }
-
-    default_physics_();
-    
-    pos_.x += platform_dx;
-    pos_.y += platform_dy;
-
-    pro2::Rect jiren_rect = get_rect(); 
-    for (Enemy* enemy_ptr : nearby_enemies) {
-        if (enemy_ptr->is_alive() and collision(enemy_ptr->get_rect(), jiren_rect)) {
-            is_dead_ = true;
-            break; 
-        }
-    }
-    //if (pos_.y > 600) {is_dead_ = true;}
-
-    if (is_dead_) { 
-        pos_ = initial_pos_;
-        speed_ = {0,0};
-        accel_ = {0,0};
-        accel_time_ = 0;
-        grounded_ = false;
-        on_platform = nullptr;
-        current_animation_frame_ = 0;
-        animation_frame_ = 0;
-
-        int camera_new_topleft_x = initial_pos_.x - window.width() / 2;
-        int camera_new_topleft_y = initial_pos_.y - window.height() / 2;      
-        window.set_camera_topleft({camera_new_topleft_x, camera_new_topleft_y});
-    }
-
-
-    pro2::Rect current_rect = get_rect();
-    pro2::Rect last_rect = get_last_rect();   
-
-    int dx = pos_.x - last_pos_.x;
-    int dy = pos_.y - last_pos_.y;
-    
-    set_grounded(false, nullptr);
-
-    for (Platform* platform_ptr : nearby_platforms) {
-        if (dy > 0) { 
-            if (platform_ptr->has_crossed_floor_downwards(last_rect, current_rect)) {  
-                if (platform_ptr->type() == PlatformType::FALLING) {platform_ptr->trigger();}             
-                set_grounded(true, platform_ptr);
-                set_y(platform_ptr->top());
-                accel_time_ = 0;
-                
-
-            }
-        } 
-        else if (dy < 0) { 
-            if (platform_ptr->has_crossed_floor_upwards(last_rect, current_rect)) {
-                speed_.y = 0; 
-                accel_time_ = 0; 
-            }
-        }
-
-        if (dx > 0) { 
-            if (platform_ptr->is_hit_from_left_(last_rect, current_rect)) {
-                pos_.x = platform_ptr->left() - (get_rect().right - pos_.x); 
-                speed_.x = 0;
-            }
-        } 
-        else if (dx < 0) { 
-            if (platform_ptr->is_hit_from_right_(last_rect, current_rect)) {
-                pos_.x = platform_ptr->right() + (pos_.x - get_rect().left);
-                speed_.x = 0;
-            }
-        }
-    }   
-}
-
-void Jiren::paint(pro2::Window& window) const {
-    const vector<vector<int>>* sprite_to_draw;
-    bool is_moving_horizontally = (speed_.x != 0);
-    //if (GOD_MODE_) {sprite_to_draw = god_frames_[current_animation_frame_];}
-    if (is_firing_) {sprite_to_draw = fire_frames_[current_animation_frame_];}
-    else if (!grounded_) {sprite_to_draw =  &jiren_jump_;}
-    else if (is_moving_horizontally and grounded_) {sprite_to_draw = walk_frames_[current_animation_frame_];}
-    else {sprite_to_draw = &jiren_default_;}
-
-    const auto& current_sprite = *sprite_to_draw;
-    int jiren_height = current_sprite.size();
-    int jiren_width = current_sprite[0].size();
-    pro2::Pt top_left = {pos_.x - (jiren_width / 2), pos_.y - jiren_height + 1};
-
-    paint_sprite(window, top_left, current_sprite, looking_left_);
-}
-
-void Jiren::update_projectiles() {
-    for (Projectile& p : magazine_) {
-        p.update();
-    }
-    magazine_.remove_inactive();
-}
-
-void Jiren::paint_projectiles(pro2::Window& window) const {
-    for (const Projectile& p : magazine_) {
-        p.paint(window);
     }
 }

@@ -1,0 +1,52 @@
+\doxysection{enemy.\+hh}
+\hypertarget{enemy_8hh_source}{}\label{enemy_8hh_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ENEMY\_HH}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ENEMY\_HH}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}geometry.hh"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}window.hh"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }Enemy\ \{}
+\DoxyCodeLine{00016\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ VARIABLES\ -\/-\/-\/}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ speed\_;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ lives\_;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ x\_min\_,\ x\_max\_;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{bool}\ looking\_left\_;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_alive\_;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{structpro2_1_1Pt}{pro2::Pt}}\ \ \ \ \ \ \ pos\_;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structpro2_1_1Pt}{pro2::Pt}}\ ini\_pos\_;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::vector<std::vector<std::vector<int>>>\ sprites\_;}
+\DoxyCodeLine{00029\ \ \ \ \ std::vector<std::vector<int>>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ current\_sprite\_;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ CONSTRUCTOR\ -\/-\/-\/}}
+\DoxyCodeLine{00033\ \ \ \ \ Enemy(\textcolor{keywordtype}{int}\ a,\ \textcolor{keywordtype}{int}\ b,\ \textcolor{keywordtype}{int}\ c,\ \textcolor{keywordtype}{int}\ speed);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ GETTERS\ -\/-\/-\/}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classEnemy_ad69ab01628c2be68c02cddb4551ed357}{lives}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classEnemy_ae8ffd9b415595a5f3b0f1d141deb1ded}{is\_alive}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{structpro2_1_1Rect}{pro2::Rect}}\ \mbox{\hyperlink{classEnemy_a069065f2653ca96dad6f7aa9136f6ce2}{get\_rect}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ SETTERS\ -\/-\/-\/}}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEnemy_ac6720477bd9416def50f0d35f2d11b70}{kill}}();}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEnemy_af493560c092afbf244f4a24c15384d06}{decrement\_lives}}();}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEnemy_a4569fda9d5a921178b28be98f55bbf4e}{revive}}();}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ MÈTODES\ PÚBLICS\ -\/-\/-\/}}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEnemy_ad55ee71b5a8c23fbd00b3c368b90cc64}{update}}();}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEnemy_a719c411c15ec46720426fdc66aee59b2}{paint}}(\mbox{\hyperlink{classpro2_1_1Window}{pro2::Window}}\&\ window)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00083\ \};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

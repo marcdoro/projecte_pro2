@@ -1,0 +1,63 @@
+\doxysection{Spike Class Reference}
+\hypertarget{classSpike}{}\label{classSpike}\index{Spike@{Spike}}
+
+
+Representa un obstacle de punxes estàtic al joc.  
+
+
+
+
+{\ttfamily \#include $<$spike.\+hh$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classSpike_a59797353ce762ea61147ced581306dcd}\label{classSpike_a59797353ce762ea61147ced581306dcd} 
+{\bfseries Spike} (\mbox{\hyperlink{structpro2_1_1Pt}{pro2\+::\+Pt}} pos)
+\item 
+\mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} \mbox{\hyperlink{classSpike_a2f25574ee82263fc95b1641e83a309ba}{get\+\_\+rect}} () const
+\begin{DoxyCompactList}\small\item\em Obté el rectangle de col·lisió de la punxa. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSpike_afadf59c81ba13f94439af394c80c53b6}{paint}} (\mbox{\hyperlink{classpro2_1_1Window}{pro2\+::\+Window}} \&window) const
+\begin{DoxyCompactList}\small\item\em Dibuixa la punxa a la pantalla. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Representa un obstacle de punxes estàtic al joc. 
+
+Aquest objecte és un perill immòbil que pot afectar el jugador si hi entra en contacte. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classSpike_a2f25574ee82263fc95b1641e83a309ba}\index{Spike@{Spike}!get\_rect@{get\_rect}}
+\index{get\_rect@{get\_rect}!Spike@{Spike}}
+\doxysubsubsection{\texorpdfstring{get\_rect()}{get\_rect()}}
+{\footnotesize\ttfamily \label{classSpike_a2f25574ee82263fc95b1641e83a309ba} 
+\mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} Spike\+::get\+\_\+rect (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Obté el rectangle de col·lisió de la punxa. 
+
+\begin{DoxyReturn}{Returns}
+Un \doxylink{structpro2_1_1Rect}{pro2\+::\+Rect} que representa la seva caixa de col·lisió. 
+\end{DoxyReturn}
+\Hypertarget{classSpike_afadf59c81ba13f94439af394c80c53b6}\index{Spike@{Spike}!paint@{paint}}
+\index{paint@{paint}!Spike@{Spike}}
+\doxysubsubsection{\texorpdfstring{paint()}{paint()}}
+{\footnotesize\ttfamily \label{classSpike_afadf59c81ba13f94439af394c80c53b6} 
+void Spike\+::paint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpro2_1_1Window}{pro2\+::\+Window}} \&}]{window}{}\end{DoxyParamCaption}) const}
+
+
+
+Dibuixa la punxa a la pantalla. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & La finestra de pro2 on es dibuixarà. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+spike.\+hh\item 
+spike.\+cc\end{DoxyCompactItemize}

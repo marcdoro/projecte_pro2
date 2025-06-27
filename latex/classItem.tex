@@ -1,0 +1,96 @@
+\doxysection{Item Class Reference}
+\hypertarget{classItem}{}\label{classItem}\index{Item@{Item}}
+
+
+Representa un objecte recol·lectable en el joc.  
+
+
+
+
+{\ttfamily \#include $<$item.\+hh$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classItem_ab97c0cfde09dd9605c89d97b4d90e045}\label{classItem_ab97c0cfde09dd9605c89d97b4d90e045} 
+{\bfseries Item} (\mbox{\hyperlink{structpro2_1_1Pt}{pro2\+::\+Pt}} pos)
+\item 
+\mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} \mbox{\hyperlink{classItem_abc3e4cbcf10b5791fe9c283a31033c74}{get\+\_\+rect}} () const
+\begin{DoxyCompactList}\small\item\em Obté el rectangle de col·lisió de l\textquotesingle{}item. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classItem_a9882cc3f6d646dfb4e47d93ca87698c1}{is\+\_\+collected}} () const
+\begin{DoxyCompactList}\small\item\em Comprova si l\textquotesingle{}item ha estat recollit. \end{DoxyCompactList}\item 
+\Hypertarget{classItem_a739803c9ddf5e1f81d42a7c562817be4}\label{classItem_a739803c9ddf5e1f81d42a7c562817be4} 
+void {\bfseries collected\+\_\+set\+\_\+true} ()
+\begin{DoxyCompactList}\small\item\em Marca l\textquotesingle{}item com a recollit. \end{DoxyCompactList}\item 
+\Hypertarget{classItem_aafb6a7305878bf227102fa035b4e760d}\label{classItem_aafb6a7305878bf227102fa035b4e760d} 
+void {\bfseries collected\+\_\+set\+\_\+false} ()
+\begin{DoxyCompactList}\small\item\em Marca l\textquotesingle{}item com a no recollit (permet reaparèixer). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classItem_a7558bf3e22b9d15609f46f0da2443d9e}{update}} ()
+\begin{DoxyCompactList}\small\item\em Actualitza l\textquotesingle{}estat de l\textquotesingle{}item. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classItem_a02c189b23fc3bfb4943734f7d6a10acd}{paint}} (\mbox{\hyperlink{classpro2_1_1Window}{pro2\+::\+Window}} \&window) const
+\begin{DoxyCompactList}\small\item\em Dibuixa l\textquotesingle{}item a la pantalla. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Representa un objecte recol·lectable en el joc. 
+
+L\textquotesingle{}item té una animació de flotació i pot ser recollit pel jugador. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classItem_abc3e4cbcf10b5791fe9c283a31033c74}\index{Item@{Item}!get\_rect@{get\_rect}}
+\index{get\_rect@{get\_rect}!Item@{Item}}
+\doxysubsubsection{\texorpdfstring{get\_rect()}{get\_rect()}}
+{\footnotesize\ttfamily \label{classItem_abc3e4cbcf10b5791fe9c283a31033c74} 
+\mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} Item\+::get\+\_\+rect (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Obté el rectangle de col·lisió de l\textquotesingle{}item. 
+
+\begin{DoxyReturn}{Returns}
+Un \doxylink{structpro2_1_1Rect}{pro2\+::\+Rect} que representa la caixa de col·lisió. Si l\textquotesingle{}item està recollit, retorna un rectangle de mida zero. 
+\end{DoxyReturn}
+\Hypertarget{classItem_a9882cc3f6d646dfb4e47d93ca87698c1}\index{Item@{Item}!is\_collected@{is\_collected}}
+\index{is\_collected@{is\_collected}!Item@{Item}}
+\doxysubsubsection{\texorpdfstring{is\_collected()}{is\_collected()}}
+{\footnotesize\ttfamily \label{classItem_a9882cc3f6d646dfb4e47d93ca87698c1} 
+bool Item\+::is\+\_\+collected (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Comprova si l\textquotesingle{}item ha estat recollit. 
+
+\begin{DoxyReturn}{Returns}
+Retorna \textquotesingle{}true\textquotesingle{} si ha estat recollit, \textquotesingle{}false\textquotesingle{} en cas contrari. 
+\end{DoxyReturn}
+\Hypertarget{classItem_a02c189b23fc3bfb4943734f7d6a10acd}\index{Item@{Item}!paint@{paint}}
+\index{paint@{paint}!Item@{Item}}
+\doxysubsubsection{\texorpdfstring{paint()}{paint()}}
+{\footnotesize\ttfamily \label{classItem_a02c189b23fc3bfb4943734f7d6a10acd} 
+void Item\+::paint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpro2_1_1Window}{pro2\+::\+Window}} \&}]{window}{}\end{DoxyParamCaption}) const}
+
+
+
+Dibuixa l\textquotesingle{}item a la pantalla. 
+
+No dibuixa res si l\textquotesingle{}item ja ha estat recollit. 
+\begin{DoxyParams}{Parameters}
+{\em window} & La finestra del joc on es dibuixarà. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classItem_a7558bf3e22b9d15609f46f0da2443d9e}\index{Item@{Item}!update@{update}}
+\index{update@{update}!Item@{Item}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classItem_a7558bf3e22b9d15609f46f0da2443d9e} 
+void Item\+::update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Actualitza l\textquotesingle{}estat de l\textquotesingle{}item. 
+
+Executa l\textquotesingle{}animació de moviment de l\textquotesingle{}item si no ha estat recollit. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+item.\+hh\item 
+item.\+cc\end{DoxyCompactItemize}

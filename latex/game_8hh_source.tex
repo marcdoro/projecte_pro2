@@ -1,0 +1,83 @@
+\doxysection{game.\+hh}
+\hypertarget{game_8hh_source}{}\label{game_8hh_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ GAME\_HH}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ GAME\_HH}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <set>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}background.hh"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}enemy.hh"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}finder.hh"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}flag.hh"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}hud.hh"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}item.hh"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}jiren.hh"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}menu.hh"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}platform.hh"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}spike.hh"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}window.hh"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }Game\ \{}
+\DoxyCodeLine{00027\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ VARIABLES\ D'ESTAT\ -\/-\/-\/}}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ fps\_;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ frame\_counter\_;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ items\_collected\_;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ finished\_;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ OBJECTES\ DEL\ JOC\ -\/-\/-\/}}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{classJiren}{Jiren}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jiren\_;}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{classHud}{Hud}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hud\_;}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{classBackground}{Background}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ background\_;}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{classMenu}{Menu}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ menu\_;}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{classFlag}{Flag}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ flag\_;}
+\DoxyCodeLine{00040\ \ \ \ \ std::list<std::unique\_ptr<Platform>>\ platforms\_;}
+\DoxyCodeLine{00041\ \ \ \ \ std::list<Item>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ items\_;}
+\DoxyCodeLine{00042\ \ \ \ \ std::list<Enemy>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ enemies\_;}
+\DoxyCodeLine{00043\ \ \ \ \ std::list<Spike>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spikes\_;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ OPTIMITZACIÓ\ ESPACIAL\ -\/-\/-\/}}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{classFinder}{Finder<Platform>}}\ \ \ \ \ finder\_platforms\_;}
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{classFinder}{Finder<Item>}}\ \ \ \ \ \ \ \ \ finder\_items\_;}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classFinder}{Finder<Enemy>}}\ \ \ \ \ \ \ \ finder\_enemies\_;}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{classFinder}{Finder<Spike>}}\ \ \ \ \ \ \ \ finder\_spikes\_;}
+\DoxyCodeLine{00050\ \ \ \ \ std::set<Platform\ *>\ visible\_platforms\_;}
+\DoxyCodeLine{00051\ \ \ \ \ std::set<Enemy\ *>\ \ \ \ visible\_enemies\_;}
+\DoxyCodeLine{00052\ \ \ \ \ std::set<Item\ *>\ \ \ \ \ visible\_items\_;}
+\DoxyCodeLine{00053\ \ \ \ \ std::set<Spike\ *>\ \ \ \ visible\_spikes\_;}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ FUNCIONS\ PRIVADES\ -\/-\/-\/}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{int}\ get\_seconds()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ process\_keys(\mbox{\hyperlink{classpro2_1_1Window}{pro2::Window}}\&\ window);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ items\_management(std::set<Item\ *>\&\ visible\_items,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structpro2_1_1Rect}{pro2::Rect}}\&\ jiren\_rect);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ respawn\_collected\_items();}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ update\_objects(\mbox{\hyperlink{classpro2_1_1Window}{pro2::Window}}\&\ window);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{void}\ update\_camera(\mbox{\hyperlink{classpro2_1_1Window}{pro2::Window}}\&\ window);}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{void}\ print\_collected\_items();}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{void}\ reset\_game();}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ CONSTRUCTOR\ -\/-\/-\/}}
+\DoxyCodeLine{00112\ \ \ \ \ Game(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keywordtype}{int}\ fps);}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ GETTER\ -\/-\/-\/}}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classGame_a48d38b110cb6558e69b1920bb31406db}{is\_finished}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ MÈTODES\ PÚBLICS\ -\/-\/-\/}}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGame_a3661c777f12e357cdc0b3727b2f73412}{update}}(\mbox{\hyperlink{classpro2_1_1Window}{pro2::Window}}\&\ window);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGame_af3e3428a12b9944fefb663f2fe560529}{paint}}(\mbox{\hyperlink{classpro2_1_1Window}{pro2::Window}}\&\ window);}
+\DoxyCodeLine{00137\ \};}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

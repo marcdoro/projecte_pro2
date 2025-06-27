@@ -1,0 +1,25 @@
+\doxysection{geometry.\+hh}
+\hypertarget{geometry_8hh_source}{}\label{geometry_8hh_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ GEOMETRY\_HH}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ GEOMETRY\_HH}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{namespace\ }pro2\ \{}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structpro2_1_1Pt}{Pt}}\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keywordtype}{int}\ x\ =\ 0,\ y\ =\ 0;}
+\DoxyCodeLine{00008\ \};}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator<(\textcolor{keyword}{const}\ \mbox{\hyperlink{structpro2_1_1Pt}{Pt}}\&\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structpro2_1_1Pt}{Pt}}\&\ b)\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordflow}{return}\ a.x\ !=\ b.x\ ?\ a.x\ <\ b.x\ :\ a.y\ <\ b.y;}
+\DoxyCodeLine{00019\ \}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structpro2_1_1Rect}{Rect}}\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ left,\ top,\ right,\ bottom;}
+\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \}\ \ \textcolor{comment}{//\ namespace\ pro2}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

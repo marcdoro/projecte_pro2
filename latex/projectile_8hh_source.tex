@@ -1,0 +1,43 @@
+\doxysection{projectile.\+hh}
+\hypertarget{projectile_8hh_source}{}\label{projectile_8hh_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PROJECTILE\_HH}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PROJECTILE\_HH}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}geometry.hh"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}window.hh"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }Projectile\ \{}
+\DoxyCodeLine{00015\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ VARIABLES\ D'ANIMACIÓ\ I\ ESTAT\ -\/-\/-\/}}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{int}\ \ sprite\_num\_;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_active\_;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{bool}\ looking\_left\_;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ VARIABLES\ DE\ POSICIÓ\ I\ GRÀFICS\ -\/-\/-\/}}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{structpro2_1_1Pt}{pro2::Pt}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pos\_;}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{structpro2_1_1Pt}{pro2::Pt}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ speed\_;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::vector<std::vector<std::vector<int>>>\ sprites\_;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ CONSTRUCTOR\ -\/-\/-\/}}
+\DoxyCodeLine{00028\ \ \ \ \ Projectile(\mbox{\hyperlink{structpro2_1_1Pt}{pro2::Pt}}\ pos,\ \textcolor{keywordtype}{bool}\ looking\_left);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ GETTERS\ -\/-\/-\/}}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{structpro2_1_1Rect}{pro2::Rect}}\ \mbox{\hyperlink{classProjectile_a8721419de730fc3d42cc48e2aade8c8a}{get\_rect}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classProjectile_a04abaa2215876d99e643f04c252ba483}{is\_active}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ SETTERS\ -\/-\/-\/}}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classProjectile_a6aa9b6ef83fedaf348a0b87b441f1394}{deactivate}}();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ MÈTODES\ PÚBLICS\ -\/-\/-\/}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classProjectile_a8b32ce7d21ec9032812b528e5cb87cc7}{update}}();}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classProjectile_ad94dc187a20aa2aff45d0167daf5cf3a}{paint}}(\mbox{\hyperlink{classpro2_1_1Window}{pro2::Window}}\&\ window)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00061\ \};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ PROJECTILE\_HH}}
+
+\end{DoxyCode}

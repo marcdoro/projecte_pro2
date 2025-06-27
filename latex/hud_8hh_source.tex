@@ -1,0 +1,32 @@
+\doxysection{hud.\+hh}
+\hypertarget{hud_8hh_source}{}\label{hud_8hh_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ HUD\_HH}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ HUD\_HH}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}window.hh"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }Hud\ \{}
+\DoxyCodeLine{00015\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ VARIABLES\ -\/-\/-\/}}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{int}\ number\_index\_;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ secs\_;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ ammo\_;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{comment}{//\ Conté\ els\ sprites\ per\ als\ números\ del\ 0\ al\ 9}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::vector<std::vector<std::vector<int>>>\ numbers\_;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ CONSTRUCTOR\ -\/-\/-\/}}
+\DoxyCodeLine{00026\ \ \ \ \ Hud();}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ MÈTODES\ PÚBLICS\ -\/-\/-\/}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classHud_a10e15cd249ef6f79a727f7d0bb6efa4f}{update}}(\textcolor{keywordtype}{int}\ n,\ \textcolor{keywordtype}{int}\ s,\ \textcolor{keywordtype}{int}\ a);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classHud_a0635d205ef6a4ff1f9df0d5cafcf8c5f}{paint}}(\mbox{\hyperlink{classpro2_1_1Window}{pro2::Window}}\&\ window);}
+\DoxyCodeLine{00044\ \};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

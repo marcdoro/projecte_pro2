@@ -1,0 +1,80 @@
+\doxysection{Game Class Reference}
+\hypertarget{classGame}{}\label{classGame}\index{Game@{Game}}
+
+
+Orquestra tots els elements i la lògica principal del joc.  
+
+
+
+
+{\ttfamily \#include $<$game.\+hh$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classGame_a7882fecb84a76bbffa1b09f0bff89c60}\label{classGame_a7882fecb84a76bbffa1b09f0bff89c60} 
+{\bfseries Game} (int width, int height, int fps)
+\item 
+bool \mbox{\hyperlink{classGame_a48d38b110cb6558e69b1920bb31406db}{is\+\_\+finished}} () const
+\begin{DoxyCompactList}\small\item\em Comprova si el joc ha finalitzat. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_a3661c777f12e357cdc0b3727b2f73412}{update}} (\mbox{\hyperlink{classpro2_1_1Window}{pro2\+::\+Window}} \&window)
+\begin{DoxyCompactList}\small\item\em Actualitza l\textquotesingle{}estat del joc per a un fotograma. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_af3e3428a12b9944fefb663f2fe560529}{paint}} (\mbox{\hyperlink{classpro2_1_1Window}{pro2\+::\+Window}} \&window)
+\begin{DoxyCompactList}\small\item\em Dibuixa tots els elements del joc a la pantalla. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Orquestra tots els elements i la lògica principal del joc. 
+
+S\textquotesingle{}encarrega del bucle principal, gestionant l\textquotesingle{}estat del joc, els objectes, les entrades de teclat, la càmera i el dibuixat. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classGame_a48d38b110cb6558e69b1920bb31406db}\index{Game@{Game}!is\_finished@{is\_finished}}
+\index{is\_finished@{is\_finished}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{is\_finished()}{is\_finished()}}
+{\footnotesize\ttfamily \label{classGame_a48d38b110cb6558e69b1920bb31406db} 
+bool Game\+::is\+\_\+finished (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Comprova si el joc ha finalitzat. 
+
+\begin{DoxyReturn}{Returns}
+Retorna \textquotesingle{}true\textquotesingle{} si el joc ha acabat, \textquotesingle{}false\textquotesingle{} en cas contrari. 
+\end{DoxyReturn}
+\Hypertarget{classGame_af3e3428a12b9944fefb663f2fe560529}\index{Game@{Game}!paint@{paint}}
+\index{paint@{paint}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{paint()}{paint()}}
+{\footnotesize\ttfamily \label{classGame_af3e3428a12b9944fefb663f2fe560529} 
+void Game\+::paint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpro2_1_1Window}{pro2\+::\+Window}} \&}]{window}{}\end{DoxyParamCaption})}
+
+
+
+Dibuixa tots els elements del joc a la pantalla. 
+
+Dibuixa el fons, plataformes, enemics, objectes, jugador i HUD, o els menús si estan actius. 
+\begin{DoxyParams}{Parameters}
+{\em window} & La finestra del joc on es dibuixarà tot. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classGame_a3661c777f12e357cdc0b3727b2f73412}\index{Game@{Game}!update@{update}}
+\index{update@{update}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classGame_a3661c777f12e357cdc0b3727b2f73412} 
+void Game\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpro2_1_1Window}{pro2\+::\+Window}} \&}]{window}{}\end{DoxyParamCaption})}
+
+
+
+Actualitza l\textquotesingle{}estat del joc per a un fotograma. 
+
+Processa les tecles, actualitza tots els objectes, la càmera i gestiona la lògica dels menús o de la partida. 
+\begin{DoxyParams}{Parameters}
+{\em window} & La finestra del joc, per accedir a l\textquotesingle{}entrada de teclat. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+game.\+hh\item 
+game.\+cc\end{DoxyCompactItemize}

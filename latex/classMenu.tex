@@ -1,0 +1,125 @@
+\doxysection{Menu Class Reference}
+\hypertarget{classMenu}{}\label{classMenu}\index{Menu@{Menu}}
+
+
+Gestiona els menús del joc, com el menú principal i la pantalla de mort.  
+
+
+
+
+{\ttfamily \#include $<$menu.\+hh$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classMenu_aa1887167ab874714128e84905ddfadf9}\label{classMenu_aa1887167ab874714128e84905ddfadf9} 
+enum \mbox{\hyperlink{classMenu_aa1887167ab874714128e84905ddfadf9}{Menu\+Options}} \{ {\bfseries PLAY}
+, {\bfseries QUIT}
+ \}
+\begin{DoxyCompactList}\small\item\em Defineix les possibles opcions seleccionables al menú. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classMenu_a95455bffad56df3748468e8e3837c91b}{active}} () const
+\begin{DoxyCompactList}\small\item\em Comprova si el menú principal està actiu. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classMenu_aa039808f6f9b2ce94ca7c9d0b53ef1d6}{unlocked}} () const
+\begin{DoxyCompactList}\small\item\em Comprova si el menú no està bloquejat (permet canviar d\textquotesingle{}opció). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMenu_aa1887167ab874714128e84905ddfadf9}{Menu\+Options}} \mbox{\hyperlink{classMenu_ad32a127577a26483ddf6f23b9389a296}{selected\+\_\+option}} () const
+\begin{DoxyCompactList}\small\item\em Obté l\textquotesingle{}opció del menú actualment seleccionada. \end{DoxyCompactList}\item 
+\Hypertarget{classMenu_a4b69d54bc012f07ffa8b5b54d03e2afd}\label{classMenu_a4b69d54bc012f07ffa8b5b54d03e2afd} 
+void {\bfseries switch\+\_\+active} ()
+\begin{DoxyCompactList}\small\item\em Activa o desactiva el menú. \end{DoxyCompactList}\item 
+\Hypertarget{classMenu_a01cdb184f5ef7eb051442f1c17efd855}\label{classMenu_a01cdb184f5ef7eb051442f1c17efd855} 
+void {\bfseries lock\+\_\+menu} ()
+\begin{DoxyCompactList}\small\item\em Bloqueja el menú per evitar canvis ràpids d\textquotesingle{}opció. \end{DoxyCompactList}\item 
+\Hypertarget{classMenu_a2e42236b79f401ecfb6f737820bebf3d}\label{classMenu_a2e42236b79f401ecfb6f737820bebf3d} 
+void {\bfseries unlock\+\_\+menu} ()
+\begin{DoxyCompactList}\small\item\em Desbloqueja el menú. \end{DoxyCompactList}\item 
+\Hypertarget{classMenu_a9cb76023af3e8ea59ef61d1f22f25df2}\label{classMenu_a9cb76023af3e8ea59ef61d1f22f25df2} 
+void {\bfseries toggle\+\_\+option} ()
+\begin{DoxyCompactList}\small\item\em Canvia entre les opcions del menú (PLAY/\+QUIT). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMenu_ac98ab15bbe74826a4d72f222263c80a6}{paint\+\_\+death}} (\mbox{\hyperlink{classpro2_1_1Window}{pro2\+::\+Window}} \&window) const
+\begin{DoxyCompactList}\small\item\em Dibuixa la pantalla de mort. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMenu_a4683151ea19dcf188cec2f739efc49f0}{paint\+\_\+menu}} (\mbox{\hyperlink{classpro2_1_1Window}{pro2\+::\+Window}} \&window) const
+\begin{DoxyCompactList}\small\item\em Dibuixa el menú principal, ressaltant l\textquotesingle{}opció seleccionada. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Gestiona els menús del joc, com el menú principal i la pantalla de mort. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMenu_a95455bffad56df3748468e8e3837c91b}\index{Menu@{Menu}!active@{active}}
+\index{active@{active}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{active()}{active()}}
+{\footnotesize\ttfamily \label{classMenu_a95455bffad56df3748468e8e3837c91b} 
+bool Menu\+::active (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Comprova si el menú principal està actiu. 
+
+\begin{DoxyReturn}{Returns}
+\textquotesingle{}true\textquotesingle{} si el menú està actiu, \textquotesingle{}false\textquotesingle{} altrament. 
+\end{DoxyReturn}
+\Hypertarget{classMenu_ac98ab15bbe74826a4d72f222263c80a6}\index{Menu@{Menu}!paint\_death@{paint\_death}}
+\index{paint\_death@{paint\_death}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{paint\_death()}{paint\_death()}}
+{\footnotesize\ttfamily \label{classMenu_ac98ab15bbe74826a4d72f222263c80a6} 
+void Menu\+::paint\+\_\+death (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpro2_1_1Window}{pro2\+::\+Window}} \&}]{window}{}\end{DoxyParamCaption}) const}
+
+
+
+Dibuixa la pantalla de mort. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & La finestra de pro2 on es dibuixarà. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classMenu_a4683151ea19dcf188cec2f739efc49f0}\index{Menu@{Menu}!paint\_menu@{paint\_menu}}
+\index{paint\_menu@{paint\_menu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{paint\_menu()}{paint\_menu()}}
+{\footnotesize\ttfamily \label{classMenu_a4683151ea19dcf188cec2f739efc49f0} 
+void Menu\+::paint\+\_\+menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpro2_1_1Window}{pro2\+::\+Window}} \&}]{window}{}\end{DoxyParamCaption}) const}
+
+
+
+Dibuixa el menú principal, ressaltant l\textquotesingle{}opció seleccionada. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & La finestra de pro2 on es dibuixarà. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classMenu_ad32a127577a26483ddf6f23b9389a296}\index{Menu@{Menu}!selected\_option@{selected\_option}}
+\index{selected\_option@{selected\_option}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{selected\_option()}{selected\_option()}}
+{\footnotesize\ttfamily \label{classMenu_ad32a127577a26483ddf6f23b9389a296} 
+\mbox{\hyperlink{classMenu_aa1887167ab874714128e84905ddfadf9}{Menu\+::\+Menu\+Options}} Menu\+::selected\+\_\+option (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Obté l\textquotesingle{}opció del menú actualment seleccionada. 
+
+\begin{DoxyReturn}{Returns}
+El valor de l\textquotesingle{}enum \doxylink{classMenu_aa1887167ab874714128e84905ddfadf9}{Menu\+Options} corresponent a l\textquotesingle{}opció seleccionada. 
+\end{DoxyReturn}
+\Hypertarget{classMenu_aa039808f6f9b2ce94ca7c9d0b53ef1d6}\index{Menu@{Menu}!unlocked@{unlocked}}
+\index{unlocked@{unlocked}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{unlocked()}{unlocked()}}
+{\footnotesize\ttfamily \label{classMenu_aa039808f6f9b2ce94ca7c9d0b53ef1d6} 
+bool Menu\+::unlocked (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Comprova si el menú no està bloquejat (permet canviar d\textquotesingle{}opció). 
+
+\begin{DoxyReturn}{Returns}
+\textquotesingle{}true\textquotesingle{} si el menú està desbloquejat. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+menu.\+hh\item 
+menu.\+cc\end{DoxyCompactItemize}

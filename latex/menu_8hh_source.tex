@@ -1,0 +1,56 @@
+\doxysection{menu.\+hh}
+\hypertarget{menu_8hh_source}{}\label{menu_8hh_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MENU\_HH}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MENU\_HH}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}window.hh"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }Menu\ \{}
+\DoxyCodeLine{00012\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ VARIABLES\ -\/-\/-\/}}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{bool}\ active\_;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{bool}\ locked\_menu;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{comment}{//\ Sprites\ per\ a\ les\ diferents\ pantalles\ del\ menú}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::vector<std::vector<int>>\ menu\_play\_;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::vector<std::vector<int>>\ menu\_quit\_;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::vector<std::vector<int>>\ death\_;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classMenu_aa1887167ab874714128e84905ddfadf9}{MenuOptions}}\ \{\ PLAY,\ QUIT\ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{//\ Estat\ intern\ de\ l'opció\ seleccionada}}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{classMenu_aa1887167ab874714128e84905ddfadf9}{MenuOptions}}\ selected\_option\_;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ CONSTRUCTOR\ -\/-\/-\/}}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{classMenu}{Menu}}();}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ GETTERS\ -\/-\/-\/}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMenu_a95455bffad56df3748468e8e3837c91b}{active}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMenu_aa039808f6f9b2ce94ca7c9d0b53ef1d6}{unlocked}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{classMenu_aa1887167ab874714128e84905ddfadf9}{MenuOptions}}\ \mbox{\hyperlink{classMenu_ad32a127577a26483ddf6f23b9389a296}{selected\_option}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ SETTERS\ /\ LÒGICA\ -\/-\/-\/}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenu_a4b69d54bc012f07ffa8b5b54d03e2afd}{switch\_active}}();}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenu_a01cdb184f5ef7eb051442f1c17efd855}{lock\_menu}}();}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenu_a2e42236b79f401ecfb6f737820bebf3d}{unlock\_menu}}();}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenu_a9cb76023af3e8ea59ef61d1f22f25df2}{toggle\_option}}();}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ PINTAR\ -\/-\/-\/}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenu_ac98ab15bbe74826a4d72f222263c80a6}{paint\_death}}(\mbox{\hyperlink{classpro2_1_1Window}{pro2::Window}}\&\ window)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenu_a4683151ea19dcf188cec2f739efc49f0}{paint\_menu}}(\mbox{\hyperlink{classpro2_1_1Window}{pro2::Window}}\&\ window)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00089\ \};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

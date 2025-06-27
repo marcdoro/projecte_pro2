@@ -1,0 +1,66 @@
+\doxysection{Hud Class Reference}
+\hypertarget{classHud}{}\label{classHud}\index{Hud@{Hud}}
+
+
+Gestiona el Heads-\/\+Up Display del joc.  
+
+
+
+
+{\ttfamily \#include $<$hud.\+hh$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classHud_a10e15cd249ef6f79a727f7d0bb6efa4f}{update}} (int n, int s, int a)
+\begin{DoxyCompactList}\small\item\em Actualitza els valors que mostra el HUD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classHud_a0635d205ef6a4ff1f9df0d5cafcf8c5f}{paint}} (\mbox{\hyperlink{classpro2_1_1Window}{pro2\+::\+Window}} \&window)
+\begin{DoxyCompactList}\small\item\em Dibuixa el HUD a la pantalla. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Gestiona el Heads-\/\+Up Display del joc. 
+
+S\textquotesingle{}encarrega de mostrar informació rellevant per al jugador directament a la pantalla, com el temps, els items recollits i la munició. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classHud_a0635d205ef6a4ff1f9df0d5cafcf8c5f}\index{Hud@{Hud}!paint@{paint}}
+\index{paint@{paint}!Hud@{Hud}}
+\doxysubsubsection{\texorpdfstring{paint()}{paint()}}
+{\footnotesize\ttfamily \label{classHud_a0635d205ef6a4ff1f9df0d5cafcf8c5f} 
+void Hud\+::paint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpro2_1_1Window}{pro2\+::\+Window}} \&}]{window}{}\end{DoxyParamCaption})}
+
+
+
+Dibuixa el HUD a la pantalla. 
+
+Mostra la informació actualitzada (items, temps, munició) a la cantonada superior dreta de la vista de la càmera. 
+\begin{DoxyParams}{Parameters}
+{\em window} & La finestra del joc on es dibuixarà. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classHud_a10e15cd249ef6f79a727f7d0bb6efa4f}\index{Hud@{Hud}!update@{update}}
+\index{update@{update}!Hud@{Hud}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classHud_a10e15cd249ef6f79a727f7d0bb6efa4f} 
+void Hud\+::update (\begin{DoxyParamCaption}\item[{int}]{n}{, }\item[{int}]{s}{, }\item[{int}]{a}{}\end{DoxyParamCaption})}
+
+
+
+Actualitza els valors que mostra el HUD. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Nombre d\textquotesingle{}items recollits a mostrar. \\
+\hline
+{\em s} & Segons de joc transcorreguts. \\
+\hline
+{\em a} & Munició restant del jugador. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+hud.\+hh\item 
+hud.\+cc\end{DoxyCompactItemize}

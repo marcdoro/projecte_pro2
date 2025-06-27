@@ -1,0 +1,49 @@
+\doxysection{item.\+hh}
+\hypertarget{item_8hh_source}{}\label{item_8hh_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ITEM\_HH}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ITEM\_HH}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}window.hh"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }Item\ \{}
+\DoxyCodeLine{00014\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ VARIABLES\ D'ANIMACIÓ\ I\ ESTAT\ -\/-\/-\/}}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{int}\ \ counter;}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{int}\ \ ini\_pos\_y;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{bool}\ collected\_;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ amplitude\_\ =\ 8;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ angular\_speed\_\ =\ 0.05;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ VARIABLES\ DE\ POSICIÓ\ I\ GRÀFICS\ -\/-\/-\/}}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{structpro2_1_1Pt}{pro2::Pt}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pos\_;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::vector<std::vector<int>>\ ball\_;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ FUNCIONS\ PRIVADES\ -\/-\/-\/}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ animate\_();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ CONSTRUCTOR\ -\/-\/-\/}}
+\DoxyCodeLine{00037\ \ \ \ \ Item(\mbox{\hyperlink{structpro2_1_1Pt}{pro2::Pt}}\ pos);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ GETTERS\ -\/-\/-\/}}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{structpro2_1_1Rect}{pro2::Rect}}\ \mbox{\hyperlink{classItem_abc3e4cbcf10b5791fe9c283a31033c74}{get\_rect}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classItem_a9882cc3f6d646dfb4e47d93ca87698c1}{is\_collected}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ SETTERS\ -\/-\/-\/}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classItem_a739803c9ddf5e1f81d42a7c562817be4}{collected\_set\_true}}();}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classItem_aafb6a7305878bf227102fa035b4e760d}{collected\_set\_false}}();}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ MÈTODES\ PÚBLICS\ -\/-\/-\/}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classItem_a7558bf3e22b9d15609f46f0da2443d9e}{update}}();}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classItem_a02c189b23fc3bfb4943734f7d6a10acd}{paint}}(\mbox{\hyperlink{classpro2_1_1Window}{pro2::Window}}\&\ window)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00077\ \};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

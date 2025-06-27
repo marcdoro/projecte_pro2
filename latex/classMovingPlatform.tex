@@ -1,0 +1,131 @@
+\doxysection{Moving\+Platform Class Reference}
+\hypertarget{classMovingPlatform}{}\label{classMovingPlatform}\index{MovingPlatform@{MovingPlatform}}
+
+
+Una plataforma que es mou contínuament entre dos punts en un eix.  
+
+
+
+
+{\ttfamily \#include $<$platform.\+hh$>$}
+
+Inheritance diagram for Moving\+Platform\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classMovingPlatform}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classMovingPlatform_a0351fc199af95f82c1189dd912b24e6f}\label{classMovingPlatform_a0351fc199af95f82c1189dd912b24e6f} 
+enum class \mbox{\hyperlink{classMovingPlatform_a0351fc199af95f82c1189dd912b24e6f}{Axis}} \{ {\bfseries X}
+, {\bfseries Y}
+ \}
+\begin{DoxyCompactList}\small\item\em Defineix l\textquotesingle{}eix de moviment de la plataforma. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classMovingPlatform_ab15cfa81735cf3b918a14260ee3a9a62}\label{classMovingPlatform_ab15cfa81735cf3b918a14260ee3a9a62} 
+{\bfseries Moving\+Platform} (int \mbox{\hyperlink{classPlatform_aaf35cacf5bafafd352607a6897990b65}{left}}, int \mbox{\hyperlink{classPlatform_a4ce552d100551482cd970bc11ea203cd}{right}}, int \mbox{\hyperlink{classPlatform_ae2f6ce1275d5add01a7af60474321bd5}{top}}, int bottom, \mbox{\hyperlink{classMovingPlatform_a0351fc199af95f82c1189dd912b24e6f}{Axis}} \mbox{\hyperlink{classMovingPlatform_a8e69c4688e9c513dd790aec8c116e06f}{axis}}, int min, int max, int speed)
+\item 
+\Hypertarget{classMovingPlatform_a8e69c4688e9c513dd790aec8c116e06f}\label{classMovingPlatform_a8e69c4688e9c513dd790aec8c116e06f} 
+\mbox{\hyperlink{classMovingPlatform_a0351fc199af95f82c1189dd912b24e6f}{Moving\+Platform\+::\+Axis}} {\bfseries axis} () const
+\begin{DoxyCompactList}\small\item\em Retorna l\textquotesingle{}eix de moviment de la plataforma. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classMovingPlatform_ae23b51bf48fa2d9f8e307c1020abbfe5}{update}} () override
+\begin{DoxyCompactList}\small\item\em Actualitza la posició de la plataforma segons el seu eix i velocitat. \end{DoxyCompactList}\item 
+virtual const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \& \mbox{\hyperlink{classMovingPlatform_a06d12856d39dc186166708dbcf263684}{get\+\_\+texture}} () const override
+\begin{DoxyCompactList}\small\item\em Retorna la textura per a les plataformes mòbils. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classPlatform}{Platform}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Platform} (int \mbox{\hyperlink{classPlatform_aaf35cacf5bafafd352607a6897990b65}{left}}, int \mbox{\hyperlink{classPlatform_a4ce552d100551482cd970bc11ea203cd}{right}}, int \mbox{\hyperlink{classPlatform_ae2f6ce1275d5add01a7af60474321bd5}{top}}, int bottom, Platform\+Type \mbox{\hyperlink{classPlatform_a6b8cb9fcd4386ae5ef0e334813e82293}{type}})
+\item 
+int {\bfseries top} () const
+\begin{DoxyCompactList}\small\item\em Retorna la coordenada Y superior de la plataforma. \end{DoxyCompactList}\item 
+int {\bfseries bot} () const
+\begin{DoxyCompactList}\small\item\em Retorna la coordenada Y inferior de la plataforma. \end{DoxyCompactList}\item 
+int {\bfseries left} () const
+\begin{DoxyCompactList}\small\item\em Retorna la coordenada X esquerra de la plataforma. \end{DoxyCompactList}\item 
+int {\bfseries right} () const
+\begin{DoxyCompactList}\small\item\em Retorna la coordenada X dreta de la plataforma. \end{DoxyCompactList}\item 
+Platform\+Type {\bfseries type} () const
+\begin{DoxyCompactList}\small\item\em Retorna el tipus de la plataforma. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} {\bfseries get\+\_\+rect} () const
+\begin{DoxyCompactList}\small\item\em Retorna el rectangle actual que ocupa la plataforma. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} {\bfseries get\+\_\+last\+\_\+rect} () const
+\begin{DoxyCompactList}\small\item\em Retorna el rectangle que ocupava la plataforma en el fotograma anterior. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structpro2_1_1Pt}{pro2\+::\+Pt}} {\bfseries get\+\_\+increment} () const
+\begin{DoxyCompactList}\small\item\em Obté el desplaçament de la plataforma en el darrer fotograma. \end{DoxyCompactList}\item 
+bool {\bfseries has\+\_\+crossed\+\_\+floor\+\_\+downwards} (const \mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} \&last\+\_\+rect, const \mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} \&curr\+\_\+rect) const
+\begin{DoxyCompactList}\small\item\em Comprova si un rectangle ha creuat la part superior de la plataforma cap avall. \end{DoxyCompactList}\item 
+bool {\bfseries has\+\_\+crossed\+\_\+floor\+\_\+upwards} (const \mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} \&last\+\_\+rect, const \mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} \&curr\+\_\+rect) const
+\begin{DoxyCompactList}\small\item\em Comprova si un rectangle ha creuat la part inferior de la plataforma cap amunt. \end{DoxyCompactList}\item 
+bool {\bfseries is\+\_\+hit\+\_\+from\+\_\+left\+\_\+} (const \mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} \&last\+\_\+rect, const \mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} \&curr\+\_\+rect) const
+\begin{DoxyCompactList}\small\item\em Comprova si un rectangle ha col·lidit amb el costat esquerre de la plataforma. \end{DoxyCompactList}\item 
+bool {\bfseries is\+\_\+hit\+\_\+from\+\_\+right\+\_\+} (const \mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} \&last\+\_\+rect, const \mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} \&curr\+\_\+rect) const
+\begin{DoxyCompactList}\small\item\em Comprova si un rectangle ha col·lidit amb el costat dret de la plataforma. \end{DoxyCompactList}\item 
+bool {\bfseries is\+\_\+pt\+\_\+inside} (\mbox{\hyperlink{structpro2_1_1Pt}{pro2\+::\+Pt}} pt) const
+\begin{DoxyCompactList}\small\item\em Comprova si un punt es troba dins de la plataforma. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classPlatform_afbaae231abd2376f8751ae38bb9fd98c}{trigger}} ()
+\begin{DoxyCompactList}\small\item\em Activa el comportament especial de la plataforma (ex\+: caiguda). \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classPlatform_ae90957361e72d4e1dbd5003836c23512}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Reinicia l\textquotesingle{}estat de la plataforma a la seva posició inicial. \end{DoxyCompactList}\item 
+void {\bfseries paint} (\mbox{\hyperlink{classpro2_1_1Window}{pro2\+::\+Window}} \&window) const
+\begin{DoxyCompactList}\small\item\em Dibuixa la plataforma a la pantalla. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classPlatform}{Platform}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries left\+\_\+}
+\item 
+int {\bfseries right\+\_\+}
+\item 
+int {\bfseries top\+\_\+}
+\item 
+int {\bfseries bottom\+\_\+}
+\item 
+\mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} {\bfseries last\+\_\+rect\+\_\+}
+\item 
+Platform\+Type {\bfseries type\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Una plataforma que es mou contínuament entre dos punts en un eix. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMovingPlatform_a06d12856d39dc186166708dbcf263684}\index{MovingPlatform@{MovingPlatform}!get\_texture@{get\_texture}}
+\index{get\_texture@{get\_texture}!MovingPlatform@{MovingPlatform}}
+\doxysubsubsection{\texorpdfstring{get\_texture()}{get\_texture()}}
+{\footnotesize\ttfamily \label{classMovingPlatform_a06d12856d39dc186166708dbcf263684} 
+const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \& Moving\+Platform\+::get\+\_\+texture (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Retorna la textura per a les plataformes mòbils. 
+
+
+
+Implements \mbox{\hyperlink{classPlatform_a81f9ffed189e2d972aedebef31a0fe7b}{Platform}}.
+
+\Hypertarget{classMovingPlatform_ae23b51bf48fa2d9f8e307c1020abbfe5}\index{MovingPlatform@{MovingPlatform}!update@{update}}
+\index{update@{update}!MovingPlatform@{MovingPlatform}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classMovingPlatform_ae23b51bf48fa2d9f8e307c1020abbfe5} 
+void Moving\+Platform\+::update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Actualitza la posició de la plataforma segons el seu eix i velocitat. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classPlatform_aa601f00a3625669bb39252cfc932efa0}{Platform}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+platform.\+hh\item 
+platform.\+cc\end{DoxyCompactItemize}

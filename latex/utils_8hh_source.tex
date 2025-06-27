@@ -1,0 +1,30 @@
+\doxysection{utils.\+hh}
+\hypertarget{utils_8hh_source}{}\label{utils_8hh_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ UTILS\_HH}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ UTILS\_HH}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}geometry.hh"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}window.hh"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }pro2\ \{}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00019\ \textcolor{keywordtype}{void}\ paint\_hline(pro2::Window\&\ window,\ \textcolor{keywordtype}{int}\ xini,\ \textcolor{keywordtype}{int}\ xfin,\ \textcolor{keywordtype}{int}\ y,\ pro2::Color\ color\ =\ pro2::white);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00030\ \textcolor{keywordtype}{void}\ paint\_vline(pro2::Window\&\ window,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ yini,\ \textcolor{keywordtype}{int}\ yfin,\ pro2::Color\ color\ =\ pro2::white);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ paint\_rect(pro2::Window\&\ window,\ \mbox{\hyperlink{structpro2_1_1Rect}{Rect}}\ r,\ pro2::Color\ color\ =\ pro2::white);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{void}\ paint\_sprite(pro2::Window\&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ window,}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pro2::Pt\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ orig,}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::vector<int>>\&\ sprite,}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mirror);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{bool}\ collision(pro2::Rect\ r1,\ pro2::Rect\ r2);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \}\ \ \textcolor{comment}{//\ namespace\ pro2}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -36,4 +36,12 @@ tgz: clean
 clean:
 	rm -f mario_pro_2 $(OBJS)
 
-.PHONY: clean tgz
+docs:
+	@doxygen Doxyfile
+
+
+clean-docs:
+	@rm -rf docs
+
+.PHONY: clean tgz docs clean-docs
+

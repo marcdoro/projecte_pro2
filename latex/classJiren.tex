@@ -1,0 +1,82 @@
+\doxysection{Jiren Class Reference}
+\hypertarget{classJiren}{}\label{classJiren}\index{Jiren@{Jiren}}
+
+
+Representa el personatge principal controlat pel jugador.  
+
+
+
+
+{\ttfamily \#include $<$jiren.\+hh$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classJiren_a47c4b197d0735dbf89aaf9b6c27ff9cc}\label{classJiren_a47c4b197d0735dbf89aaf9b6c27ff9cc} 
+{\bfseries Jiren} (\mbox{\hyperlink{structpro2_1_1Pt}{pro2\+::\+Pt}} \mbox{\hyperlink{classJiren_a70df8fce8ea09e9689bbc33d44337214}{pos}}, int jump\+\_\+key, int left\+\_\+key, int right\+\_\+key, int down\+\_\+key)
+\item 
+\Hypertarget{classJiren_a70df8fce8ea09e9689bbc33d44337214}\label{classJiren_a70df8fce8ea09e9689bbc33d44337214} 
+\mbox{\hyperlink{structpro2_1_1Pt}{pro2\+::\+Pt}} {\bfseries pos} () const
+\begin{DoxyCompactList}\small\item\em Obté la posició actual del jugador (centre inferior). \end{DoxyCompactList}\item 
+\Hypertarget{classJiren_ae397b72d9b2580430b79b9f866db314a}\label{classJiren_ae397b72d9b2580430b79b9f866db314a} 
+\mbox{\hyperlink{structpro2_1_1Pt}{pro2\+::\+Pt}} {\bfseries shoot\+\_\+pos} () const
+\begin{DoxyCompactList}\small\item\em Obté la posició des d\textquotesingle{}on surten els projectils. \end{DoxyCompactList}\item 
+\Hypertarget{classJiren_a5495424b5890c70df49338d9af81d0dd}\label{classJiren_a5495424b5890c70df49338d9af81d0dd} 
+\mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} {\bfseries get\+\_\+rect} () const
+\begin{DoxyCompactList}\small\item\em Obté el rectangle de col·lisió actual del jugador. \end{DoxyCompactList}\item 
+\Hypertarget{classJiren_ae7c8c4ec5a13ea9de261e09fc33f11fc}\label{classJiren_ae7c8c4ec5a13ea9de261e09fc33f11fc} 
+\mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} {\bfseries get\+\_\+last\+\_\+rect} () const
+\begin{DoxyCompactList}\small\item\em Obté el rectangle de col·lisió del fotograma anterior. \end{DoxyCompactList}\item 
+\Hypertarget{classJiren_a46bc426e3df5d6fac56476107b32c53b}\label{classJiren_a46bc426e3df5d6fac56476107b32c53b} 
+bool {\bfseries is\+\_\+grounded} () const
+\begin{DoxyCompactList}\small\item\em Comprova si el jugador està sobre una superfície. \end{DoxyCompactList}\item 
+\Hypertarget{classJiren_aed200f8f618a7528c69f11a92b822efb}\label{classJiren_aed200f8f618a7528c69f11a92b822efb} 
+bool {\bfseries is\+\_\+dead} () const
+\begin{DoxyCompactList}\small\item\em Comprova si el jugador és mort. \end{DoxyCompactList}\item 
+\Hypertarget{classJiren_a8ec3810424082ed26255cb645536f7bc}\label{classJiren_a8ec3810424082ed26255cb645536f7bc} 
+bool {\bfseries is\+\_\+looking\+\_\+left} () const
+\begin{DoxyCompactList}\small\item\em Comprova si el jugador mira a l\textquotesingle{}esquerra. \end{DoxyCompactList}\item 
+\Hypertarget{classJiren_a0b6991ca1be5ebd8283eaf02c3b4b14f}\label{classJiren_a0b6991ca1be5ebd8283eaf02c3b4b14f} 
+\mbox{\hyperlink{classMagazine}{Magazine}} \& {\bfseries get\+\_\+magazine} ()
+\begin{DoxyCompactList}\small\item\em Obté una referència al carregador de projectils del jugador. \end{DoxyCompactList}\item 
+\Hypertarget{classJiren_a5b18bf3cf74dbb0bdd8276bcb5924172}\label{classJiren_a5b18bf3cf74dbb0bdd8276bcb5924172} 
+void {\bfseries set\+\_\+y} (int y)
+\begin{DoxyCompactList}\small\item\em Estableix la coordenada Y del jugador. \end{DoxyCompactList}\item 
+\Hypertarget{classJiren_af1565e3d05bdb1f5cdff16f1800fdc74}\label{classJiren_af1565e3d05bdb1f5cdff16f1800fdc74} 
+void {\bfseries revive} ()
+\begin{DoxyCompactList}\small\item\em Reviu el jugador després de morir. \end{DoxyCompactList}\item 
+\Hypertarget{classJiren_ac8b7bec66cd4e0fbcf2f1df0cff6b0ab}\label{classJiren_ac8b7bec66cd4e0fbcf2f1df0cff6b0ab} 
+void {\bfseries set\+\_\+grounded} (bool grounded, \mbox{\hyperlink{classPlatform}{Platform}} \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Estableix l\textquotesingle{}estat \textquotesingle{}grounded\textquotesingle{} del jugador. \end{DoxyCompactList}\item 
+\Hypertarget{classJiren_a93b78606c31c6a7e706d39ff8189f573}\label{classJiren_a93b78606c31c6a7e706d39ff8189f573} 
+void {\bfseries toggle\+\_\+grounded} ()
+\begin{DoxyCompactList}\small\item\em Canvia l\textquotesingle{}estat \textquotesingle{}grounded\textquotesingle{} del jugador. \end{DoxyCompactList}\item 
+\Hypertarget{classJiren_ad44867f58112cc3a215cf1a74a00dce8}\label{classJiren_ad44867f58112cc3a215cf1a74a00dce8} 
+void {\bfseries reload} ()
+\begin{DoxyCompactList}\small\item\em Recarrega la munició del jugador. \end{DoxyCompactList}\item 
+\Hypertarget{classJiren_a7bd1de8b666e11e4127e3ea54a757adf}\label{classJiren_a7bd1de8b666e11e4127e3ea54a757adf} 
+void {\bfseries jump} ()
+\begin{DoxyCompactList}\small\item\em Inicia un salt si el jugador està a terra. \end{DoxyCompactList}\item 
+\Hypertarget{classJiren_a62496793274d14b3599c174aa8ea6ec3}\label{classJiren_a62496793274d14b3599c174aa8ea6ec3} 
+void {\bfseries update} (\mbox{\hyperlink{classpro2_1_1Window}{pro2\+::\+Window}} \&window, const std\+::set$<$ \mbox{\hyperlink{classPlatform}{Platform}} \texorpdfstring{$\ast$}{*} $>$ \&nearby\+\_\+platforms, const std\+::set$<$ \mbox{\hyperlink{classEnemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&nearby\+\_\+enemies, const std\+::set$<$ \mbox{\hyperlink{classSpike}{Spike}} \texorpdfstring{$\ast$}{*} $>$ \&nearby\+\_\+spikes)
+\begin{DoxyCompactList}\small\item\em Actualitza la lògica del jugador per a un fotograma. \end{DoxyCompactList}\item 
+\Hypertarget{classJiren_a716e5e21ebd4d12a2739aba78d7dc495}\label{classJiren_a716e5e21ebd4d12a2739aba78d7dc495} 
+void {\bfseries paint} (\mbox{\hyperlink{classpro2_1_1Window}{pro2\+::\+Window}} \&window) const
+\begin{DoxyCompactList}\small\item\em Dibuixa el jugador a la pantalla. \end{DoxyCompactList}\item 
+\Hypertarget{classJiren_a97c72b28ad2243eb25d452d3415de294}\label{classJiren_a97c72b28ad2243eb25d452d3415de294} 
+void {\bfseries update\+\_\+projectiles} ()
+\begin{DoxyCompactList}\small\item\em Actualitza la posició dels projectils actius. \end{DoxyCompactList}\item 
+\Hypertarget{classJiren_a73aa58c8a2b5e95b3edbb0f6534f5e24}\label{classJiren_a73aa58c8a2b5e95b3edbb0f6534f5e24} 
+void {\bfseries paint\+\_\+projectiles} (\mbox{\hyperlink{classpro2_1_1Window}{pro2\+::\+Window}} \&window) const
+\begin{DoxyCompactList}\small\item\em Dibuixa els projectils actius. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Representa el personatge principal controlat pel jugador. 
+
+Gestiona el moviment, salt, col·lisions, animacions, trets i l\textquotesingle{}estat (viu/mort) del jugador. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+jiren.\+hh\item 
+jiren.\+cc\end{DoxyCompactItemize}

@@ -1,0 +1,164 @@
+\doxysection{Platform Class Reference}
+\hypertarget{classPlatform}{}\label{classPlatform}\index{Platform@{Platform}}
+
+
+Classe base abstracta per a totes les plataformes del joc.  
+
+
+
+
+{\ttfamily \#include $<$platform.\+hh$>$}
+
+Inheritance diagram for Platform\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classPlatform}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classPlatform_a1d38c1bdbf4fa13eff095b40ee8c4ed4}\label{classPlatform_a1d38c1bdbf4fa13eff095b40ee8c4ed4} 
+{\bfseries Platform} (int \mbox{\hyperlink{classPlatform_aaf35cacf5bafafd352607a6897990b65}{left}}, int \mbox{\hyperlink{classPlatform_a4ce552d100551482cd970bc11ea203cd}{right}}, int \mbox{\hyperlink{classPlatform_ae2f6ce1275d5add01a7af60474321bd5}{top}}, int bottom, Platform\+Type \mbox{\hyperlink{classPlatform_a6b8cb9fcd4386ae5ef0e334813e82293}{type}})
+\item 
+\Hypertarget{classPlatform_ae2f6ce1275d5add01a7af60474321bd5}\label{classPlatform_ae2f6ce1275d5add01a7af60474321bd5} 
+int {\bfseries top} () const
+\begin{DoxyCompactList}\small\item\em Retorna la coordenada Y superior de la plataforma. \end{DoxyCompactList}\item 
+\Hypertarget{classPlatform_a16e8b33bc971c2e033b63c9053c36163}\label{classPlatform_a16e8b33bc971c2e033b63c9053c36163} 
+int {\bfseries bot} () const
+\begin{DoxyCompactList}\small\item\em Retorna la coordenada Y inferior de la plataforma. \end{DoxyCompactList}\item 
+\Hypertarget{classPlatform_aaf35cacf5bafafd352607a6897990b65}\label{classPlatform_aaf35cacf5bafafd352607a6897990b65} 
+int {\bfseries left} () const
+\begin{DoxyCompactList}\small\item\em Retorna la coordenada X esquerra de la plataforma. \end{DoxyCompactList}\item 
+\Hypertarget{classPlatform_a4ce552d100551482cd970bc11ea203cd}\label{classPlatform_a4ce552d100551482cd970bc11ea203cd} 
+int {\bfseries right} () const
+\begin{DoxyCompactList}\small\item\em Retorna la coordenada X dreta de la plataforma. \end{DoxyCompactList}\item 
+\Hypertarget{classPlatform_a6b8cb9fcd4386ae5ef0e334813e82293}\label{classPlatform_a6b8cb9fcd4386ae5ef0e334813e82293} 
+Platform\+Type {\bfseries type} () const
+\begin{DoxyCompactList}\small\item\em Retorna el tipus de la plataforma. \end{DoxyCompactList}\item 
+\Hypertarget{classPlatform_a16a47c819406b8b30b8c28d63f272447}\label{classPlatform_a16a47c819406b8b30b8c28d63f272447} 
+\mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} {\bfseries get\+\_\+rect} () const
+\begin{DoxyCompactList}\small\item\em Retorna el rectangle actual que ocupa la plataforma. \end{DoxyCompactList}\item 
+\Hypertarget{classPlatform_a8ae2119b9a1bc2086c5b15a982b5b103}\label{classPlatform_a8ae2119b9a1bc2086c5b15a982b5b103} 
+\mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} {\bfseries get\+\_\+last\+\_\+rect} () const
+\begin{DoxyCompactList}\small\item\em Retorna el rectangle que ocupava la plataforma en el fotograma anterior. \end{DoxyCompactList}\item 
+\Hypertarget{classPlatform_a3c394e8e2daa7f479a4d56162f346afb}\label{classPlatform_a3c394e8e2daa7f479a4d56162f346afb} 
+\mbox{\hyperlink{structpro2_1_1Pt}{pro2\+::\+Pt}} {\bfseries get\+\_\+increment} () const
+\begin{DoxyCompactList}\small\item\em Obté el desplaçament de la plataforma en el darrer fotograma. \end{DoxyCompactList}\item 
+\Hypertarget{classPlatform_a69eff2a7451f92eac156e16e4407cc4b}\label{classPlatform_a69eff2a7451f92eac156e16e4407cc4b} 
+bool {\bfseries has\+\_\+crossed\+\_\+floor\+\_\+downwards} (const \mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} \&last\+\_\+rect, const \mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} \&curr\+\_\+rect) const
+\begin{DoxyCompactList}\small\item\em Comprova si un rectangle ha creuat la part superior de la plataforma cap avall. \end{DoxyCompactList}\item 
+\Hypertarget{classPlatform_a04abae452636e79bb7be33c66a8cca8e}\label{classPlatform_a04abae452636e79bb7be33c66a8cca8e} 
+bool {\bfseries has\+\_\+crossed\+\_\+floor\+\_\+upwards} (const \mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} \&last\+\_\+rect, const \mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} \&curr\+\_\+rect) const
+\begin{DoxyCompactList}\small\item\em Comprova si un rectangle ha creuat la part inferior de la plataforma cap amunt. \end{DoxyCompactList}\item 
+\Hypertarget{classPlatform_a413480ec55fd4a1830517cea72a1af74}\label{classPlatform_a413480ec55fd4a1830517cea72a1af74} 
+bool {\bfseries is\+\_\+hit\+\_\+from\+\_\+left\+\_\+} (const \mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} \&last\+\_\+rect, const \mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} \&curr\+\_\+rect) const
+\begin{DoxyCompactList}\small\item\em Comprova si un rectangle ha col·lidit amb el costat esquerre de la plataforma. \end{DoxyCompactList}\item 
+\Hypertarget{classPlatform_ad4c94ccfe08aec3975a92ef85903ff6d}\label{classPlatform_ad4c94ccfe08aec3975a92ef85903ff6d} 
+bool {\bfseries is\+\_\+hit\+\_\+from\+\_\+right\+\_\+} (const \mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} \&last\+\_\+rect, const \mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} \&curr\+\_\+rect) const
+\begin{DoxyCompactList}\small\item\em Comprova si un rectangle ha col·lidit amb el costat dret de la plataforma. \end{DoxyCompactList}\item 
+\Hypertarget{classPlatform_a3b2bedf80878d1d3fd2f37ba776d33a1}\label{classPlatform_a3b2bedf80878d1d3fd2f37ba776d33a1} 
+bool {\bfseries is\+\_\+pt\+\_\+inside} (\mbox{\hyperlink{structpro2_1_1Pt}{pro2\+::\+Pt}} pt) const
+\begin{DoxyCompactList}\small\item\em Comprova si un punt es troba dins de la plataforma. \end{DoxyCompactList}\item 
+virtual const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \& \mbox{\hyperlink{classPlatform_a81f9ffed189e2d972aedebef31a0fe7b}{get\+\_\+texture}} () const =0
+\begin{DoxyCompactList}\small\item\em Obté la textura de la plataforma (mètode virtual pur). \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classPlatform_afbaae231abd2376f8751ae38bb9fd98c}{trigger}} ()
+\begin{DoxyCompactList}\small\item\em Activa el comportament especial de la plataforma (ex\+: caiguda). \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classPlatform_ae90957361e72d4e1dbd5003836c23512}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Reinicia l\textquotesingle{}estat de la plataforma a la seva posició inicial. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classPlatform_aa601f00a3625669bb39252cfc932efa0}{update}} ()
+\begin{DoxyCompactList}\small\item\em Actualitza l\textquotesingle{}estat de la plataforma per a un fotograma. \end{DoxyCompactList}\item 
+\Hypertarget{classPlatform_a73a1afa2b57fce20cb692f1679ea782e}\label{classPlatform_a73a1afa2b57fce20cb692f1679ea782e} 
+void {\bfseries paint} (\mbox{\hyperlink{classpro2_1_1Window}{pro2\+::\+Window}} \&window) const
+\begin{DoxyCompactList}\small\item\em Dibuixa la plataforma a la pantalla. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classPlatform_a33ec0a0cb0cd5716001d5fdf6884fe7c}\label{classPlatform_a33ec0a0cb0cd5716001d5fdf6884fe7c} 
+int {\bfseries left\+\_\+}
+\item 
+\Hypertarget{classPlatform_a46b87ba8300f0ab0338fd570ee9c49d6}\label{classPlatform_a46b87ba8300f0ab0338fd570ee9c49d6} 
+int {\bfseries right\+\_\+}
+\item 
+\Hypertarget{classPlatform_a7fea78553cad4641c4f597ce155ae1c5}\label{classPlatform_a7fea78553cad4641c4f597ce155ae1c5} 
+int {\bfseries top\+\_\+}
+\item 
+\Hypertarget{classPlatform_a15a4798385af5225ac32250b0e3647d6}\label{classPlatform_a15a4798385af5225ac32250b0e3647d6} 
+int {\bfseries bottom\+\_\+}
+\item 
+\Hypertarget{classPlatform_a1d9e71c3439c792a5a67a7bffe9d65b3}\label{classPlatform_a1d9e71c3439c792a5a67a7bffe9d65b3} 
+\mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} {\bfseries last\+\_\+rect\+\_\+}
+\item 
+\Hypertarget{classPlatform_a7712505b37d6f9f1df12f0e84e74b80f}\label{classPlatform_a7712505b37d6f9f1df12f0e84e74b80f} 
+Platform\+Type {\bfseries type\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe base abstracta per a totes les plataformes del joc. 
+
+Defineix la interfície comuna i les propietats bàsiques que totes les plataformes han de tenir, com la posició, dimensions i mètodes de col·lisió. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classPlatform_a81f9ffed189e2d972aedebef31a0fe7b}\index{Platform@{Platform}!get\_texture@{get\_texture}}
+\index{get\_texture@{get\_texture}!Platform@{Platform}}
+\doxysubsubsection{\texorpdfstring{get\_texture()}{get\_texture()}}
+{\footnotesize\ttfamily \label{classPlatform_a81f9ffed189e2d972aedebef31a0fe7b} 
+virtual const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \& Platform\+::get\+\_\+texture (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Obté la textura de la plataforma (mètode virtual pur). 
+
+
+
+Implemented in \mbox{\hyperlink{classFallingPlatform_ab161769509a624873e10d4c7f33eca29}{Falling\+Platform}}, \mbox{\hyperlink{classMovingPlatform_a06d12856d39dc186166708dbcf263684}{Moving\+Platform}}, and \mbox{\hyperlink{classStaticPlatform_a1f99566f577b2a249a60760e10baaf6f}{Static\+Platform}}.
+
+\Hypertarget{classPlatform_ae90957361e72d4e1dbd5003836c23512}\index{Platform@{Platform}!reset@{reset}}
+\index{reset@{reset}!Platform@{Platform}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily \label{classPlatform_ae90957361e72d4e1dbd5003836c23512} 
+void Platform\+::reset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reinicia l\textquotesingle{}estat de la plataforma a la seva posició inicial. 
+
+
+
+Reimplemented in \mbox{\hyperlink{classFallingPlatform_a478fd30362379d542355a16ce001f584}{Falling\+Platform}}.
+
+\Hypertarget{classPlatform_afbaae231abd2376f8751ae38bb9fd98c}\index{Platform@{Platform}!trigger@{trigger}}
+\index{trigger@{trigger}!Platform@{Platform}}
+\doxysubsubsection{\texorpdfstring{trigger()}{trigger()}}
+{\footnotesize\ttfamily \label{classPlatform_afbaae231abd2376f8751ae38bb9fd98c} 
+void Platform\+::trigger (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Activa el comportament especial de la plataforma (ex\+: caiguda). 
+
+
+
+Reimplemented in \mbox{\hyperlink{classFallingPlatform_a501c2d24991dca531c45d8cc85ccc666}{Falling\+Platform}}.
+
+\Hypertarget{classPlatform_aa601f00a3625669bb39252cfc932efa0}\index{Platform@{Platform}!update@{update}}
+\index{update@{update}!Platform@{Platform}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classPlatform_aa601f00a3625669bb39252cfc932efa0} 
+void Platform\+::update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Actualitza l\textquotesingle{}estat de la plataforma per a un fotograma. 
+
+
+
+Reimplemented in \mbox{\hyperlink{classFallingPlatform_ae0333600f38e006ff618819e45761cc4}{Falling\+Platform}}, and \mbox{\hyperlink{classMovingPlatform_ae23b51bf48fa2d9f8e307c1020abbfe5}{Moving\+Platform}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+platform.\+hh\item 
+platform.\+cc\end{DoxyCompactItemize}

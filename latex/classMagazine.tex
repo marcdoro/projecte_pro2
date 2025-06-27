@@ -1,0 +1,179 @@
+\doxysection{Magazine Class Reference}
+\hypertarget{classMagazine}{}\label{classMagazine}\index{Magazine@{Magazine}}
+
+
+Contenidor personalitzat (llista enllaçada) per gestionar els projectils del joc.  
+
+
+
+
+{\ttfamily \#include $<$magazine.\+hh$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classMagazine_1_1Iterator}{Iterator}}
+\begin{DoxyCompactList}\small\item\em Classe iteradora per recórrer la llista de projectils del carregador. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classMagazine_ab9f363188cf1a4509db53f3ee77a681f}\label{classMagazine_ab9f363188cf1a4509db53f3ee77a681f} 
+{\bfseries Magazine} (int \mbox{\hyperlink{classMagazine_a38b3b7c648407a26d1859b18da4a8c3a}{capacity}})
+\item 
+\Hypertarget{classMagazine_aba4932283407d9dcc613ea6f51055b96}\label{classMagazine_aba4932283407d9dcc613ea6f51055b96} 
+{\bfseries Magazine} (const \mbox{\hyperlink{classMagazine}{Magazine}} \&other)=delete
+\item 
+\Hypertarget{classMagazine_a0c12ef0654d98677dae9f1bc3a78e615}\label{classMagazine_a0c12ef0654d98677dae9f1bc3a78e615} 
+\mbox{\hyperlink{classMagazine}{Magazine}} \& {\bfseries operator=} (const \mbox{\hyperlink{classMagazine}{Magazine}} \&other)=delete
+\item 
+int \mbox{\hyperlink{classMagazine_ae35f0fe242112acc86cfdbd710e06869}{size}} () const
+\begin{DoxyCompactList}\small\item\em Retorna el nombre de bales disponibles per disparar. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classMagazine_a38b3b7c648407a26d1859b18da4a8c3a}{capacity}} () const
+\begin{DoxyCompactList}\small\item\em Retorna la capacitat màxima de munició. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classMagazine_a9e1612ef97731ded696b39ecaf0924ba}{can\+\_\+fire}} () const
+\begin{DoxyCompactList}\small\item\em Comprova si es pot disparar (si queda munició). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classItem}{Item}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classMagazine_ab031bc6b14d98a4468c6bbf5315953e2}{first}} () const
+\begin{DoxyCompactList}\small\item\em Retorna un punter al primer node de la llista (per a iteració manual si fos necessari). \end{DoxyCompactList}\item 
+\Hypertarget{classMagazine_af6cbc5dcc6c68cf3344a45ea1bdf7b28}\label{classMagazine_af6cbc5dcc6c68cf3344a45ea1bdf7b28} 
+void {\bfseries shoot} ()
+\begin{DoxyCompactList}\small\item\em Decrementa el comptador de munició en una unitat. \end{DoxyCompactList}\item 
+\Hypertarget{classMagazine_a7d0aa7e2fb994c8f236dde1581006431}\label{classMagazine_a7d0aa7e2fb994c8f236dde1581006431} 
+void {\bfseries empty\+\_\+mag} ()
+\begin{DoxyCompactList}\small\item\em Buida completament el comptador de munició. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMagazine_a12350817285b8d4bd8516d1b711c9bc7}{reload}} (int amount)
+\begin{DoxyCompactList}\small\item\em Afegeix munició al carregador, amb la capacitat com a límit. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMagazine_a0beb250a37b1a2f5334fb1f461862762}{spawn\+\_\+projectile}} (const \mbox{\hyperlink{classProjectile}{Projectile}} \&projectile\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Afegeix un nou projectil a la llista (el crea a l\textquotesingle{}escena). \end{DoxyCompactList}\item 
+\Hypertarget{classMagazine_a94b4b7daa3cfa3f5be2338101a415f3a}\label{classMagazine_a94b4b7daa3cfa3f5be2338101a415f3a} 
+void {\bfseries remove\+\_\+inactive} ()
+\begin{DoxyCompactList}\small\item\em Neteja la llista, eliminant els projectils que ja no són actius. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMagazine_1_1Iterator}{Iterator}} \mbox{\hyperlink{classMagazine_aa50b5e749b4551e328bac372ca190590}{begin}} () const
+\begin{DoxyCompactList}\small\item\em Retorna un iterador a l\textquotesingle{}inici de la col·lecció. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMagazine_1_1Iterator}{Iterator}} \mbox{\hyperlink{classMagazine_a69c44a21a60bb311e5f6f90660721f3c}{end}} () const
+\begin{DoxyCompactList}\small\item\em Retorna un iterador al final de la col·lecció. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contenidor personalitzat (llista enllaçada) per gestionar els projectils del joc. 
+
+
+\begin{DoxyItemize}
+\item 
+\end{DoxyItemize}
+
+Aquesta classe gestiona tant la munició disponible (\textquotesingle{}current\+\_\+ammo\+\_\+\textquotesingle{}) com la llista de projectils que ja han estat disparats i són actius a l\textquotesingle{}escena. Proporciona un iterador per poder recórrer els projectils actius. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMagazine_aa50b5e749b4551e328bac372ca190590}\index{Magazine@{Magazine}!begin@{begin}}
+\index{begin@{begin}!Magazine@{Magazine}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \label{classMagazine_aa50b5e749b4551e328bac372ca190590} 
+\mbox{\hyperlink{classMagazine_1_1Iterator}{Iterator}} Magazine\+::begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retorna un iterador a l\textquotesingle{}inici de la col·lecció. 
+
+\begin{DoxyReturn}{Returns}
+Un \textquotesingle{}\doxylink{classMagazine_1_1Iterator}{Iterator}\textquotesingle{} que apunta al primer projectil. 
+\end{DoxyReturn}
+\Hypertarget{classMagazine_a9e1612ef97731ded696b39ecaf0924ba}\index{Magazine@{Magazine}!can\_fire@{can\_fire}}
+\index{can\_fire@{can\_fire}!Magazine@{Magazine}}
+\doxysubsubsection{\texorpdfstring{can\_fire()}{can\_fire()}}
+{\footnotesize\ttfamily \label{classMagazine_a9e1612ef97731ded696b39ecaf0924ba} 
+bool Magazine\+::can\+\_\+fire (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Comprova si es pot disparar (si queda munició). 
+
+\begin{DoxyReturn}{Returns}
+\textquotesingle{}true\textquotesingle{} si \textquotesingle{}current\+\_\+ammo\+\_\+\textquotesingle{} és més gran que zero. 
+\end{DoxyReturn}
+\Hypertarget{classMagazine_a38b3b7c648407a26d1859b18da4a8c3a}\index{Magazine@{Magazine}!capacity@{capacity}}
+\index{capacity@{capacity}!Magazine@{Magazine}}
+\doxysubsubsection{\texorpdfstring{capacity()}{capacity()}}
+{\footnotesize\ttfamily \label{classMagazine_a38b3b7c648407a26d1859b18da4a8c3a} 
+int Magazine\+::capacity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retorna la capacitat màxima de munició. 
+
+\begin{DoxyReturn}{Returns}
+La capacitat total del carregador. 
+\end{DoxyReturn}
+\Hypertarget{classMagazine_a69c44a21a60bb311e5f6f90660721f3c}\index{Magazine@{Magazine}!end@{end}}
+\index{end@{end}!Magazine@{Magazine}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily \label{classMagazine_a69c44a21a60bb311e5f6f90660721f3c} 
+\mbox{\hyperlink{classMagazine_1_1Iterator}{Iterator}} Magazine\+::end (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retorna un iterador al final de la col·lecció. 
+
+\begin{DoxyReturn}{Returns}
+Un \textquotesingle{}\doxylink{classMagazine_1_1Iterator}{Iterator}\textquotesingle{} que apunta a \textquotesingle{}nullptr\textquotesingle{}. 
+\end{DoxyReturn}
+\Hypertarget{classMagazine_ab031bc6b14d98a4468c6bbf5315953e2}\index{Magazine@{Magazine}!first@{first}}
+\index{first@{first}!Magazine@{Magazine}}
+\doxysubsubsection{\texorpdfstring{first()}{first()}}
+{\footnotesize\ttfamily \label{classMagazine_ab031bc6b14d98a4468c6bbf5315953e2} 
+\mbox{\hyperlink{classItem}{Item}} \texorpdfstring{$\ast$}{*} Magazine\+::first (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retorna un punter al primer node de la llista (per a iteració manual si fos necessari). 
+
+\begin{DoxyReturn}{Returns}
+Punter al primer \textquotesingle{}\doxylink{classItem}{Item}\textquotesingle{}. 
+\end{DoxyReturn}
+\Hypertarget{classMagazine_a12350817285b8d4bd8516d1b711c9bc7}\index{Magazine@{Magazine}!reload@{reload}}
+\index{reload@{reload}!Magazine@{Magazine}}
+\doxysubsubsection{\texorpdfstring{reload()}{reload()}}
+{\footnotesize\ttfamily \label{classMagazine_a12350817285b8d4bd8516d1b711c9bc7} 
+void Magazine\+::reload (\begin{DoxyParamCaption}\item[{int}]{amount}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Afegeix munició al carregador, amb la capacitat com a límit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & La quantitat de munició a afegir. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classMagazine_ae35f0fe242112acc86cfdbd710e06869}\index{Magazine@{Magazine}!size@{size}}
+\index{size@{size}!Magazine@{Magazine}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily \label{classMagazine_ae35f0fe242112acc86cfdbd710e06869} 
+int Magazine\+::size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retorna el nombre de bales disponibles per disparar. 
+
+\begin{DoxyReturn}{Returns}
+La munició actual. 
+\end{DoxyReturn}
+\Hypertarget{classMagazine_a0beb250a37b1a2f5334fb1f461862762}\index{Magazine@{Magazine}!spawn\_projectile@{spawn\_projectile}}
+\index{spawn\_projectile@{spawn\_projectile}!Magazine@{Magazine}}
+\doxysubsubsection{\texorpdfstring{spawn\_projectile()}{spawn\_projectile()}}
+{\footnotesize\ttfamily \label{classMagazine_a0beb250a37b1a2f5334fb1f461862762} 
+void Magazine\+::spawn\+\_\+projectile (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classProjectile}{Projectile}} \&}]{projectile\+\_\+data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Afegeix un nou projectil a la llista (el crea a l\textquotesingle{}escena). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em projectile\+\_\+data} & L\textquotesingle{}objecte \doxylink{classProjectile}{Projectile} a afegir a la llista. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+magazine.\+hh\end{DoxyCompactItemize}

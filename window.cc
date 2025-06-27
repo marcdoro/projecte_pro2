@@ -30,7 +30,6 @@ void Window::update_camera_() {
     } else if (topleft_.y > topleft_target_.y) {
         topleft_.y -= std::min(camera_speed_, topleft_.y - topleft_target_.y);
     }
-
 }
 
 bool Window::next_frame() {

@@ -1,0 +1,104 @@
+\doxysection{jiren.\+hh}
+\hypertarget{jiren_8hh_source}{}\label{jiren_8hh_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ JIREN\_HH}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ JIREN\_HH}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <set>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}enemy.hh"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}magazine.hh"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}platform.hh"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}spike.hh"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}window.hh"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }Jiren\ \{}
+\DoxyCodeLine{00020\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ VARIABLES\ D'ESTAT\ I\ ANIMACIÓ\ -\/-\/-\/}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ \ accel\_time\_;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{int}\ \ jump\_key\_,\ left\_key\_,\ right\_key\_,\ down\_key\_;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ \ current\_animation\_frame\_;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ \ animation\_frame\_;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{bool}\ grounded\_;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{bool}\ looking\_left\_;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_dead\_;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{bool}\ GOD\_MODE\_;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_firing\_;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ walking\_speed\_\ =\ 10;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ fire\_animation\_speed\_\ =\ 3;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ VARIABLES\ DE\ POSICIÓ\ I\ FÍSICA\ -\/-\/-\/}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structpro2_1_1Pt}{pro2::Pt}}\ initial\_pos\_;}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{structpro2_1_1Pt}{pro2::Pt}}\ \ \ \ \ \ \ pos\_,\ last\_pos\_;}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{structpro2_1_1Pt}{pro2::Pt}}\ \ \ \ \ \ \ speed\_;}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{structpro2_1_1Pt}{pro2::Pt}}\ \ \ \ \ \ \ accel\_;}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{classPlatform}{Platform}}\ \ \ \ \ \ *on\_platform;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ VARIABLES\ DE\ JOC\ I\ GRÀFICS-\/-\/-\/}}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{classMagazine}{Magazine}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ magazine\_;}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::vector<std::vector<int>>\ jiren\_default\_;}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::vector<std::vector<int>>\ walk\_1\_,\ walk\_2\_,\ walk\_3\_,\ walk\_4\_;}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::vector<std::vector<int>>\ jiren\_jump\_;}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::vector<std::vector<int>>\ fire\_1\_,\ fire\_2\_;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ std::vector<const\ std::vector<std::vector<int>>\ *>\ walk\_frames\_;}
+\DoxyCodeLine{00050\ \ \ \ \ std::vector<const\ std::vector<std::vector<int>>\ *>\ fire\_frames\_;}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ FUNCIONS\ PRIVADES\ -\/-\/-\/}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ default\_physics\_();}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ god\_mode\_physics\_();}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ fire();}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ CONSTRUCTOR\ -\/-\/-\/}}
+\DoxyCodeLine{00064\ \ \ \ \ Jiren(\mbox{\hyperlink{structpro2_1_1Pt}{pro2::Pt}}\ \mbox{\hyperlink{classJiren_a70df8fce8ea09e9689bbc33d44337214}{pos}},\ \textcolor{keywordtype}{int}\ jump\_key,\ \textcolor{keywordtype}{int}\ left\_key,\ \textcolor{keywordtype}{int}\ right\_key,\ \textcolor{keywordtype}{int}\ down\_key);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ GETTERS\ -\/-\/-\/}}
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{structpro2_1_1Pt}{pro2::Pt}}\ \mbox{\hyperlink{classJiren_a70df8fce8ea09e9689bbc33d44337214}{pos}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{structpro2_1_1Pt}{pro2::Pt}}\ \mbox{\hyperlink{classJiren_ae397b72d9b2580430b79b9f866db314a}{shoot\_pos}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{structpro2_1_1Rect}{pro2::Rect}}\ \mbox{\hyperlink{classJiren_a5495424b5890c70df49338d9af81d0dd}{get\_rect}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{structpro2_1_1Rect}{pro2::Rect}}\ \mbox{\hyperlink{classJiren_ae7c8c4ec5a13ea9de261e09fc33f11fc}{get\_last\_rect}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classJiren_a46bc426e3df5d6fac56476107b32c53b}{is\_grounded}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classJiren_aed200f8f618a7528c69f11a92b822efb}{is\_dead}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classJiren_a8ec3810424082ed26255cb645536f7bc}{is\_looking\_left}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00089\ \ \ \ \ \mbox{\hyperlink{classMagazine}{Magazine}}\&\ \mbox{\hyperlink{classJiren_a0b6991ca1be5ebd8283eaf02c3b4b14f}{get\_magazine}}();}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ SETTERS\ -\/-\/-\/}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classJiren_a5b18bf3cf74dbb0bdd8276bcb5924172}{set\_y}}(\textcolor{keywordtype}{int}\ y);}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classJiren_af1565e3d05bdb1f5cdff16f1800fdc74}{revive}}();}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classJiren_ac8b7bec66cd4e0fbcf2f1df0cff6b0ab}{set\_grounded}}(\textcolor{keywordtype}{bool}\ grounded,\ \mbox{\hyperlink{classPlatform}{Platform}}\ *p);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classJiren_a93b78606c31c6a7e706d39ff8189f573}{toggle\_grounded}}();}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classJiren_ad44867f58112cc3a215cf1a74a00dce8}{reload}}();}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ MÈTODES\ PÚBLICS\ -\/-\/-\/}}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classJiren_a7bd1de8b666e11e4127e3ea54a757adf}{jump}}();}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classJiren_a62496793274d14b3599c174aa8ea6ec3}{update}}(\mbox{\hyperlink{classpro2_1_1Window}{pro2::Window}}\&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ window,}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::set<Platform\ *>\&\ nearby\_platforms,}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::set<Enemy\ *>\&\ \ \ \ nearby\_enemies,}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::set<Spike\ *>\&\ \ \ \ nearby\_spikes);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classJiren_a716e5e21ebd4d12a2739aba78d7dc495}{paint}}(\mbox{\hyperlink{classpro2_1_1Window}{pro2::Window}}\&\ window)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classJiren_a97c72b28ad2243eb25d452d3415de294}{update\_projectiles}}();}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classJiren_a73aa58c8a2b5e95b3edbb0f6534f5e24}{paint\_projectiles}}(\mbox{\hyperlink{classpro2_1_1Window}{pro2::Window}}\&\ window)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00125\ \};}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

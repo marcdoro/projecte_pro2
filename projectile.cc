@@ -30,23 +30,48 @@ const vector<vector<vector<int>>> Projectile::sprites_ = {
 // clang-format on
 
 // --- IMPLEMENTACIONS ---
+
+// --- CONSTRUCTOR ---
+Projectile::Projectile(pro2::Pt pos, bool looking_left)
+    : pos_(pos), looking_left_(looking_left), sprite_num_(0), is_active_(true) {
+    speed_.x = looking_left ? -8 : 8;
+    speed_.y = 0;
+}
+
+// --- GETTERS ---
 pro2::Rect Projectile::get_rect() const {
-    if (!is_active_) return {0,0,0,0};
+    if (!is_active_) {
+        return {0, 0, 0, 0};
+    }
     const auto& current_sprite = sprites_[sprite_num_];
-    int height = current_sprite.size();
-    int width = current_sprite[0].size();
-    return {pos_.x+ 13, pos_.y - height, pos_.x + width - 13, pos_.y};
+    int         height = current_sprite.size();
+    int         width = current_sprite[0].size();
+    return {pos_.x + 13, pos_.y - height, pos_.x + width - 13, pos_.y};
+}
+
+bool Projectile::is_active() const {
+    return is_active_;
+}
+
+// --- SETTERS ---
+void Projectile::deactivate() {
+    is_active_ = false;
+}
+
+// --- MÈTODES PÚBLICS ---
+void Projectile::update() {
+    if (!is_active_) {
+        return;
+    }
+    pos_.x += speed_.x;
 }
 
 void Projectile::paint(pro2::Window& window) const {
-    if (!is_active_) return;
+    if (!is_active_) {
+        return;
+    }
     const auto& current_sprite = sprites_[sprite_num_];
-    int height = current_sprite.size();
-    pro2::Pt top_left = {pos_.x, pos_.y - (height - 1)};
+    int         height = current_sprite.size();
+    pro2::Pt    top_left = {pos_.x, pos_.y - (height - 1)};
     paint_sprite(window, top_left, current_sprite, looking_left_);
-}
-
-void Projectile::update() {
-    if (!is_active_) return;
-    pos_.x += speed_.x;
 }

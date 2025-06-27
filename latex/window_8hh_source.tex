@@ -1,0 +1,187 @@
+\doxysection{window.\+hh}
+\hypertarget{window_8hh_source}{}\label{window_8hh_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ WINDOW\_HH}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ WINDOW\_HH}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ FENSTER\_HEADER}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}fenster.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}geometry.hh"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }pro2\ \{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{enum}\ ModKey\ \{\ Ctrl\ =\ 1,\ Shift\ =\ 2,\ Alt\ =\ 4,\ Meta\ =\ 8\ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{typedef}\ uint32\_t\ Color;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{const}\ Color\ black\ =\ 0x00000000;}
+\DoxyCodeLine{00030\ \textcolor{keyword}{const}\ Color\ red\ =\ 0x00ff0000;}
+\DoxyCodeLine{00031\ \textcolor{keyword}{const}\ Color\ green\ =\ 0x0000ff00;}
+\DoxyCodeLine{00032\ \textcolor{keyword}{const}\ Color\ blue\ =\ 0x000000ff;}
+\DoxyCodeLine{00033\ \textcolor{keyword}{const}\ Color\ yellow\ =\ 0x00ffff00;}
+\DoxyCodeLine{00034\ \textcolor{keyword}{const}\ Color\ magenta\ =\ 0x00ff00ff;}
+\DoxyCodeLine{00035\ \textcolor{keyword}{const}\ Color\ cyan\ =\ 0x0000ffff;}
+\DoxyCodeLine{00036\ \textcolor{keyword}{const}\ Color\ white\ =\ 0x00ffffff;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{enum}\ Keys\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ Space\ =\ 32,}
+\DoxyCodeLine{00046\ \ \ \ \ Backspace\ =\ 8,}
+\DoxyCodeLine{00047\ \ \ \ \ Delete\ =\ 127,}
+\DoxyCodeLine{00048\ \ \ \ \ End\ =\ 5,}
+\DoxyCodeLine{00049\ \ \ \ \ Escape\ =\ 27,}
+\DoxyCodeLine{00050\ \ \ \ \ Home\ =\ 2,}
+\DoxyCodeLine{00051\ \ \ \ \ Insert\ =\ 26,}
+\DoxyCodeLine{00052\ \ \ \ \ PageDown\ =\ 4,}
+\DoxyCodeLine{00053\ \ \ \ \ PageUp\ =\ 3,}
+\DoxyCodeLine{00054\ \ \ \ \ Return\ =\ 10,}
+\DoxyCodeLine{00055\ \ \ \ \ Tab\ =\ 9,}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{//\ Arrows,}}
+\DoxyCodeLine{00057\ \ \ \ \ Up\ =\ 17,}
+\DoxyCodeLine{00058\ \ \ \ \ Down\ =\ 18,}
+\DoxyCodeLine{00059\ \ \ \ \ Right\ =\ 19,}
+\DoxyCodeLine{00060\ \ \ \ \ Left\ =\ 20,}
+\DoxyCodeLine{00061\ \ \ \ \ W\ =\ 87,}
+\DoxyCodeLine{00062\ \ \ \ \ A\ =\ 65,}
+\DoxyCodeLine{00063\ \ \ \ \ S\ =\ 83,}
+\DoxyCodeLine{00064\ \ \ \ \ D\ =\ 68,}
+\DoxyCodeLine{00065\ \ \ \ \ P\ =\ 80,}
+\DoxyCodeLine{00066\ \ \ \ \ G\ =\ 71,}
+\DoxyCodeLine{00067\ \ \ \ \ N\ =\ 78,}
+\DoxyCodeLine{00068\ \ \ \ \ F\ =\ 70,}
+\DoxyCodeLine{00069\ \};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00078\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classpro2_1_1Window_a64ffe9a6cd8e21cdb17546f7d53a8e0f}{Window}}\ \{}
+\DoxyCodeLine{00079\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ last\_keys\_[256];}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ last\_mouse\_;}
+\DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{structfenster}{fenster}}\ fenster\_;}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00093\ \ \ \ \ uint32\_t\ *pixels\_;}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ pixels\_size\_;}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{int}\ zoom\_\ =\ 1;}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00108\ \ \ \ \ int64\_t\ last\_time\_;}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{int}\ frame\_count\_\ =\ 0;}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00118\ \ \ \ \ uint8\_t\ fps\_\ =\ 60;}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{comment}{//\ Cámara}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00125\ \ \ \ \ \mbox{\hyperlink{structpro2_1_1Pt}{Pt}}\ topleft\_\ =\ \{0,\ 0\};}
+\DoxyCodeLine{00126\ \ \ \ \ \mbox{\hyperlink{structpro2_1_1Pt}{Pt}}\ topleft\_target\_\ =\ \{0,\ 0\};}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{void}\ update\_camera\_();}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{bool}\ camera\_moving\_()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ topleft\_.x\ !=\ topleft\_target\_.x\ ||\ topleft\_.y\ !=\ topleft\_target\_.y;}
+\DoxyCodeLine{00139\ \ \ \ \ \}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ camera\_speed\_\ =\ 8;}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00162\ \ \ \ \ \mbox{\hyperlink{classpro2_1_1Window_a64ffe9a6cd8e21cdb17546f7d53a8e0f}{Window}}(std::string\ title,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classpro2_1_1Window_a2dae6ae56e14dbec41f724866e1cd898}{width}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classpro2_1_1Window_a3a9de727550a76cd1b33d470f79db00d}{height}},\ \textcolor{keywordtype}{int}\ zoom\ =\ 1);}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00168\ \ \ \ \ \mbox{\hyperlink{classpro2_1_1Window_aa0a63c4b3d431d8e5e71633b107bbe69}{\string~Window}}()\ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ fenster\_close(\&fenster\_);}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ pixels\_;}
+\DoxyCodeLine{00171\ \ \ \ \ \}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classpro2_1_1Window_a2dae6ae56e14dbec41f724866e1cd898}{width}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ fenster\_.width\ /\ zoom\_;}
+\DoxyCodeLine{00179\ \ \ \ \ \}}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classpro2_1_1Window_a3a9de727550a76cd1b33d470f79db00d}{height}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ fenster\_.height\ /\ zoom\_;}
+\DoxyCodeLine{00187\ \ \ \ \ \}}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classpro2_1_1Window_a3a2e9797e7da3874fd62727531e711d6}{next\_frame}}();}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classpro2_1_1Window_adb1c39426484aa6776b0cd7d1253932f}{clear}}(Color\ color\ =\ black);}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classpro2_1_1Window_a36747221fc49f9b5dcf42d2d7bdf6964}{frame\_count}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ frame\_count\_;}
+\DoxyCodeLine{00255\ \ \ \ \ \}}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00281\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classpro2_1_1Window_a475d4644d6f1f082a15bf6b1eaf2631b}{is\_key\_down}}(\textcolor{keywordtype}{int}\ code)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ code\ >=\ 0\ \&\&\ code\ <\ 128\ \&\&\ fenster\_.keys[code];}
+\DoxyCodeLine{00283\ \ \ \ \ \}}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00305\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classpro2_1_1Window_aaa4fa6c518d090dcbaca4e6211f35522}{was\_key\_pressed}}(\textcolor{keywordtype}{int}\ code)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ code\ >=\ 0\ \&\&\ code\ <\ 128\ \&\&\ !last\_keys\_[code]\ \&\&\ fenster\_.keys[code];}
+\DoxyCodeLine{00307\ \ \ \ \ \}}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00322\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classpro2_1_1Window_a261158f414bb77270be1dc7339418e5e}{is\_modkey\_down}}(ModKey\ key)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ fenster\_.mod\ \&\ uint8\_t(key);}
+\DoxyCodeLine{00324\ \ \ \ \ \}}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00335\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classpro2_1_1Window_a2f3f28c0ff1122e8171534001a1892a3}{is\_mouse\_down}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bool(fenster\_.mouse);}
+\DoxyCodeLine{00337\ \ \ \ \ \}}
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00348\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classpro2_1_1Window_af0950b857d97f12a4a3f9bd082f50dcb}{was\_mouse\_pressed}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !last\_mouse\_\ \&\&\ bool(fenster\_.mouse);}
+\DoxyCodeLine{00350\ \ \ \ \ \}}
+\DoxyCodeLine{00351\ }
+\DoxyCodeLine{00358\ \ \ \ \ \mbox{\hyperlink{structpro2_1_1Pt}{Pt}}\ \mbox{\hyperlink{classpro2_1_1Window_a1362ea74501506424e5b8c4177d19aa1}{mouse\_pos}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00368\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classpro2_1_1Window_abbe66e79c657fd8939c3df975a825214}{sleep}}(\textcolor{keywordtype}{int}\ ms)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ fenster\_sleep(ms);}
+\DoxyCodeLine{00370\ \ \ \ \ \}}
+\DoxyCodeLine{00371\ }
+\DoxyCodeLine{00378\ \ \ \ \ Color\ \mbox{\hyperlink{classpro2_1_1Window_a964b632d53a61b7602dfb909e9b7457f}{get\_pixel}}(\mbox{\hyperlink{structpro2_1_1Pt}{Pt}}\ xy)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ fenster\_pixel(\&fenster\_,\ xy.x\ *\ zoom\_,\ xy.y\ *\ zoom\_);}
+\DoxyCodeLine{00380\ \ \ \ \ \}}
+\DoxyCodeLine{00381\ }
+\DoxyCodeLine{00394\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classpro2_1_1Window_af656aaa062615c33e183199ba2387cac}{set\_pixel}}(\mbox{\hyperlink{structpro2_1_1Pt}{Pt}}\ xy,\ Color\ color);}
+\DoxyCodeLine{00395\ }
+\DoxyCodeLine{00408\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classpro2_1_1Window_aaa39faf0a0dfa480661c314341638548}{set\_fps}}(\textcolor{keywordtype}{int}\ fps)\ \{}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ assert(fps\ >\ 0\ \&\&\ fps\ <\ 240);}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ fps\_\ =\ fps;}
+\DoxyCodeLine{00411\ \ \ \ \ \}}
+\DoxyCodeLine{00412\ }
+\DoxyCodeLine{00422\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classpro2_1_1Window_afbc70ada8de42a0db90e11e9f3803a1e}{move\_camera}}(\mbox{\hyperlink{structpro2_1_1Pt}{Pt}}\ desplazamiento)\ \{}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!camera\_moving\_())\ \{}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \ \ \ \ topleft\_target\_.x\ =\ topleft\_.x\ +\ desplazamiento.x;}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \ \ \ \ topleft\_target\_.y\ =\ topleft\_.y\ +\ desplazamiento.y;}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00427\ \ \ \ \ \}}
+\DoxyCodeLine{00428\ }
+\DoxyCodeLine{00434\ \ \ \ \ \mbox{\hyperlink{structpro2_1_1Pt}{Pt}}\ \mbox{\hyperlink{classpro2_1_1Window_aba9caf9f926e540c6697f690ae6d3c68}{camera\_center}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classpro2_1_1Window_a2dae6ae56e14dbec41f724866e1cd898}{width}}\ =\ fenster\_.width\ /\ zoom\_;}
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classpro2_1_1Window_a3a9de727550a76cd1b33d470f79db00d}{height}}\ =\ fenster\_.height\ /\ zoom\_;}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{topleft\_.x\ +\ \mbox{\hyperlink{classpro2_1_1Window_a2dae6ae56e14dbec41f724866e1cd898}{width}}\ /\ 2,\ topleft\_.y\ +\ \mbox{\hyperlink{classpro2_1_1Window_a3a9de727550a76cd1b33d470f79db00d}{height}}\ /\ 2\};}
+\DoxyCodeLine{00438\ \ \ \ \ \}}
+\DoxyCodeLine{00439\ }
+\DoxyCodeLine{00440\ \ \ \ \ \mbox{\hyperlink{structpro2_1_1Rect}{Rect}}\ camera\_rect()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classpro2_1_1Window_a2dae6ae56e14dbec41f724866e1cd898}{width}}\ =\ fenster\_.width\ /\ zoom\_;}
+\DoxyCodeLine{00442\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classpro2_1_1Window_a3a9de727550a76cd1b33d470f79db00d}{height}}\ =\ fenster\_.height\ /\ zoom\_;}
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ left\ =\ topleft\_.x;}
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ top\ =\ topleft\_.y;}
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ right\ =\ topleft\_.x\ +\ \mbox{\hyperlink{classpro2_1_1Window_a2dae6ae56e14dbec41f724866e1cd898}{width}};}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ bottom\ =\ topleft\_.y\ +\ \mbox{\hyperlink{classpro2_1_1Window_a3a9de727550a76cd1b33d470f79db00d}{height}};}
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{left,\ top,\ right,\ bottom\};}
+\DoxyCodeLine{00448\ \ \ \ \ \}}
+\DoxyCodeLine{00449\ }
+\DoxyCodeLine{00457\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classpro2_1_1Window_a1393bc8d5c74455c1b25e3b38db7af92}{set\_camera\_topleft}}(\mbox{\hyperlink{structpro2_1_1Pt}{Pt}}\ \mbox{\hyperlink{classpro2_1_1Window_ada2e1a70077ac2011bd5e2c3716dd96c}{topleft}})\ \{}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ topleft\_\ =\ \mbox{\hyperlink{classpro2_1_1Window_ada2e1a70077ac2011bd5e2c3716dd96c}{topleft}};}
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ topleft\_target\_\ =\ \mbox{\hyperlink{classpro2_1_1Window_ada2e1a70077ac2011bd5e2c3716dd96c}{topleft}};}
+\DoxyCodeLine{00460\ \ \ \ \ \}}
+\DoxyCodeLine{00461\ }
+\DoxyCodeLine{00467\ \ \ \ \ \mbox{\hyperlink{structpro2_1_1Pt}{Pt}}\ \mbox{\hyperlink{classpro2_1_1Window_ada2e1a70077ac2011bd5e2c3716dd96c}{topleft}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ topleft\_;}
+\DoxyCodeLine{00469\ \ \ \ \ \}}
+\DoxyCodeLine{00470\ \};}
+\DoxyCodeLine{00471\ }
+\DoxyCodeLine{00472\ \}\ \ \textcolor{comment}{//\ namespace\ pro2}}
+\DoxyCodeLine{00473\ }
+\DoxyCodeLine{00474\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

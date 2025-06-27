@@ -1,0 +1,84 @@
+\doxysection{Projectile Class Reference}
+\hypertarget{classProjectile}{}\label{classProjectile}\index{Projectile@{Projectile}}
+
+
+Representa un projectil disparat pel jugador.  
+
+
+
+
+{\ttfamily \#include $<$projectile.\+hh$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classProjectile_a3ca9cba006769955631ceaee4d8159de}\label{classProjectile_a3ca9cba006769955631ceaee4d8159de} 
+{\bfseries Projectile} (\mbox{\hyperlink{structpro2_1_1Pt}{pro2\+::\+Pt}} pos, bool looking\+\_\+left)
+\item 
+\mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} \mbox{\hyperlink{classProjectile_a8721419de730fc3d42cc48e2aade8c8a}{get\+\_\+rect}} () const
+\begin{DoxyCompactList}\small\item\em Obté el rectangle de col·lisió del projectil. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classProjectile_a04abaa2215876d99e643f04c252ba483}{is\+\_\+active}} () const
+\begin{DoxyCompactList}\small\item\em Comprova si el projectil està actiu. \end{DoxyCompactList}\item 
+\Hypertarget{classProjectile_a6aa9b6ef83fedaf348a0b87b441f1394}\label{classProjectile_a6aa9b6ef83fedaf348a0b87b441f1394} 
+void {\bfseries deactivate} ()
+\begin{DoxyCompactList}\small\item\em Desactiva el projectil (per a la seva posterior eliminació). \end{DoxyCompactList}\item 
+\Hypertarget{classProjectile_a8b32ce7d21ec9032812b528e5cb87cc7}\label{classProjectile_a8b32ce7d21ec9032812b528e5cb87cc7} 
+void {\bfseries update} ()
+\begin{DoxyCompactList}\small\item\em Actualitza la posició del projectil segons la seva velocitat. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProjectile_ad94dc187a20aa2aff45d0167daf5cf3a}{paint}} (\mbox{\hyperlink{classpro2_1_1Window}{pro2\+::\+Window}} \&window) const
+\begin{DoxyCompactList}\small\item\em Dibuixa el projectil a la pantalla si està actiu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Representa un projectil disparat pel jugador. 
+
+Es mou en línia recta en una direcció fins que col·lideix o surt de la pantalla. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classProjectile_a8721419de730fc3d42cc48e2aade8c8a}\index{Projectile@{Projectile}!get\_rect@{get\_rect}}
+\index{get\_rect@{get\_rect}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{get\_rect()}{get\_rect()}}
+{\footnotesize\ttfamily \label{classProjectile_a8721419de730fc3d42cc48e2aade8c8a} 
+\mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} Projectile\+::get\+\_\+rect (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Obté el rectangle de col·lisió del projectil. 
+
+\begin{DoxyReturn}{Returns}
+Un \doxylink{structpro2_1_1Rect}{pro2\+::\+Rect} que representa la seva caixa de col·lisió. 
+\end{DoxyReturn}
+\Hypertarget{classProjectile_a04abaa2215876d99e643f04c252ba483}\index{Projectile@{Projectile}!is\_active@{is\_active}}
+\index{is\_active@{is\_active}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{is\_active()}{is\_active()}}
+{\footnotesize\ttfamily \label{classProjectile_a04abaa2215876d99e643f04c252ba483} 
+bool Projectile\+::is\+\_\+active (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Comprova si el projectil està actiu. 
+
+Un projectil inactiu està pendent de ser eliminat. \begin{DoxyReturn}{Returns}
+\textquotesingle{}true\textquotesingle{} si el projectil està actiu, \textquotesingle{}false\textquotesingle{} altrament. 
+\end{DoxyReturn}
+\Hypertarget{classProjectile_ad94dc187a20aa2aff45d0167daf5cf3a}\index{Projectile@{Projectile}!paint@{paint}}
+\index{paint@{paint}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{paint()}{paint()}}
+{\footnotesize\ttfamily \label{classProjectile_ad94dc187a20aa2aff45d0167daf5cf3a} 
+void Projectile\+::paint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpro2_1_1Window}{pro2\+::\+Window}} \&}]{window}{}\end{DoxyParamCaption}) const}
+
+
+
+Dibuixa el projectil a la pantalla si està actiu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & La finestra de pro2 on es dibuixarà. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+projectile.\+hh\item 
+projectile.\+cc\end{DoxyCompactItemize}

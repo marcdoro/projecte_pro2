@@ -9,9 +9,9 @@ struct Pt {
 
 /**
  * @brief Compara dos punts del pla
- * 
+ *
  * La comparació és necessària per poder fer servir `Pt` com la clau d'un `map`.
- * La comparació utilitza primer la coordenada `x` (com si fos més "important"), 
+ * La comparació utilitza primer la coordenada `x` (com si fos més "important"),
  * i, quan les `x`s són iguals, la coordenada `y`.
  */
 inline bool operator<(const Pt& a, const Pt& b) {
@@ -22,6 +22,6 @@ struct Rect {
     int left, top, right, bottom;
 };
 
-}
+}  // namespace pro2
 
 #endif

@@ -40,36 +40,61 @@ const vector<vector<int>> Item::ball_ = {
     },
 };
 
+
 // --- IMPLEMENTACIONS ---
-const vector<vector<int>>& Item::get_current_sprite_() const {
-    return ball_;
+
+// --- CONSTRUCTOR ---
+Item::Item(pro2::Pt pos) 
+    : pos_(pos), 
+      collected_(false),
+      counter(0), 
+      ini_pos_y(pos.y) {}
+
+
+// --- GETTERS ---
+pro2::Rect Item::get_rect() const {
+    if (collected_) {
+        return {0, 0, 0, 0};
+    }
+    int height = ball_.size();
+    int width = ball_[0].size();
+    int half_width = width / 2;
+    return {pos_.x - half_width, pos_.y - (height - 1), pos_.x + (width - 1) / 2, pos_.y};
 }
 
-pro2::Rect Item::get_rect() const  {
-    if (collected_) return {0,0,0,0};
-    const auto& current_sprite = get_current_sprite_();
-    int height = current_sprite.size();
-    int width = current_sprite[0].size();
-    int half_width = width / 2;
-    return {pos_.x - half_width, pos_.y - (height - 1), pos_.x + (width - 1) / 2, pos_.y };                 
+bool Item::is_collected() const {
+    return collected_;
+}
+
+// --- SETTERS ---
+void Item::collected_set_true() {
+    collected_ = true;
+}
+
+void Item::collected_set_false() {
+    collected_ = false;
+}
+
+// --- MÈTODES PÚBLICS ---
+void Item::update() {
+    if (collected_) {
+        return;
+    }
+    animate_();
+}
+
+void Item::paint(pro2::Window& window) const {
+    if (collected_) {
+        return;
+    }
+    int height = ball_.size();
+    int width = ball_[0].size();
+    pro2::Pt top_left = {pos_.x - (width / 2), pos_.y - (height - 1)};
+    paint_sprite(window, top_left, ball_, false);
 }
 
 void Item::animate_() {
     double dy = amplitude_ * sin(static_cast<float>(counter) * angular_speed_);
     pos_.y = ini_pos_y + static_cast<int>(dy);
     counter++;
-}
-
-void Item::paint(pro2::Window& window) const {
-    if (collected_) return;
-    const auto& curr_sprite = get_current_sprite_();
-    int height = curr_sprite.size();
-    int width = curr_sprite[0].size();
-    pro2::Pt top_left = {pos_.x - (width / 2), pos_.y - (height - 1)};
-    paint_sprite(window, top_left, ball_, false);
-}
-
-void Item::update() {
-    if (collected_) return;
-    animate_();
 }

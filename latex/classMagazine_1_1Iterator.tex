@@ -1,0 +1,85 @@
+\doxysection{Magazine\+::Iterator Class Reference}
+\hypertarget{classMagazine_1_1Iterator}{}\label{classMagazine_1_1Iterator}\index{Magazine::Iterator@{Magazine::Iterator}}
+
+
+Classe iteradora per recórrer la llista de projectils del carregador.  
+
+
+
+
+{\ttfamily \#include $<$magazine.\+hh$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classMagazine_1_1Iterator_a7e7c0c0cd9006a5bb69f4f379e37fa1b}\label{classMagazine_1_1Iterator_a7e7c0c0cd9006a5bb69f4f379e37fa1b} 
+{\bfseries Iterator} (\mbox{\hyperlink{classItem}{Item}} \texorpdfstring{$\ast$}{*}node)
+\item 
+\mbox{\hyperlink{classMagazine_1_1Iterator}{Iterator}} \& \mbox{\hyperlink{classMagazine_1_1Iterator_afa3811348c2b9f7be5e5f6cab13b35d9}{operator++}} ()
+\begin{DoxyCompactList}\small\item\em Avança l\textquotesingle{}iterador al següent element de la llista. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classProjectile}{Projectile}} \& \mbox{\hyperlink{classMagazine_1_1Iterator_a86e6c85f5b05192771395ff8950dfcdd}{operator\texorpdfstring{$\ast$}{*}}} () const
+\begin{DoxyCompactList}\small\item\em Obté el projectil al qual apunta l\textquotesingle{}iterador. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classMagazine_1_1Iterator_a07437268954fd614867193eada2641bf}{operator!=}} (const \mbox{\hyperlink{classMagazine_1_1Iterator}{Iterator}} \&other) const
+\begin{DoxyCompactList}\small\item\em Compara si dos iteradors són diferents. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe iteradora per recórrer la llista de projectils del carregador. 
+
+
+\begin{DoxyItemize}
+\item 
+\end{DoxyItemize}
+
+Permet utilitzar bucles \textquotesingle{}for-\/each\textquotesingle{} sobre un objecte de la classe \doxylink{classMagazine}{Magazine}. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMagazine_1_1Iterator_a07437268954fd614867193eada2641bf}\index{Magazine::Iterator@{Magazine::Iterator}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Magazine::Iterator@{Magazine::Iterator}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily \label{classMagazine_1_1Iterator_a07437268954fd614867193eada2641bf} 
+bool Magazine\+::\+Iterator\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMagazine_1_1Iterator}{Iterator}} \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Compara si dos iteradors són diferents. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & L\textquotesingle{}altre iterador amb el qual es compara. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\textquotesingle{}true\textquotesingle{} si apunten a nodes diferents, \textquotesingle{}false\textquotesingle{} altrament. 
+\end{DoxyReturn}
+\Hypertarget{classMagazine_1_1Iterator_a86e6c85f5b05192771395ff8950dfcdd}\index{Magazine::Iterator@{Magazine::Iterator}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Magazine::Iterator@{Magazine::Iterator}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}}
+{\footnotesize\ttfamily \label{classMagazine_1_1Iterator_a86e6c85f5b05192771395ff8950dfcdd} 
+\mbox{\hyperlink{classProjectile}{Projectile}} \& Magazine\+::\+Iterator\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obté el projectil al qual apunta l\textquotesingle{}iterador. 
+
+\begin{DoxyReturn}{Returns}
+Una referència al projectil. 
+\end{DoxyReturn}
+\Hypertarget{classMagazine_1_1Iterator_afa3811348c2b9f7be5e5f6cab13b35d9}\index{Magazine::Iterator@{Magazine::Iterator}!operator++@{operator++}}
+\index{operator++@{operator++}!Magazine::Iterator@{Magazine::Iterator}}
+\doxysubsubsection{\texorpdfstring{operator++()}{operator++()}}
+{\footnotesize\ttfamily \label{classMagazine_1_1Iterator_afa3811348c2b9f7be5e5f6cab13b35d9} 
+\mbox{\hyperlink{classMagazine_1_1Iterator}{Iterator}} \& Magazine\+::\+Iterator\+::operator++ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Avança l\textquotesingle{}iterador al següent element de la llista. 
+
+\begin{DoxyReturn}{Returns}
+Una referència a l\textquotesingle{}iterador actualitzat. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+magazine.\+hh\end{DoxyCompactItemize}

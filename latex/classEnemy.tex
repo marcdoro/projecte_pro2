@@ -1,0 +1,114 @@
+\doxysection{Enemy Class Reference}
+\hypertarget{classEnemy}{}\label{classEnemy}\index{Enemy@{Enemy}}
+
+
+Representa un enemic bàsic del joc.  
+
+
+
+
+{\ttfamily \#include $<$enemy.\+hh$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classEnemy_a8015ad31c9b72748dc6ef0f92b02b958}\label{classEnemy_a8015ad31c9b72748dc6ef0f92b02b958} 
+{\bfseries Enemy} (int a, int b, int c, int speed)
+\item 
+int \mbox{\hyperlink{classEnemy_ad69ab01628c2be68c02cddb4551ed357}{lives}} () const
+\begin{DoxyCompactList}\small\item\em Obté les vides restants de l\textquotesingle{}enemic. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classEnemy_ae8ffd9b415595a5f3b0f1d141deb1ded}{is\+\_\+alive}} () const
+\begin{DoxyCompactList}\small\item\em Comprova si l\textquotesingle{}enemic és viu. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} \mbox{\hyperlink{classEnemy_a069065f2653ca96dad6f7aa9136f6ce2}{get\+\_\+rect}} () const
+\begin{DoxyCompactList}\small\item\em Obté el rectangle que ocupa l\textquotesingle{}enemic. \end{DoxyCompactList}\item 
+\Hypertarget{classEnemy_ac6720477bd9416def50f0d35f2d11b70}\label{classEnemy_ac6720477bd9416def50f0d35f2d11b70} 
+void {\bfseries kill} ()
+\begin{DoxyCompactList}\small\item\em Marca l\textquotesingle{}enemic com a mort. \end{DoxyCompactList}\item 
+\Hypertarget{classEnemy_af493560c092afbf244f4a24c15384d06}\label{classEnemy_af493560c092afbf244f4a24c15384d06} 
+void {\bfseries decrement\+\_\+lives} ()
+\begin{DoxyCompactList}\small\item\em Redueix en una les vides de l\textquotesingle{}enemic. \end{DoxyCompactList}\item 
+\Hypertarget{classEnemy_a4569fda9d5a921178b28be98f55bbf4e}\label{classEnemy_a4569fda9d5a921178b28be98f55bbf4e} 
+void {\bfseries revive} ()
+\begin{DoxyCompactList}\small\item\em Reviu l\textquotesingle{}enemic, restaurant el seu estat inicial. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEnemy_ad55ee71b5a8c23fbd00b3c368b90cc64}{update}} ()
+\begin{DoxyCompactList}\small\item\em Actualitza l\textquotesingle{}estat de l\textquotesingle{}enemic per a un fotograma. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEnemy_a719c411c15ec46720426fdc66aee59b2}{paint}} (\mbox{\hyperlink{classpro2_1_1Window}{pro2\+::\+Window}} \&window) const
+\begin{DoxyCompactList}\small\item\em Dibuixa l\textquotesingle{}enemic a la finestra. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Representa un enemic bàsic del joc. 
+
+L\textquotesingle{}enemic es mou horitzontalment entre dos límits, té un nombre de vides i canvia el seu aspecte (sprite) segons les vides que li queden. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classEnemy_a069065f2653ca96dad6f7aa9136f6ce2}\index{Enemy@{Enemy}!get\_rect@{get\_rect}}
+\index{get\_rect@{get\_rect}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{get\_rect()}{get\_rect()}}
+{\footnotesize\ttfamily \label{classEnemy_a069065f2653ca96dad6f7aa9136f6ce2} 
+\mbox{\hyperlink{structpro2_1_1Rect}{pro2\+::\+Rect}} Enemy\+::get\+\_\+rect (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Obté el rectangle que ocupa l\textquotesingle{}enemic. 
+
+\begin{DoxyReturn}{Returns}
+Un \doxylink{structpro2_1_1Rect}{pro2\+::\+Rect} que representa la caixa de col·lisió de l\textquotesingle{}enemic. Si l\textquotesingle{}enemic no està viu, retorna un rectangle de mida zero. 
+\end{DoxyReturn}
+\Hypertarget{classEnemy_ae8ffd9b415595a5f3b0f1d141deb1ded}\index{Enemy@{Enemy}!is\_alive@{is\_alive}}
+\index{is\_alive@{is\_alive}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{is\_alive()}{is\_alive()}}
+{\footnotesize\ttfamily \label{classEnemy_ae8ffd9b415595a5f3b0f1d141deb1ded} 
+bool Enemy\+::is\+\_\+alive (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Comprova si l\textquotesingle{}enemic és viu. 
+
+\begin{DoxyReturn}{Returns}
+\textquotesingle{}true\textquotesingle{} si l\textquotesingle{}enemic està viu, \textquotesingle{}false\textquotesingle{} en cas contrari. 
+\end{DoxyReturn}
+\Hypertarget{classEnemy_ad69ab01628c2be68c02cddb4551ed357}\index{Enemy@{Enemy}!lives@{lives}}
+\index{lives@{lives}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{lives()}{lives()}}
+{\footnotesize\ttfamily \label{classEnemy_ad69ab01628c2be68c02cddb4551ed357} 
+int Enemy\+::lives (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Obté les vides restants de l\textquotesingle{}enemic. 
+
+\begin{DoxyReturn}{Returns}
+El nombre de vides. 
+\end{DoxyReturn}
+\Hypertarget{classEnemy_a719c411c15ec46720426fdc66aee59b2}\index{Enemy@{Enemy}!paint@{paint}}
+\index{paint@{paint}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{paint()}{paint()}}
+{\footnotesize\ttfamily \label{classEnemy_a719c411c15ec46720426fdc66aee59b2} 
+void Enemy\+::paint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpro2_1_1Window}{pro2\+::\+Window}} \&}]{window}{}\end{DoxyParamCaption}) const}
+
+
+
+Dibuixa l\textquotesingle{}enemic a la finestra. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & La finestra de pro2 on es debe dibuixar. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classEnemy_ad55ee71b5a8c23fbd00b3c368b90cc64}\index{Enemy@{Enemy}!update@{update}}
+\index{update@{update}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classEnemy_ad55ee71b5a8c23fbd00b3c368b90cc64} 
+void Enemy\+::update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Actualitza l\textquotesingle{}estat de l\textquotesingle{}enemic per a un fotograma. 
+
+Gestiona el moviment horitzontal i el canvi de direcció. També actualitza el seu sprite segons les vides que li queden. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+enemy.\+hh\item 
+enemy.\+cc\end{DoxyCompactItemize}

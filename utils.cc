@@ -16,12 +16,8 @@ void paint_vline(pro2::Window& window, int x, int yini, int yfin, Color color) {
 }
 
 bool collision(pro2::Rect r1, pro2::Rect r2) {
-    return !(r1.right < r2.left or 
-             r1.left > r2.right or  
-             r1.bottom < r2.top or 
-             r1.top > r2.bottom);
+    return !(r1.right < r2.left or r1.left > r2.right or r1.bottom < r2.top or r1.top > r2.bottom);
 }
-
 
 void paint_rect(pro2::Window& window, const Rect r, Color color) {
     for (int i = r.top; i <= r.bottom; i++) {

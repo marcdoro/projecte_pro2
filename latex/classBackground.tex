@@ -1,0 +1,69 @@
+\doxysection{Background Class Reference}
+\hypertarget{classBackground}{}\label{classBackground}\index{Background@{Background}}
+
+
+Gestiona el dibuixat del fons del joc.  
+
+
+
+
+{\ttfamily \#include $<$background.\+hh$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classBackground_a08675b7839258916155bca0631b67d37}\label{classBackground_a08675b7839258916155bca0631b67d37} 
+{\bfseries Background} (int stars, int width, int height)
+\item 
+void \mbox{\hyperlink{classBackground_acc18ef633326377f9b21d354a7807382}{paint\+\_\+object}} (\mbox{\hyperlink{classpro2_1_1Window}{pro2\+::\+Window}} \&window, const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&sprite, float factor) const
+\begin{DoxyCompactList}\small\item\em Dibuixa un objecte (com un planeta) amb efecte de paral·laxi. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBackground_ad44ff676da6368bb4de2ffc539c1dddd}{paint}} (\mbox{\hyperlink{classpro2_1_1Window}{pro2\+::\+Window}} \&window) const
+\begin{DoxyCompactList}\small\item\em Dibuixa totes les capes del fons a la finestra. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Gestiona el dibuixat del fons del joc. 
+
+S\textquotesingle{}encarrega de dibuixar el cel, les estrelles i els planetes amb un efecte de paral·laxi per crear una sensació de profunditat. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classBackground_ad44ff676da6368bb4de2ffc539c1dddd}\index{Background@{Background}!paint@{paint}}
+\index{paint@{paint}!Background@{Background}}
+\doxysubsubsection{\texorpdfstring{paint()}{paint()}}
+{\footnotesize\ttfamily \label{classBackground_ad44ff676da6368bb4de2ffc539c1dddd} 
+void Background\+::paint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpro2_1_1Window}{pro2\+::\+Window}} \&}]{window}{}\end{DoxyParamCaption}) const}
+
+
+
+Dibuixa totes les capes del fons a la finestra. 
+
+Neteja la finestra amb un color de fons i després dibuixa les estrelles i els planetes en la seva posició corresponent. 
+\begin{DoxyParams}{Parameters}
+{\em window} & La finestra de pro2 on s\textquotesingle{}ha de dibuixar. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classBackground_acc18ef633326377f9b21d354a7807382}\index{Background@{Background}!paint\_object@{paint\_object}}
+\index{paint\_object@{paint\_object}!Background@{Background}}
+\doxysubsubsection{\texorpdfstring{paint\_object()}{paint\_object()}}
+{\footnotesize\ttfamily \label{classBackground_acc18ef633326377f9b21d354a7807382} 
+void Background\+::paint\+\_\+object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpro2_1_1Window}{pro2\+::\+Window}} \&}]{window}{, }\item[{const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&}]{sprite}{, }\item[{float}]{factor}{}\end{DoxyParamCaption}) const}
+
+
+
+Dibuixa un objecte (com un planeta) amb efecte de paral·laxi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & La finestra de pro2 on es dibuixa. \\
+\hline
+{\em sprite} & La matriu de l\textquotesingle{}objecte a dibuixar. \\
+\hline
+{\em factor} & El factor de paral·laxi a aplicar al moviment. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+background.\+hh\item 
+background.\+cc\end{DoxyCompactItemize}

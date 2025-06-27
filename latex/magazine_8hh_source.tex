@@ -1,0 +1,134 @@
+\doxysection{magazine.\+hh}
+\hypertarget{magazine_8hh_source}{}\label{magazine_8hh_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MAGAZINE\_HH}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MAGAZINE\_HH}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}projectile.hh"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }Magazine\ \{}
+\DoxyCodeLine{00014\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{struct\ }Item\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classProjectile}{Projectile}}\ proj;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ Item\ \ \ \ \ \ *next;}
+\DoxyCodeLine{00022\ \ \ \ \ \};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ capacity\_;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ current\_ammo\_;}
+\DoxyCodeLine{00026\ \ \ \ \ Item\ \ \ \ \ *first\_;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{class\ }Iterator\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ Item\ *curr\_node\_;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ Iterator(Item\ *node)\ :\ curr\_node\_(node)\ \{\}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ Iterator\&\ \mbox{\hyperlink{classMagazine_1_1Iterator_afa3811348c2b9f7be5e5f6cab13b35d9}{operator++}}()\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (curr\_node\_)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ curr\_node\_\ =\ curr\_node\_-\/>next;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classProjectile}{Projectile}}\&\ \mbox{\hyperlink{classMagazine_1_1Iterator_a86e6c85f5b05192771395ff8950dfcdd}{operator*}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ curr\_node\_-\/>proj;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMagazine_1_1Iterator_a07437268954fd614867193eada2641bf}{operator!=}}(\textcolor{keyword}{const}\ Iterator\&\ other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ curr\_node\_\ !=\ other.curr\_node\_;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00068\ \ \ \ \ \};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ CONSTRUCTOR\ /\ DESTRUCTOR\ -\/-\/-\/}}
+\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{classMagazine}{Magazine}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{classMagazine_a38b3b7c648407a26d1859b18da4a8c3a}{capacity}})\ :\ capacity\_(\mbox{\hyperlink{classMagazine_a38b3b7c648407a26d1859b18da4a8c3a}{capacity}}),\ current\_ammo\_(0),\ first\_(nullptr)\ \{\}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \string~Magazine()\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ Item\ *curr\ =\ first\_;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (curr\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ Item\ *to\_delete\ =\ curr;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ curr\ =\ curr-\/>next;}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ to\_delete;}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//\ El\ contenidor\ és\ únic,\ s'evita\ la\ còpia.}}
+\DoxyCodeLine{00083\ \ \ \ \ Magazine(\textcolor{keyword}{const}\ Magazine\&\ other)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00084\ \ \ \ \ Magazine\&\ operator=(\textcolor{keyword}{const}\ Magazine\&\ other)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ GETTERS\ -\/-\/-\/}}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classMagazine_ae35f0fe242112acc86cfdbd710e06869}{size}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ current\_ammo\_;}
+\DoxyCodeLine{00093\ \ \ \ \ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classMagazine_a38b3b7c648407a26d1859b18da4a8c3a}{capacity}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ capacity\_;}
+\DoxyCodeLine{00101\ \ \ \ \ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMagazine_a9e1612ef97731ded696b39ecaf0924ba}{can\_fire}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ current\_ammo\_\ !=\ 0;}
+\DoxyCodeLine{00109\ \ \ \ \ \}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00116\ \ \ \ \ Item\ *\mbox{\hyperlink{classMagazine_ab031bc6b14d98a4468c6bbf5315953e2}{first}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ first\_;}
+\DoxyCodeLine{00118\ \ \ \ \ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ SETTERS\ -\/-\/-\/}}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMagazine_af6cbc5dcc6c68cf3344a45ea1bdf7b28}{shoot}}()\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current\_ammo\_\ >\ 0)\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ current\_ammo\_-\/-\/;}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00128\ \ \ \ \ \}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMagazine_a7d0aa7e2fb994c8f236dde1581006431}{empty\_mag}}()\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ current\_ammo\_\ =\ 0;}
+\DoxyCodeLine{00135\ \ \ \ \ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMagazine_a12350817285b8d4bd8516d1b711c9bc7}{reload}}(\textcolor{keywordtype}{int}\ amount)\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ current\_ammo\_\ +=\ amount;}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current\_ammo\_\ >\ capacity\_)\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ current\_ammo\_\ =\ capacity\_;}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00146\ \ \ \ \ \}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ MÈTODES\ PÚBLICS\ -\/-\/-\/}}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMagazine_a0beb250a37b1a2f5334fb1f461862762}{spawn\_projectile}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classProjectile}{Projectile}}\&\ projectile\_data)\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ Item\ *new\_proj\ =\ \textcolor{keyword}{new}\ Item\{projectile\_data,\ first\_\};}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ first\_\ =\ new\_proj;}
+\DoxyCodeLine{00156\ \ \ \ \ \}}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMagazine_a94b4b7daa3cfa3f5be2338101a415f3a}{remove\_inactive}}()\ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ Item\ *current\ =\ first\_;}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ Item\ *prev\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (current\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!current-\/>proj.\mbox{\hyperlink{classProjectile_a04abaa2215876d99e643f04c252ba483}{is\_active}}())\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Item\ *aux\ =\ current;}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (prev\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ first\_\ =\ current-\/>next;}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ current\ =\ first\_;}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ prev-\/>next\ =\ current-\/>next;}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ current\ =\ current-\/>next;}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ aux;}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ prev\ =\ current;}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ current\ =\ current-\/>next;}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00181\ \ \ \ \ \}}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00187\ \ \ \ \ \mbox{\hyperlink{classMagazine_1_1Iterator}{Iterator}}\ \mbox{\hyperlink{classMagazine_aa50b5e749b4551e328bac372ca190590}{begin}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classMagazine_1_1Iterator}{Iterator}}(first\_);}
+\DoxyCodeLine{00189\ \ \ \ \ \}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00195\ \ \ \ \ \mbox{\hyperlink{classMagazine_1_1Iterator}{Iterator}}\ \mbox{\hyperlink{classMagazine_a69c44a21a60bb311e5f6f90660721f3c}{end}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classMagazine_1_1Iterator}{Iterator}}(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00197\ \ \ \ \ \}}
+\DoxyCodeLine{00198\ \};}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

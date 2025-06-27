@@ -1,40 +1,51 @@
 #ifndef BACKGROUND_HH
 #define BACKGROUND_HH
 
-#include "window.hh"
-#include <vector>
 #include <list>
+#include <vector>
+#include "window.hh"
 
+/**
+ * @class Background
+ * @brief Gestiona el dibuixat del fons del joc.
+ *
+ * S'encarrega de dibuixar el cel, les estrelles i els planetes amb un
+ * efecte de paral·laxi per crear una sensació de profunditat.
+ */
 class Background {
-private:
-    int stars_;
-    // --- CAPA 0 -> MUNTANYES ---
-    static const std::vector<std::vector<int>> planet1_;
-    static constexpr float mountain_factor_ = 0.01;
+ private:
+    // --- PLANETES ---
+    static const std::vector<std::vector<int>> planet_;
+    static constexpr float                     planet_factor = 0.1;
 
-    // --- CAPA 1 -> PLANETES ---
-    static const std::vector<std::vector<int>> planets_;
-    static constexpr float planet_factor = 0.1;
+    // --- ESTRELLES ---
+    int                                                     stars_;
     static const std::vector<std::vector<std::vector<int>>> stars_sprites_;
+    std::list<std::pair<pro2::Pt, int>>                     random_positions_;
 
-    std::list<std::pair<pro2::Pt, int>> random_positions_;
-    // --- FUNCIONS PRIVADES ---
-    
-    
-public:
+ public:
     // --- CONSTRUCTOR ---
-    Background(int stars, int width, int height) : stars_(stars) {
-        for (int i = 0; i < stars; i++) {
-            // Cada estrella apareixerà a una posció aleatoria amb un sprite aleatori de stars_sprites_
-            random_positions_.push_back({{rand()%(width+100), rand()%(height-30)}, rand()%static_cast<int>(stars_sprites_.size())}); 
-        }
-    };
+    Background(int stars, int width, int height);
 
-    // --- LÒGICA PRINCIPAL
-    void paint_object(pro2::Window& window, const std::vector<std::vector<int>>& sprite, float factor) const;
-    void paint_layer(pro2::Window& window, const std::vector<std::vector<int>>& sprite, float factor) const;
+    // --- MÈTODES PÚBLICS ---
+    /**
+     * @brief Dibuixa un objecte (com un planeta) amb efecte de paral·laxi.
+     * @param window La finestra de pro2 on es dibuixa.
+     * @param sprite La matriu de l'objecte a dibuixar.
+     * @param factor El factor de paral·laxi a aplicar al moviment.
+     */
+    void paint_object(pro2::Window&                        window,
+                      const std::vector<std::vector<int>>& sprite,
+                      float                                factor) const;
+
+    /**
+     * @brief Dibuixa totes les capes del fons a la finestra.
+     *
+     * Neteja la finestra amb un color de fons i després dibuixa les
+     * estrelles i els planetes en la seva posició corresponent.
+     * @param window La finestra de pro2 on s'ha de dibuixar.
+     */
     void paint(pro2::Window& window) const;
-    
 };
 
 #endif
